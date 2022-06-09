@@ -1,2 +1,2 @@
-# Website-TCC
+# TCC-Website
 Desenvolver o website do TCC
