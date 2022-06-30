@@ -29,6 +29,9 @@
             <label for="email">(E-mail Icon)</label>
             <input class="" type="email" id="email" name="email" placeholder="E-mail" value="" required>
             <br>
+            <label for="telefone">(Telefone Icon)</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="formato: XX XXXXX-XXXX" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" required>
+            <br>            <br>
             <label for="senha">(Senha Icon)</label>
             <input class="" type="password" id="senha" name="senha" placeholder="Senha" value="" required>
             <br>

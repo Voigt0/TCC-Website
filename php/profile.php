@@ -36,6 +36,9 @@
             <label for="email">E-mail</label>
             <input class="" type="email" id="email" name="email" placeholder="" value="" required>
             <br>
+            <label for="telefone">Telefonetab</label>
+            <input class="" type="tel" id="telefone" name="telefone" placeholder="" value="" required>
+            <br>
             <label for="password">Senha</label>
             <input class="" type="password" id="password" name="password" placeholder="" value="" required>
             <br>
