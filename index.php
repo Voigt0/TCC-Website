@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav>
-        <a href=""><button>Home</button></a>
+        <a href=""><img src="img/icons/solargirLogoW.svg">Home</a>
         <header>
             <a>(S.G. Logo) Solar giro</a>
         </header>
