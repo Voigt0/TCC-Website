@@ -7,7 +7,7 @@
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
     <link rel="stylesheet" href="../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <nav class="navbar" style="background-color: #171606;">        
@@ -66,22 +66,28 @@
             <div class="box">
         <section>
         <div class="form">
-            <form action="" method="">
+            <form action="" method="" id="register">
                 <div class="form-title"><h2>Login</h2></div>
-                <div class="underline"></div>
+                <div class="underline1"></div>
+                <div class="underline2"></div>
                 <br>
-                <label for="email">(E-mail Icon)</label>
-                <input class="" type="email" id="email" name="email" placeholder="E-mail" value="" required>
-                <br>
-                <label for="senha">(Senha Icon)</label>
-                <input class="" type="password" id="senha" name="senha" placeholder="Senha" value="" required>
-                <br>
-                <a href="forgetPass.php">Esqueci minha senha</a>
-                <br>
-                <button class="" type="submit" id="" name="" value="">Entrar</button>
-                <br>
-                <a href="register.php">Ainda não tenho cadastro</a>
-            </div>
+                    <div class="input-box">
+                        <label for="email"><img src="../img/icons/emailIcon.svg"></label>
+                        <input class="" type="email" id="email" name="email" placeholder="E-mail" value="" required>
+                        <br>
+                    </div>
+                    <div class="input-box">
+                        <label for="senha"><img src="../img/icons/passwordIcon.svg"></label>
+                        <input class="" type="password" id="senha" name="senha" placeholder="Senha" value="" required>
+                    </div>
+                        <br>
+                        <div class="form-footer">
+                        <a href="forgetPass.php">Esqueci minha senha</a>
+                        <br>
+                        <button class="" type="submit" id="" name="" value=""><div class="button-text">entrar</div></button>
+                        <br>
+                        <a href="register.php">Ainda não tenho cadastro</a>
+                </div></div>
             </form>
         </div>
     </section>
