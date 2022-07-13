@@ -20,7 +20,6 @@ body{
     justify-content: center;
     align-items: center;
     position: relative; 
-    
 }
 
 .box{
@@ -100,3 +99,4 @@ a{
     text-decoration: none;
     color: #ffffff;
 }
+
