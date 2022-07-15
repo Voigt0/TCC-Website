@@ -10,75 +10,39 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <nav class="navbar" style="background-color: #171606;">        
+
+    <header>
+     <nav class="navbar" style="background-color: #171606;">        
         <div class="container-fluid">
-            <a href=""><img src="../img/icons/menuIconW.svg"></a>
+            <a href=""></a>
             <header>    
                 <a><img src="../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a>
             </header>
-            <!-- <a href=""><button>(Perfil Icon) Nome usuário</button></a> -->
+            <a href=""></a>
         </div>
     </nav>
-    <!-- <nav class="navbar fixed-top" style="background-color: #171606;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="logo" src="../img/icons/solargirologoIconW.svg"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <img src="../img/icons/menuIconW.svg">
-            </button>
-            <div style="background-color: #171606;" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <img class="logo" src="../img/icons/solargirologoIconW.svg">
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </nav> -->
-    
+    </header>
+
     <div class="container-fluid">
         <div class="container">
             <div class="box">
         <section>
         <div class="form">
+            <div class="form-header">
             <form action="" method="" id="register">
                 <div class="form-title"><h2>Login</h2></div>
                 <div class="underline1"></div>
                 <div class="underline2"></div>
+                </div>
                 <br>
-                    <div class="input-box">
-                        <label for="email"><img src="../img/icons/emailIcon.svg"></label>
-                        <input class="" type="email" id="email" name="email" placeholder="E-mail" value="" required>
+                    <div class="input-field">
+                        <div class="form-element"><label for="email"><img src="../img/icons/emailIcon.svg" width="40rem" height="40rem"></label></div>
+                        <div class="form-element"><input class="" type="email" id="email" name="email" placeholder="e-mail" value="" required></div>
                         <br>
                     </div>
-                    <div class="input-box">
-                        <label for="senha"><img src="../img/icons/passwordIcon.svg"></label>
-                        <input class="" type="password" id="senha" name="senha" placeholder="Senha" value="" required>
+                    <div class="input-field">
+                        <div class="form-element"><label for="senha"><img src="../img/icons/passwordIcon.svg" width="40rem" height="40rem"></label></div>
+                        <div class="form-element"><input class="" type="password" id="senha" name="senha" placeholder="senha" value="" required></div>
                     </div>
                         <br>
                         <div class="form-footer">

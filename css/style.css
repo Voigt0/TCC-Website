@@ -30,30 +30,27 @@ body{
     height: 420px;
 }
 
-.form-footer{
-    text-align: center;
+.input-field{
+    display: inline-block;
 }
 
-.input-box input {
-    /* margin: 0.6rem 0; */
-    /* padding: 0.8rem 5rem; */
+.input-field img{
+    width: 4rem;
+    height: 4rem;
+    justify-content: center;
+}
+
+
+.input-field input {
     padding: 0.8rem;
-    width: 19rem;
+    width: 25rem;
     height: 3rem;
     border: none;
     box-shadow: 1px 1px 6px #0000001c;
     font-size: 1.3rem;
-    background-color: #FBC10D;
-    
-}
-/*
-.input-box input:hover {
-    background-color: #eeeeee75;
+    background-color: #FBC10D;   
 }
 
-.input-box input:focus-visible {
-    outline: 1px solid #6c63ff;
-} */
 
 h2{
     color: #ffffff;
@@ -89,6 +86,10 @@ button{
     height: 34.59px;
 }
 
+button:hover{
+    background-color: #ffffff;
+}
+
 .button-text{
     font-size: 1.5rem;
     font-family: 'Questrial', sans-serif;
@@ -97,6 +98,37 @@ button{
 
 a{
     text-decoration: none;
+    text-decoration-style: solid;
     color: #ffffff;
+    font-size: 1.1rem;
 }
+
+a:hover{
+    color: #ffffff;
+    font-size: 1.3rem;
+
+}
+
+.form-footer{
+    text-align: center;
+    margin-top: 1rem;
+}
+.form-footer button{
+    margin: 1rem;
+}
+
+.form-element{
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-element input{
+    margin-top: 0.5rem;
+}
+
+.form-header{
+    margin-bottom: 3rem;
+}
+
 
