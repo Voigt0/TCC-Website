@@ -88,43 +88,42 @@
                     "<br>Email: ".$this->getEmail().
                     "<br>Telefone: ".$this->getTelefone().
                     "<br>Login: ".$this->getLogin().
-                    "<br>Senha: ".$this->getSenha().
-                    "<br>Situação: ";
+                    "<br>Senha: ".$this->getSenha();
             return $str;
         }
 
         //Métodos de persistência
         public function create(){
-            $sql = "INSERT INTO Usuario (nome, nascimento, email, telefone, login, senha) VALUES (:nome, :nascimento, :email, :telefone, :login, :senha)";
+            $sql = "INSERT INTO Usuario (usuaNome, usuaNascimento, usuaEmail, usuaTelefone, usuaLogin, usuaSenha) VALUES (:usuaNome, :usuaNascimento, :usuaEmail, :usuaTelefone, :usuaLogin, :usuaSenha)";
             $params = array(
-                ":nome" => $this->getNome(),
-                ":nascimento" => $this->getNascimento(),
-                ":email" => $this->getEmail(),
-                ":telefone" => $this->getTelefone(),
-                ":login" => $this->getLogin(),
-                ":senha" => $this->getSenha()
+                ":usuaNome" => $this->getNome(),
+                ":usuaNascimento" => $this->getNascimento(),
+                ":usuaEmail" => $this->getEmail(),
+                ":usuaTelefone" => $this->getTelefone(),
+                ":usuaLogin" => $this->getLogin(),
+                ":usuaSenha" => $this->getSenha()
             );
             return self::comando($sql, $params);
         }
 
         public function update(){
-            $sql = "UPDATE Usuario SET nome = :nome, nascimento = :nascimento, email = :email, telefone = :telefone, login = :login, senha = :senha WHERE idusuario = :idusuario";
+            $sql = "UPDATE Usuario SET usuaNome = :usuaNome, usuaNascimento = :usuaNascimento, usuaEmail = :usuaEmail, usuaTelefone = :usuaTelefone, usuaLogin = :usuaLogin, usuaSenha = :usuaSenha WHERE usuaId = :usuaId";
             $params = array(
-                ":idusuario" => $this->getId(),
-                ":nome" => $this->getNome(),
-                ":nascimento" => $this->getNascimento(),
-                ":email" => $this->getEmail(),
-                ":telefone" => $this->getTelefone(),
-                ":login" => $this->getLogin(),
-                ":senha" => $this->getSenha()
+                ":usuaId" => $this->getId(),
+                ":usuaNome" => $this->getNome(),
+                ":usuaNascimento" => $this->getNascimento(),
+                ":usuaEmail" => $this->getEmail(),
+                ":usuaTelefone" => $this->getTelefone(),
+                ":usuaLogin" => $this->getLogin(),
+                ":usuaSenha" => $this->getSenha()
             );
             return self::comando($sql, $params);
         }
 
         public function delete(){
-            $sql = "DELETE FROM Usuario WHERE idusuario = :idusuario";
+            $sql = "DELETE FROM Usuario WHERE usuaId = :usuaId";
             $params = array(
-                ":idusuario" => $this->getId()
+                ":usuaId" => $this->getId()
             );
             return self::comando($sql, $params);
         }
@@ -132,12 +131,12 @@
        
         //Métodos de consulta
         public static function consultar($busca = 0, $pesquisa = ""){
-            $sql = "SELECT * FROM usuario";
+            $sql = "SELECT * FROM Usuario";
             if ($busca > 0)
                 switch($busca){
-                    case(1): $sql .= " WHERE idusuario like :pesquisa"; $pesquisa = $pesquisa."%"; break;
-                    case(2): $sql .= " WHERE nome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " WHERE login like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(1): $sql .= " WHERE usuaId like :pesquisa"; $pesquisa = $pesquisa."%"; break;
+                    case(2): $sql .= " WHERE usuaNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(3): $sql .= " WHERE usuaLogin like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                 }
             if ($busca > 0)
                 $params = array(':pesquisa'=>$pesquisa);
@@ -147,55 +146,41 @@
         }
 
         public static function consultarData($id){
-            $sql = "SELECT * FROM usuario WHERE idusuario = :idusuario";
-            $params = array(':idusuario'=>$id);
+            $sql = "SELECT * FROM Usuario WHERE usuaId = :usuaId";
+            $params = array(':usuaId'=>$id);
             return parent::consulta($sql, $params);
         }
 
 
         //Métodos de autenticação
         public static function autenticar($login, $senha){
-            $sql = "SELECT * FROM usuario WHERE login = :login AND senha = :senha";
+            $sql = "SELECT * FROM Usuario WHERE usuaLogin = :usuaLogin AND usuaSenha = :usuaSenha";
             $params = array(
-                ':login' => $login,
-                ':senha' => $senha
+                ':usuaLogin' => $login,
+                ':usuaSenha' => $senha
             );
             return self::consulta($sql, $params);
         }
     }
 
     //Manipulação de dados de um usuário
-    $comando = 3;
+    $comando = 2;
 
     //Cadastro de um usuário
     if ($comando == 1){
-        $nome = "João";
-        $nascimento = "2000-01-01";
-        $email = "joaoteste@gmail.com";
-        $telefone = "47 991232312";
-        $login = "joao";
-        $senha = "123";
-        $usuario = new Usuario('', $nome, $nascimento, $email, $telefone, $login, $senha);
+        $usuario = new Usuario('', "João", "2000-01-01", "joaoteste@gmail.com", "47 991232312", "joao", "123");
         $usuario->create();
     }
 
     //Atualização de um usuário
     else if ($comando == 2){
-        $id = 2;
-        $nome = "Valdir";
-        $nascimento = "1948-04-08";
-        $email = "asjdjds@gmail.com";
-        $telefone = "47 888888888";
-        $login = "lkjdslk";
-        $senha = "120983";
-        $usuario = new Usuario($id, $nome, $nascimento, $email, $telefone, $login, $senha);
+        $usuario = new Usuario("3", "Valdir", "1948-04-08", "asjdjds@gmail.com", "47 888888888", "lkjdslk", "120983");
         $usuario->update();
     }
 
     //Exclusão de um usuário
     else if ($comando == 3){
-        $id = 2;
-        $usuario = new Usuario($id, '', '', '', '', '', '');
+        $usuario = new Usuario("2", '', '', '', '', '', '');
         $usuario->delete();
     }
 

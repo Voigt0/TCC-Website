@@ -16,12 +16,11 @@
       $conexao = self::conectar();
       $stmt = $conexao->prepare($sql);
       $stmt = self::vincularParametros($stmt, $params);
-      print_r($stmt);
-      try{
+      // try{
         return $stmt->execute();
-      }catch (Exception $e){
-        throw new Exception("Erro no comando");
-      }
+      // }catch (Exception $e){
+      //   throw new Exception("Erro");
+      // }
     }
 
     public static function consulta($sql, $params=array()){
@@ -29,11 +28,12 @@
       $stmt = $conexao->prepare($sql);
       $stmt = self::vincularParametros($stmt, $params);
       $stmt->execute();
-      try{
+      // try{
         return $stmt->fetchAll();
-      }catch (Exception $e){
-        throw new Exception("Erro na consulta");
-      }
+      // }catch (Exception $e){
+      //   throw new Exception("Erro");
+      // }
+
     }
   }
 ?>
