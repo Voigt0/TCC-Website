@@ -8,14 +8,18 @@
     <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
 </head>
 <body>
-    <nav>
-        <a href=""><img src="img/icons/solargirLogoW.svg">Home</a>
-        <header>
-            <a>(S.G. Logo) Solar giro</a>
-        </header>
-        <a href="php/profile.php"><button>(Perfil) Nome usuário</button></a>
-        <br>
-    </nav>
+<header>
+        <nav class="navbar" style="background-color: #171606;">        
+            <div class="container-fluid">
+                <div class="nav-element"><a href=""><img src="../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
+                <header>    
+                   <div class="nav-element"><a><img src="../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
+                </header>
+                <div class="nav-element"><a href=""><img src="../img/icons/userIcon.svg" width="40rem"></a></div>
+            </div>
+        </nav>
+    </header>
+
     <section>
         <a href="php/addDevice.php"><button>(Add Device Icon)</button></a>
     </section>

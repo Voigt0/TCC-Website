@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+* {
+    font-size: 12px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+body{
+    background-color: #FBC10D;
+}
+
+
+.container{
+    margin-top: 10px;
+    width: 435px;
+    height: 515px;
+    background-color: #171606;
+    position: relative; 
+}
+
+.box{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    height: 420px;
+}
+
+.back{
+    margin-top: 30px;
+    display: flex;
+    justify-content: right;
+    margin-right: 87px;
+}
+
+.form-header{
+    margin-bottom: 2.5rem;
+}
+
+.form-header h2{
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-family: 'Questrial', sans-serif;
+}
+
+.underline {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 240px;
+    bottom: 365px;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.input-field{
+    display: inline-block;
+}
+
+.input-field img{
+    width: 4rem;
+    height: 4rem;
+    justify-content: center;
+}
+
+.input-field input {
+    padding: 0.8rem;
+    width: 25rem;
+    height: 3rem;
+    border: none;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 1.3rem;
+    background-color: #FBC10D;   
+}
+
+
+
+.form-element{
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-element input{
+    margin-top: 0.5rem;
+}
+
+button{
+    background-color: #FBC10D;
+    width: 182.45px;
+    height: 34.59px;
+    font-size: 1.5rem;
+    font-family: 'Questrial', sans-serif;
+    color: rgba(0, 0, 0, 0.60);
+}
+
+button:hover{
+    background-color: #ffffff;
+}
+
+.form-footer{
+    text-align: center;
+    margin-top: 1rem;
+}
+.form-footer button{
+    margin: 1rem;
+}
+
+.nav-element{
+margin-left: 92px;
+margin-right: 92px;
+}
+
