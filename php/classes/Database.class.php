@@ -1,7 +1,7 @@
 <?php 
   class Database{
     public static function conectar(){
-      require_once "../../conf/Conexao.php";
+      require_once __DIR__ ."/../../conf/Conexao.php";
       return Conexao::getInstance();
     }
 

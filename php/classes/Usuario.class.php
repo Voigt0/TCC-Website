@@ -1,5 +1,5 @@
 <?php
-    include_once ("../utils/autoload.php");
+    include_once (__DIR__ ."/../utils/autoload.php");
 
     class Usuario extends Database{
         private $id;
@@ -132,16 +132,21 @@
         //Métodos de consulta
         public static function consultar($busca = 0, $pesquisa = ""){
             $sql = "SELECT * FROM Usuario";
-            if ($busca > 0)
+            if ($busca > 0) {
                 switch($busca){
-                    case(1): $sql .= " WHERE usuaId like :pesquisa"; $pesquisa = $pesquisa."%"; break;
+                    case(1): $sql .= " WHERE usuaId like :pesquisa"; break;
                     case(2): $sql .= " WHERE usuaNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " WHERE usuaLogin like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(3): $sql .= " WHERE usuaNascimento like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(4): $sql .= " WHERE usuaEmail like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(5): $sql .= " WHERE usuaTelefone like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(6): $sql .= " WHERE usuaLogin like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(7): $sql .= " WHERE usuaSenha like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                 }
-            if ($busca > 0)
                 $params = array(':pesquisa'=>$pesquisa);
-            else 
+            } else {
+                $sql .= " ORDER BY usuaId";
                 $params = array();
+            }
             return parent::consulta($sql, $params);
         }
 
@@ -163,33 +168,33 @@
         }
     }
 
-    //Manipulação de dados de um usuário
-    $comando = 2;
+    // //Manipulação de dados de um usuário
+    // $comando = 2;
 
-    //Cadastro de um usuário
-    if ($comando == 1){
-        $usuario = new Usuario('', "João", "2000-01-01", "joaoteste@gmail.com", "47 991232312", "joao", "123");
-        $usuario->create();
-    }
+    // //Cadastro de um usuário
+    // if ($comando == 1){
+    //     $usuario = new Usuario('', "João", "2000-01-01", "joaoteste@gmail.com", "47 991232312", "joao", "123");
+    //     $usuario->create();
+    // }
 
-    //Atualização de um usuário
-    else if ($comando == 2){
-        $usuario = new Usuario("3", "Valdir", "1948-04-08", "asjdjds@gmail.com", "47 888888888", "lkjdslk", "120983");
-        $usuario->update();
-    }
+    // //Atualização de um usuário
+    // else if ($comando == 2){
+    //     $usuario = new Usuario("3", "Valdir", "1948-04-08", "asjdjds@gmail.com", "47 888888888", "lkjdslk", "120983");
+    //     $usuario->update();
+    // }
 
-    //Exclusão de um usuário
-    else if ($comando == 3){
-        $usuario = new Usuario("2", '', '', '', '', '', '');
-        $usuario->delete();
-    }
+    // //Exclusão de um usuário
+    // else if ($comando == 3){
+    //     $usuario = new Usuario("2", '', '', '', '', '', '');
+    //     $usuario->delete();
+    // }
 
-    echo "<pre>";
-    print_r($usuario);
-    echo "</pre>";
-    echo "<br>";
-    echo "<pre>";
-    print_r($usuario->consultar());
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($usuario);
+    // echo "</pre>";
+    // echo "<br>";
+    // echo "<pre>";
+    // print_r($usuario->consultar());
+    // echo "</pre>";
 
 ?>

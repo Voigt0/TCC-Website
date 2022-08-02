@@ -1,5 +1,5 @@
 <?php
-    include_once ("../utils/autoload.php");
+    include_once (__DIR__ ."/../utils/autoload.php");
 
     class Motor extends Database{
         private $id;
@@ -105,16 +105,20 @@
         //Métodos de consulta
         public static function consultar($busca = 0, $pesquisa = ""){
             $sql = "SELECT * FROM Motor, Dispositivo WHERE Motor.motor_dispId = Dispositivo.dispId";
-            if ($busca > 0)
+            if ($busca > 0) {
                 switch($busca){
-                    case(1): $sql .= " AND motoId like :pesquisa"; $pesquisa = $pesquisa."%"; break;
-                    case(2): $sql .= " AND estado like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " AND motor_dispId like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(1): $sql .= " AND motoId like :pesquisa"; break;
+                    case(2): $sql .= " AND motoEstado like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(3): $sql .= " AND motoDescricao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(4): $sql .= " AND motoPosicaoXY like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(5): $sql .= " AND motoPosicaoZ like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(6): $sql .= " AND motor_dispId like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                 }
-            if ($busca > 0)
                 $params = array(':pesquisa'=>$pesquisa);
-            else 
+            } else {
+                $sql .= " ORDER BY motoId";
                 $params = array();
+            }
             return parent::consulta($sql, $params);
         }
 
@@ -125,32 +129,32 @@
         }
     }
 
-    //Manipulação de dados de um motor
-    $comando = 2;
+    // //Manipulação de dados de um motor
+    // $comando = 2;
 
-    //Cadastro de um motor
-    if ($comando == 1){
-        $motor = new Motor('', 0, "aaaaaaa","140", "30", 2);
-        $motor->create();
-    }
+    // //Cadastro de um motor
+    // if ($comando == 1){
+    //     $motor = new Motor('', 0, "aaaaaaa","140", "30", 2);
+    //     $motor->create();
+    // }
 
-    //Atualização de um motor
-    else if ($comando == 2){
-        $motor = new Motor(20, 1, "yy", "60", "110", 3);
-        $motor->update();
-    }
+    // //Atualização de um motor
+    // else if ($comando == 2){
+    //     $motor = new Motor(20, 1, "yy", "60", "110", 3);
+    //     $motor->update();
+    // }
 
-    //Exclusão de um motor
-    else if ($comando == 3){
-        $motor = new Motor(4, '', '', '', '', '');
-        $motor->delete();
-    }
+    // //Exclusão de um motor
+    // else if ($comando == 3){
+    //     $motor = new Motor(4, '', '', '', '', '');
+    //     $motor->delete();
+    // }
 
-    echo "<pre>";
-    print_r($motor);
-    echo "</pre>";
-    echo "<br>";
-    echo "<pre>";
-    print_r($motor->consultar());
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($motor);
+    // echo "</pre>";
+    // echo "<br>";
+    // echo "<pre>";
+    // print_r($motor->consultar());
+    // echo "</pre>";
 ?>

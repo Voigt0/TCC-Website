@@ -7,7 +7,7 @@
     action($operation, $table);
 
     function action($operation, $table){
-        include_once ("../utils/autoload.php");
+        include_once (__DIR__."/../utils/autoload.php");
         if($operation == "create"){
             try {
                 if($table == 'Usuario') {
@@ -38,22 +38,22 @@
             try {
                 if($table == 'Usuario') {
                     //Update da tabela USUARIO
-                    $usua = new Usuario($_GET['usuaId'], $_POST['usuaNome'], $_POST['usuaNascimento'], $_POST['usuaEmail'], $_POST['usuaTelefone'], $_POST['usuaLogin'], $_POST['usuaSenha']);
+                    $usua = new Usuario($_GET['id'], $_POST['usuaNome'], $_POST['usuaNascimento'], $_POST['usuaEmail'], $_POST['usuaTelefone'], $_POST['usuaLogin'], $_POST['usuaSenha']);
                     $usua->update();
                     header("Location: ../index.php?msg=Usuário atualizado com sucesso!");
                 } else if($table == 'Dispositivo') {
                     //Update da tabela DISPOSITIVO
-                    $disp = new Dispositivo($_GET['dispId'], $_POST['dispNome'], $_POST['dispLocalizacao'], $_POST['dispDescricao'], $_POST['dispositivo_usuaId']);
+                    $disp = new Dispositivo($_GET['id'], $_POST['dispNome'], $_POST['dispLocalizacao'], $_POST['dispDescricao'], $_POST['dispositivo_usuaId']);
                     $disp->update();
                     header("Location: ../index.php?msg=Dispositivo atualizado com sucesso!");
                 } else if($table == 'Bateria') {
                     //Update da tabela BATERIA
-                    $bate = new Bateria($_GET['bateId'], $_POST['bateEstado'], $_POST['bateDescricao'], $_POST['bateCarga'], $_POST['bateTemperatura'], $_POST['bateria_dispId']);
+                    $bate = new Bateria($_GET['id'], $_POST['bateEstado'], $_POST['bateDescricao'], $_POST['bateCarga'], $_POST['bateTemperatura'], $_POST['bateria_dispId']);
                     $bate->update();
                     header("Location: ../index.php?msg=Bateria atualizada com sucesso!");
                 } else if ($table == 'Motor') {
                     //Update da tabela MOTOR
-                    $moto = new Motor($_GET['motoId'], $_POST['motoEstado'], $_POST['motoDescricao'], $_POST['motoPosicaoXY'], $_POST['motoPosicaoZ'], $_POST['motor_dispId']);
+                    $moto = new Motor($_GET['id'], $_POST['motoEstado'], $_POST['motoDescricao'], $_POST['motoPosicaoXY'], $_POST['motoPosicaoZ'], $_POST['motor_dispId']);
                     $moto->update();
                     header("Location: ../index.php?msg=Motor atualizado com sucesso!");
                 }
@@ -64,22 +64,22 @@
             try {
                 if($table == 'Usuario') {
                     //Delete da tabela USUARIO
-                    $usua = new Usuario($_GET['usuaId'], '', '', '', '', '', '');
+                    $usua = new Usuario($_GET['id'], '', '', '', '', '', '');
                     $usua->delete();
                     header("Location: ../index.php?msg=Usuário deletado com sucesso!");
                 } else if($table == 'Dispositivo') {
                     //Delete da tabela DISPOSITIVO
-                    $disp = new Dispositivo($_GET['dispId'], '', '', '', '');
+                    $disp = new Dispositivo($_GET['id'], '', '', '', '');
                     $disp->delete();
                     header("Location: ../index.php?msg=Dispositivo deletado com sucesso!");
                 } else if($table == 'Bateria') {
                     //Delete da tabela BATERIA
-                    $bate = new Bateria($_GET['bateId'], '', '', '', '', '');
+                    $bate = new Bateria($_GET['id'], '', '', '', '', '');
                     $bate->delete();
                     header("Location: ../index.php?msg=Bateria deletada com sucesso!");
                 } else if ($table == 'Motor') {
                     //Delete da tabela MOTOR
-                    $moto = new Motor($_GET['motoId'], '', '', '', '', '');
+                    $moto = new Motor($_GET['id'], '', '', '', '', '');
                     $moto->delete();
                     header("Location: ../index.php?msg=Motor deletado com sucesso!");
                 }

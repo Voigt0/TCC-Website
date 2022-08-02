@@ -1,5 +1,5 @@
 <?php
-    include_once ("../utils/autoload.php");
+    include_once (__DIR__ ."/../utils/autoload.php");
 
     class Dispositivo extends Database{
         private $id;
@@ -107,21 +107,24 @@
         public static function consultar($busca = 0, $pesquisa = ""){
             $sql = "SELECT * FROM Dispositivo, Usuario 
                     WHERE Dispositivo.dispositivo_usuaId = Usuario.usuaId";
-            if ($busca > 0)
+            if ($busca > 0) {
                 switch($busca){
-                    case(1): $sql .= " AND dispId = :pesquisa"; $pesquisa = $pesquisa."%"; break;
+                    case(1): $sql .= " AND dispId like :pesquisa"; $pesquisa = $pesquisa; break;
                     case(2): $sql .= " AND dispNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                     case(3): $sql .= " AND dispLocalizacao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(4): $sql .= " AND dispDescricao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(5): $sql .= " AND dispositivo_usuaId like :pesquisa"; $pesquisa = $pesquisa; break;
                 }
-            if ($busca > 0)
                 $params = array(':pesquisa'=>$pesquisa);
-            else 
+            } else {
+                $sql .= " ORDER BY dispId";
                 $params = array();
+            }
             return parent::consulta($sql, $params);
         }
 
         public static function consultarData($id){
-            $sql = "SELECT * FROM Dispositivo WHERE 'dispId' = :dispId";
+            $sql = "SELECT * FROM Dispositivo WHERE dispId = :dispId";
             $params = array(':dispId'=>$id);
             return parent::consulta($sql, $params);
         }
@@ -129,33 +132,33 @@
     }
 
 
-    //Manipulação de dados de um dispositivo
-    $comando = 3;
+    // //Manipulação de dados de um dispositivo
+    // $comando = 3;
 
-    //Cadastro de um dispositivo
-    if ($comando == 1){
-        $dispositivo = new Dispositivo('', "Placa 542", "Fazenda maluca", "Placa maluca na", '4');
-        $dispositivo->create();
-    }
+    // //Cadastro de um dispositivo
+    // if ($comando == 1){
+    //     $dispositivo = new Dispositivo('', "Placa 542", "Fazenda maluca", "Placa maluca na", '4');
+    //     $dispositivo->create();
+    // }
 
-    //Atualização de um dispositivo
-    else if ($comando == 2){
-        $dispositivo = new Dispositivo("2", "Valdir", "Casa maluca", "Placa maluca na casa 2345678", 1);
-        $dispositivo->update();
-    }
+    // //Atualização de um dispositivo
+    // else if ($comando == 2){
+    //     $dispositivo = new Dispositivo("2", "Valdir", "Casa maluca", "Placa maluca na casa 2345678", 1);
+    //     $dispositivo->update();
+    // }
 
-    //Exclusão de um dispositivo
-    else if ($comando == 3){
-        $dispositivo = new Dispositivo("134", '', '', '', '');
-        $dispositivo->delete();
-    }
+    // //Exclusão de um dispositivo
+    // else if ($comando == 3){
+    //     $dispositivo = new Dispositivo("134", '', '', '', '');
+    //     $dispositivo->delete();
+    // }
 
-    echo "<pre>";
-    print_r($dispositivo);
-    echo "</pre>";
-    echo "<br>";
-    echo "<pre>";
-    print_r($dispositivo->consultar());
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($dispositivo);
+    // echo "</pre>";
+    // echo "<br>";
+    // echo "<pre>";
+    // print_r($dispositivo->consultar());
+    // echo "</pre>";
 
 ?>

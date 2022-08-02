@@ -1,5 +1,5 @@
 <?php
-    include_once ("../utils/autoload.php");
+    include_once (__DIR__ ."/../utils/autoload.php");
 
     class Bateria extends Database{
         private $id;
@@ -127,32 +127,32 @@
         }
     }
 
-    //Manipulação de dados de uma bateria
-    $comando = 1;
+    // //Manipulação de dados de uma bateria
+    // $comando = 1;
 
-    //Cadastro de uma bateria
-    if ($comando == 1){
-        $bateria = new Bateria('', '1', "Bateria teste", '100', '60.00', '3');
-        $bateria->create();
-    }
+    // //Cadastro de uma bateria
+    // if ($comando == 1){
+    //     $bateria = new Bateria('', '1', "Bateria teste", '100', '60.00', '3');
+    //     $bateria->create();
+    // }
 
-    //Atualização de uma bateria
-    else if ($comando == 2){
-        $bateria = new Bateria('32', '0', "xxxxxx", '15', '40.00', '2');
-        $bateria->update();
-    }
+    // //Atualização de uma bateria
+    // else if ($comando == 2){
+    //     $bateria = new Bateria('32', '0', "xxxxxx", '15', '40.00', '2');
+    //     $bateria->update();
+    // }
 
-    //Exclusão de uma bateria
-    else if ($comando == 3){
-        $bateria = new Bateria('16', '', '', '', '', '');
-        $bateria->delete();
-    }
+    // //Exclusão de uma bateria
+    // else if ($comando == 3){
+    //     $bateria = new Bateria('16', '', '', '', '', '');
+    //     $bateria->delete();
+    // }
 
-    echo "<pre>";
-    print_r($bateria);
-    echo "</pre>";
-    echo "<br>";
-    echo "<pre>";
-    print_r($bateria->consultar());
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($bateria);
+    // echo "</pre>";
+    // echo "<br>";
+    // echo "<pre>";
+    // print_r($bateria->consultar());
+    // echo "</pre>";
 ?>
