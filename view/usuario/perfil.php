@@ -46,7 +46,7 @@
             <br>
             <button class="" type="submit" id="" name="" value="">Salvar</button>
             <br>
-            <a href="login.php"><button class="" type="button" id="" name="" value="">Encerrar sessão</button></a>
+            <a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value="">Encerrar sessão</button></a>
         </form>
     </section>
 </body>

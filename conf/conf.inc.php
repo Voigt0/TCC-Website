@@ -1,7 +1,7 @@
 <?php
 
     // Banco de Dados
-    define('HOST', 'localhost:3307');  
+    define('HOST', 'localhost');  
     define('DBNAME', 'solargiro');    
     define('USER', 'root');  
     define('PASSWORD','');

@@ -1,3 +1,11 @@
+<?php
+    //temporário
+    session_start();
+    echo $_SESSION['usuaId'];
+    if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
+        header("Location: view/usuario/login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,23 +19,23 @@
 <header>
         <nav class="navbar" style="background-color: #171606;">        
             <div class="container-fluid">
-                <div class="nav-element"><a href=""><img src="../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
+                <div class="nav-element"><a href=""><img src="img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
                 <header>    
-                   <div class="nav-element"><a><img src="../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
+                   <div class="nav-element"><a><img src="img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
                 </header>
-                <div class="nav-element"><a href=""><img src="../img/icons/userIcon.svg" width="40rem"></a></div>
+                <div class="nav-element"><a href=""><img src="img/icons/userIcon.svg" width="40rem"></a></div>
             </div>
         </nav>
     </header>
 
     <section>
-        <a href="php/addDevice.php"><button>(Add Device Icon)</button></a>
+        <a href="view/dispositivo/adicionar-dispositivo.php"><button>(Add Device Icon)</button></a>
     </section>
     <section>
-        <a href="php/showDevice.php"><button>(Control Device Icon)</button></a>
+        <a href="view/dispositivo/controle-de-dispositivo.php"><button>(Control Device Icon)</button></a>
     </section>
     <section>
-        <a href="php/profile.php"><button>(Show Perfil Icon)</button></a>
+        <a href="view/usuario/perfil.php"><button>(Show Perfil Icon)</button></a>
     </section>
 </body>
 </html>

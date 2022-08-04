@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
-    <link rel="stylesheet" href="../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/register.css">
 </head>
 <body>
     <header>
@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <a href=""></a>
                 <header>    
-                    <a><img src="../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a>
+                    <a><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a>
                 </header>
                 <a href=""></a>
             </div>
@@ -24,7 +24,7 @@
 
     <section>
         <div class="container-fluid">
-            <div class="back"><a href="login.php"><img src="../img/icons/backIconB.svg" width="60rem"></a></div>
+            <div class="back"><a href="login.php"><img src="../../img/icons/backIconB.svg" width="60rem"></a></div>
             <div class="container">
                 <div class="box">
                     <div class="form">
@@ -35,23 +35,23 @@
                         </div>
                     <br>
                         <div class="input-field">
-                            <div class="form-element"><label for="nome"><img src="../img/icons/nameIcon.svg" width="40rem" height="40rem"></label></div>
+                            <div class="form-element"><label for="nome"><img src="../../img/icons/nameIcon.svg" width="40rem" height="40rem"></label></div>
                             <div class="form-element"><input class="" type="" id="nome" name="nome" placeholder="Nome completo" value="" required></div>
                         <br>
                         </div>
                         <div class="input-field">
-                            <div class="form-element"><label for="email"><img src="../img/icons/emailIcon.svg" width="40rem" height="40rem"></label></div>
+                            <div class="form-element"><label for="email"><img src="../../img/icons/emailIcon.svg" width="40rem" height="40rem"></label></div>
                             <div class="form-element"><input class="" type="email" id="email" name="email" placeholder="E-mail" value="" required></div>
                             <br>
                         </div>
                         <div class="input-field">
-                            <div class="form-element"><label for="telefone"><img src="../img/icons/phoneIcon.svg" width="40rem" height="40rem"></label></div>
+                            <div class="form-element"><label for="telefone"><img src="../../img/icons/phoneIcon.svg" width="40rem" height="40rem"></label></div>
                             <div class="form-element"><input type="tel" id="telefone" name="telefone" placeholder="formato: XX XXXXX-XXXX" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" required></div>
                         <br>            
                         </div>    
                         <br>
                         <div class="input-field">
-                            <div class="form-element"><label for="senha"><img src="../img/icons/passwordIcon.svg" width="40rem" height="40rem"></label></div>
+                            <div class="form-element"><label for="senha"><img src="./../img/icons/passwordIcon.svg" width="40rem" height="40rem"></label></div>
                             <div class="form-element"><input class="" type="password" id="senha" name="senha" placeholder="Senha" value="" required></div>
                             <br>
                         </div>

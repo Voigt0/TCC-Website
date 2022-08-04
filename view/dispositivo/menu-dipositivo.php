@@ -9,15 +9,15 @@
 </head>
 <body>
     <nav>
-        <a href="../index.php"><button>Home</button></a>
+        <a href="index.php"><button>Home</button></a>
         <header>
             <a>(S.G. Logo) Solar giro</a>
         </header>
-        <a href="profile.php"><button>(Perfil) Nome usuário</button></a>
+        <a href="view/usuario/perfil.php"><button>(Perfil) Nome usuário</button></a>
         <br>
     </nav>
     <section>
-        <a href="deviceBattery.php"><button>(Battery Icon)</button></a>
+        <a href="view/dispositivo/bateria.php"><button>(Battery Icon)</button></a>
     </section>
     <section>
         <a href="deviceSystem.php"><button>(System Icon)</button></a>

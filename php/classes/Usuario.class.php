@@ -158,13 +158,20 @@
 
 
         //Métodos de autenticação
-        public static function autenticar($login, $senha){
-            $sql = "SELECT * FROM Usuario WHERE usuaLogin = :usuaLogin AND usuaSenha = :usuaSenha";
+        public static function autenticar($email, $senha){
+            $sql = "SELECT usuaId FROM Usuario WHERE usuaEmail = :usuaEmail AND usuaSenha = :usuaSenha";
             $params = array(
-                ':usuaLogin' => $login,
+                ':usuaEmail' => $email,
                 ':usuaSenha' => $senha
             );
-            return self::consulta($sql, $params);
+            session_start();
+            if (self::consulta($sql, $params)) {
+                $_SESSION['usuaId'] = self::consulta($sql, $params)[0]['usuaId'];
+                return true;
+            } else {
+                $_SESSION['usuaId'] = "";
+                return false;
+            }
         }
     }
 
