@@ -50,6 +50,7 @@
                         <br>
                         <button type="button" onclick="getLocation()">Localizar</button>
                         <p style="color:white">Clique no botão para obter suas coordenadas.</p>
+                        <div id="mapa"></div>
                         <!-- <div class="input-field">
                             <div class="form-element"><label for="datetime"><img src="../../img/icons/datetimeIcon.svg" width="40rem" height="40rem"></label></div>
                             <div class="form-element"><input class="" type="datetime-local" id="datetime" name="datetime" placeholder="Data e hora" value="" required></div>
@@ -75,18 +76,21 @@
 <script>
     var latitude = document.getElementById("dispLatitude");
     var longitude = document.getElementById("dispLongitude");
+    var mapa = document.getElementById("mapa");
 
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else { 
-            latitude.innerHTML = "Geolocalização não é suportada.";
-            longitude.innerHTML = "Geolocalização não é suportada.";
+            latitude.value = "Geolocalização não é suportada.";
+            longitude.value = "Geolocalização não é suportada.";
+            mapa.innerHTML = "";
         }
     }
 
     function showPosition(position) {
         latitude.value = position.coords.latitude;
         longitude.value = position.coords.longitude;
+        mapa.innerHTML = "<iframe width='600' height='500' id='gmap_canvas' src='https://maps.google.com/maps?q="+position.coords.latitude+",%20"+position.coords.longitude+"&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
     }
 </script>
