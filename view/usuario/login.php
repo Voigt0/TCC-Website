@@ -1,9 +1,9 @@
 <?php
+    session_set_cookie_params(0);
     session_start();
     if(isset($_SESSION['usuaId']) && $_SESSION['usuaId'] != '') {
         header("Location: ../../index.php");
     }
-    // $_SESSION['usuaId'] = '';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
