@@ -49,13 +49,7 @@
                     <div class="input-field">
                         <div class="form-element"><label for="usuaSenha"><img src="../../img/icons/passwordIcon.svg" width="40rem" height="40rem"></label></div>
                         <div class="form-element"><input class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="senha" value="" required></div>
-                        <div class="form-element"><label for="email"><img src="../../img/icons/emailIcon.svg" width="40rem" height="40rem"></label></div>
-                        <div class="form-element"><input class="" type="email" id="email" name="email" placeholder="e-mail" value="" required></div>
                     <br>
-                    </div>
-                    <div class="input-field">
-                        <div class="form-element"><label for="senha"><img src="../../img/icons/passwordIcon.svg" width="40rem" height="40rem"></label></div>
-                        <div class="form-element"><input class="" type="password" id="senha" name="senha" placeholder="senha" value="" required></div>
                     </div>
                     <br>
                     <div class="form-footer">
