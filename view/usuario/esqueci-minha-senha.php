@@ -7,7 +7,7 @@
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
     <link rel="stylesheet" href="../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/password.css">
+    <link rel="stylesheet" href="../css/esqueci-minha-senha.css">
 </head>
 <body>
     <header>
