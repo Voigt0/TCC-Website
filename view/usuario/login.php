@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['usuaId']) && $_SESSION['usuaId'] != '') {
+        header("Location: ../../index.php");
+    }
+    // $_SESSION['usuaId'] = '';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,7 +35,7 @@
             <div class="box">
                 <div class="form">
                     <div class="form-header">
-                        <form action="../../php/controle/controleLogin.php" method="post" id="login">
+                        <form action="../../php/controle/controle-login.php" method="post" id="login">
                             <div class="form-title"><h2>Login</h2></div>
                             <div class="underline1"></div>
                             <div class="underline2"></div>

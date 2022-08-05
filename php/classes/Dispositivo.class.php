@@ -4,14 +4,16 @@
     class Dispositivo extends Database{
         private $id;
         private $nome;
-        private $localizacao;
+        private $latitude;
+        private $longitude;
         private $descricao;
         private $usuaId;
 
-        public function __construct($id, $nome, $localizacao, $descricao, $usuaId) {
+        public function __construct($id, $nome, $latitude, $longitude, $descricao, $usuaId) {
             $this->setId($id);
             $this->setNome($nome);
-            $this->setLocalizacao($localizacao);
+            $this->setLatitude($latitude);
+            $this->setLongitude($longitude);
             $this->setDescricao($descricao);
             $this->setUsuarioId($usuaId);
         }  
@@ -26,8 +28,12 @@
             return $this->nome;
         }
 
-        public function getLocalizacao() {
-            return $this->localizacao;
+        public function getLatitude() {
+            return $this->latitude;
+        }
+
+        public function getLongitude() {
+            return $this->longitude;
         }
 
         public function getDescricao() {
@@ -46,8 +52,12 @@
             $this->nome = $nome;
         }
 
-        public function setLocalizacao($localizacao) {
-            $this->localizacao = $localizacao;
+        public function setLatitude($latitude) {
+            $this->latitude = $latitude;
+        }
+
+        public function setLongitude($longitude) {
+            $this->longitude = $longitude;
         }
 
         public function setDescricao($descricao) {
@@ -64,7 +74,8 @@
             $str = "<br>[Dispositivo]<br>".
                     "<br>ID do Dispositivo: ".$this->getId().
                     "<br>Nome: ".$this->getNome().
-                    "<br>Localizacao: ".$this->getLocalizacao().
+                    "<br>Latitude: ".$this->getLatitude().
+                    "<br>Longitude: ".$this->getLongitude().
                     "<br>Descrição: ".$this->getDescricao().
                     "<br>Usuario ID: ".$this->getUsuarioId();
             return $str;
@@ -72,10 +83,11 @@
 
         //Métodos de persistência
         public function create(){
-            $sql = "INSERT INTO Dispositivo (dispNome, dispLocalizacao, dispDescricao, dispositivo_usuaId) VALUES (:dispNome, :dispLocalizacao, :dispDescricao, :dispositivo_usuaId)";
+            $sql = "INSERT INTO Dispositivo (dispNome, dispLatitude, dispLongitude, dispDescricao, dispositivo_usuaId) VALUES (:dispNome, :dispLatitude, :dispLongitude, :dispDescricao, :dispositivo_usuaId)";
             $params = array(
                 ":dispNome" => $this->getNome(),
-                ":dispLocalizacao" => $this->getLocalizacao(),
+                ":dispLatitude" => $this->getLatitude(),
+                ":dispLongitude" => $this->getLongitude(),
                 ":dispDescricao" => $this->getDescricao(),
                 ":dispositivo_usuaId" => $this->getUsuarioId()
             );
@@ -83,11 +95,12 @@
         }
 
         public function update(){
-            $sql = "UPDATE Dispositivo SET dispNome = :dispNome, dispLocalizacao = :dispLocalizacao, dispDescricao = :dispDescricao, dispositivo_usuaId = :dispositivo_usuaId WHERE dispId = :dispId";
+            $sql = "UPDATE Dispositivo SET dispNome = :dispNome, dispLatitude = :dispLatitude, dispLongitude = :dispLongitude, dispDescricao = :dispDescricao, dispositivo_usuaId = :dispositivo_usuaId WHERE dispId = :dispId";
             $params = array(
                 ":dispId" => $this->getId(),
                 ":dispNome" => $this->getNome(),
-                ":dispLocalizacao" => $this->getLocalizacao(),
+                ":dispLatitude" => $this->getLatitude(),
+                ":dispLongitude" => $this->getLongitude(),
                 ":dispDescricao" => $this->getDescricao(),
                 ":dispositivo_usuaId" => $this->getUsuarioId()
             );
@@ -111,9 +124,10 @@
                 switch($busca){
                     case(1): $sql .= " AND dispId like :pesquisa"; $pesquisa = $pesquisa; break;
                     case(2): $sql .= " AND dispNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " AND dispLocalizacao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(4): $sql .= " AND dispDescricao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(5): $sql .= " AND dispositivo_usuaId like :pesquisa"; $pesquisa = $pesquisa; break;
+                    case(3): $sql .= " AND dispLatitude like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(4): $sql .= " AND dispLongitude like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(5): $sql .= " AND dispDescricao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    case(6): $sql .= " AND dispositivo_usuaId like :pesquisa"; $pesquisa = $pesquisa; break;
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {
@@ -130,35 +144,4 @@
         }
 
     }
-
-
-    // //Manipulação de dados de um dispositivo
-    // $comando = 3;
-
-    // //Cadastro de um dispositivo
-    // if ($comando == 1){
-    //     $dispositivo = new Dispositivo('', "Placa 542", "Fazenda maluca", "Placa maluca na", '4');
-    //     $dispositivo->create();
-    // }
-
-    // //Atualização de um dispositivo
-    // else if ($comando == 2){
-    //     $dispositivo = new Dispositivo("2", "Valdir", "Casa maluca", "Placa maluca na casa 2345678", 1);
-    //     $dispositivo->update();
-    // }
-
-    // //Exclusão de um dispositivo
-    // else if ($comando == 3){
-    //     $dispositivo = new Dispositivo("134", '', '', '', '');
-    //     $dispositivo->delete();
-    // }
-
-    // echo "<pre>";
-    // print_r($dispositivo);
-    // echo "</pre>";
-    // echo "<br>";
-    // echo "<pre>";
-    // print_r($dispositivo->consultar());
-    // echo "</pre>";
-
 ?>
