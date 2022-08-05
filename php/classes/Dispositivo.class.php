@@ -143,5 +143,14 @@
             return parent::consulta($sql, $params);
         }
 
+        public static function consultarUsuario($id, $busca, $pesquisa){
+            $sql = "SELECT dispId, dispNome FROM Dispositivo WHERE dispositivo_usuaId = :usuaId";
+            switch ($busca) {
+                case(0): $sql .= " AND dispId like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                case(1): $sql .= " AND dispNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+            }
+            $params = array(':usuaId'=>$id, ':pesquisa'=>$pesquisa);
+            return parent::consulta($sql, $params);
+        }
     }
 ?>

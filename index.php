@@ -32,7 +32,7 @@
         <a href="view/dispositivo/adicionar-dispositivo.php"><button>(Add Device Icon)</button></a>
     </section>
     <section>
-        <a href="view/dispositivo/controle-de-dispositivo.php"><button>(Control Device Icon)</button></a>
+        <a href="view/dispositivo/controle-de-dispositivos.php"><button>(Control Device Icon)</button></a>
     </section>
     <section>
         <a href="view/usuario/perfil.php"><button>(Show Perfil Icon)</button></a>

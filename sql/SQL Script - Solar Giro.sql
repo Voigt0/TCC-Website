@@ -109,3 +109,13 @@ DEFAULT CHARACTER SET = utf8;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `solargiro`.`usuario` (`usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES ('Rodrigo Voigt Filho', 'voigtrodrigo0@gmail.com', '47 99145-6541', '12345678');
+INSERT INTO `solargiro`.`usuario` (`usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES ('Larissa Schmitz', 'issaschmitz@gmail.com', '47 99264-2005', '08042022');
+INSERT INTO `solargiro`.`usuario` (`usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES ('Pedro de Paula Ujj', 'pequenoujj@gmail.com', '47 98875-4322', 'vailanternaverde');
+INSERT INTO `solargiro`.`usuario` (`usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES ('Conta de Teste', 'teste@gmail.com', '47 99999-9999', '12345678');
+
+INSERT INTO `solargiro`.`dispositivo` (`dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispositivo_usuaId`) VALUES ('Placa-01', '-49.4900000', '-30.1264350', 'Painel solar da casa', '1');
+INSERT INTO `solargiro`.`dispositivo` (`dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispositivo_usuaId`) VALUES ('Painel Jardim', '-23.9345400', '-50.2849300', 'Painel solar da varanda', '2');
+INSERT INTO `solargiro`.`dispositivo` (`dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispositivo_usuaId`) VALUES ('Placa1', '-23.8292333', '-28.8274319', 'Placa', '3');
+INSERT INTO `solargiro`.`dispositivo` (`dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispositivo_usuaId`) VALUES ('Placa-teste', '-43.4292423', '83.8382383', 'Placa teste', '4');

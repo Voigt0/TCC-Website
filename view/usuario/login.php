@@ -48,7 +48,7 @@
                     </div>
                     <div class="input-field">
                         <div class="form-element"><label for="usuaSenha"><img src="../../img/icons/passwordIcon.svg" width="40rem" height="40rem"></label></div>
-                        <div class="form-element"><input class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="senha" value="" required></div>
+                        <div class="form-element"><input class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="senha" value="" minlength="8" required></div>
                     <br>
                     </div>
                     <br>
