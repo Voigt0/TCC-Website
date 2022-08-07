@@ -1,3 +1,11 @@
+<?php
+    session_set_cookie_params(0);
+    session_start();
+    if(isset($_SESSION['usuaId']) && $_SESSION['usuaId'] != '') {
+        header("Location: ../../index.php");
+    }
+    $_SESSION['dispId'] = ''
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -40,7 +48,7 @@
                     </div>
                     <div class="form-footer">
                         <button class="" type="submit" id="" name="" value="">entrar</button>
-                        <button class="cancel" type="submit" id="" name="" value="">cancelar</button>
+                        <a href="login.php"><button class="cancel" type="button" id="" name="" value="">cancelar</button></a>
                     </form>
                     </div>
                 </div>

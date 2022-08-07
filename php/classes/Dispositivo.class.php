@@ -152,5 +152,24 @@
             $params = array(':usuaId'=>$id, ':pesquisa'=>$pesquisa);
             return parent::consulta($sql, $params);
         }
+
+        //Métodos de validação
+        public static function validar($id, $usuaId) {
+            $sql = "SELECT * FROM Dispositivo WHERE dispId = :dispId AND dispositivo_usuaId = :usuaId";
+            $params = array(
+                ":dispId" => $id,
+                ":usuaId" => $usuaId
+            );
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            if (parent::consulta($sql, $params)) {
+                $_SESSION['dispId'] = $id;
+                return true;
+            } else {
+                $_SESSION['dispId'] = '';
+                return false;
+            }
+        }
     }
 ?>

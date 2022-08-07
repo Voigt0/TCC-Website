@@ -1,10 +1,11 @@
 <?php
-    include_once (__DIR__."/../../php/utils/autoload.php");
-    //Salvar contexto
+    session_set_cookie_params(0);
     session_start();
     if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
         header("Location: login.php");
     }
+    include_once (__DIR__."/../../php/utils/autoload.php");
+    //Salvar contexto
     $data = Usuario::consultarData($_SESSION['usuaId'])[0];
 ?>
 <!DOCTYPE html>

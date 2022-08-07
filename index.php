@@ -8,13 +8,13 @@
     <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
 </head>
 <?php
-    //temporário
     session_set_cookie_params(0);
     session_start();
     echo $_SESSION['usuaId'];
     if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
         header("Location: view/usuario/login.php");
     }
+    $_SESSION['dispId'] = ''
 ?>
 <body>
 <header>

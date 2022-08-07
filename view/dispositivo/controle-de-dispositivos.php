@@ -1,5 +1,13 @@
 <?php
+    session_set_cookie_params(0);
+    session_start();
+    if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
+        header("Location: view/usuario/login.php");
+    }
     include_once (__DIR__ ."/../../php/utils/autoload.php");
+    if(isset($_GET['dispId'])) {
+        Dispositivo::validar($_GET['dispId'], $_SESSION['usuaId']);
+    };
     $busca = isset($_POST["busca"]) ? $_POST["busca"] : "0";
     $pesquisa = isset($_POST["pesquisa"]) ? $_POST["pesquisa"] : "";
 ?>
@@ -40,11 +48,14 @@
                 <br><br>
             </div>
         </form>
-        <div>
-            <h3>N°(Id):</h3>
-            <h3>(Nome)</h3>
-            <h4>Localização:</h4>
-            <h4>Descrição:</h4>
+        <div <?php if(!isset($_SESSION['dispId']) || $_SESSION['dispId'] == '') {echo "hidden";}?>>
+            <?php
+                $data = Dispositivo::consultarData($_SESSION['dispId'])[0];
+            ?>
+            <h3>N°(Id): <?php echo $data['dispId']; ?></h3>
+            <h3>(Nome) <?php echo $data['dispNome']; ?></h3>
+            <h4>Localização: <?php echo $data['dispLatitude'].", ".$data['dispLongitude']; ?></h4>
+            <h4>Descrição: <?php echo $data['dispDescricao']; ?></h4>
             <a href="menu-dispositivo.php"><button class="" type="button" id="" name="" value="">(Ver mais)</button></a>
         </div>
         <br>
@@ -57,19 +68,21 @@
             </thead>
             <tbody>
             <?php
-                session_start();
                 //Filtro da tabela exibida
                 $tabela = Dispositivo::consultarUsuario($_SESSION['usuaId'], $busca, $pesquisa);
                 foreach($tabela as $key => $value) {
             ?>
                 <tr>
                     <th><?php echo $value['dispId'];?></th>
-                    <td><?php echo $value['dispNome'];?></td>
+                    <td><a href="controle-de-dispositivos.php?dispId=<?php echo $value['dispId'];?>"><?php echo $value['dispNome'];?></a></td>
                 </tr>
             <?php
                 } 
             ?> 
             </tbody>
+            <?php
+                echo $_SESSION['dispId'];
+            ?>
         </table>
     </section>
 </body>
