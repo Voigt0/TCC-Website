@@ -2,8 +2,9 @@
     session_set_cookie_params(0);
     session_start();
     if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
-        header("Location: view/usuario/login.php");
+        header("Location: ../usuario/login.php");
     }
+    $_SESSION['dispId'] = '';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,11 +21,11 @@
     <header>
         <nav class="navbar" style="background-color: #171606;">        
             <div class="container-fluid">
-                <div class="nav-element"><a href=""><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
+                <div class="nav-element"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
                 <header>    
-                   <div class="nav-element"><a><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
+                   <div class="nav-element"><a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
                 </header>
-                <div class="nav-element"><a href=""><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
+                <div class="nav-element"><a href="../usuario/perfil.php"><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
             </div>
         </nav>
     </header>
@@ -32,7 +33,7 @@
     <section>
         <div class="container-fluid">
             <div class="back"><a href="../../index.php"><img src="../../img/icons/backIconB.svg" width="60rem"></a></div>
-            <div class="container">
+            <div id="container" class="container">
                 <div class="box">
                     <div class="form">
                         <div class="form-header">
@@ -56,7 +57,7 @@
                             <div class="form-element"><input class="" type="" id="dispLongitude" name="dispLongitude" placeholder="Longitude do dispositivo" value="" required></div>
                         <br>
                         <button type="button" onclick="getLocation()">Localizar</button>
-                        <p style="color:white">Clique no botão para obter suas coordenadas.</p>
+                        <p id="localizarDica" style="color:white">Clique no botão para obter suas coordenadas.</p>
                         <div id="mapa"></div>
                         <!-- <div class="input-field">
                             <div class="form-element"><label for="datetime"><img src="../../img/icons/datetimeIcon.svg" width="40rem" height="40rem"></label></div>
@@ -98,6 +99,8 @@
     function showPosition(position) {
         latitude.value = position.coords.latitude;
         longitude.value = position.coords.longitude;
+        document.getElementById("localizarDica").innerHTML = "";
+        document.getElementById("container").innerHTML = '';
         mapa.innerHTML = "<iframe width='400' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q="+position.coords.latitude+",%20"+position.coords.longitude+"&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
     }
 </script>

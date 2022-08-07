@@ -6,37 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css"> 
 </head>
 <?php
     session_set_cookie_params(0);
     session_start();
-    echo $_SESSION['usuaId'];
+    // echo $_SESSION['usuaId'];
     if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
         header("Location: view/usuario/login.php");
     }
     $_SESSION['dispId'] = ''
 ?>
 <body>
-<header>
+    <header>
         <nav class="navbar" style="background-color: #171606;">        
             <div class="container-fluid">
                 <div class="nav-element"><a href=""><img src="img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
                 <header>    
-                   <div class="nav-element"><a><img src="img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
+                   <div class="nav-element"><a href=""><img src="img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
                 </header>
                 <div class="nav-element"><a href=""><img src="img/icons/userIcon.svg" width="40rem"></a></div>
             </div>
         </nav>
     </header>
+       
 
+ 
     <section>
-        <a href="view/dispositivo/adicionar-dispositivo.php"><button>(Add Device Icon)</button></a>
+        <a href="view/dispositivo/adicionar-dispositivo.php"><button class="botao"><img src="img/icons/addIcon.svg"></button></a>
+        <div class="button"><button class="" type="submit" id="" name="" value="">Adicionar dispositivo</button></div>
     </section>
     <section>
-        <a href="view/dispositivo/controle-de-dispositivos.php"><button>(Control Device Icon)</button></a>
+        <a href="view/dispositivo/controle-de-dispositivos.php"><button class="botao"><img src="img/icons/confIcon.svg"></button></a>
+        <div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar dispositivo</button></div>
     </section>
     <section>
-        <a href="view/usuario/perfil.php"><button>(Show Perfil Icon)</button></a>
+        <a href="view/usuario/perfil.php"><button class="botao"><img src="img/icons/userIcon.svg"></button></a>
+        <div class="button"><button class="" type="submit" id="" name="" value="">Perfil do usuário</button></div>
     </section>
 </body>
 </html>

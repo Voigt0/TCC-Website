@@ -4,6 +4,7 @@
     if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
         header("Location: login.php");
     }
+    $_SESSION['dispId'] = '';
     include_once (__DIR__."/../../php/utils/autoload.php");
     //Salvar contexto
     $data = Usuario::consultarData($_SESSION['usuaId'])[0];
@@ -16,48 +17,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
+    <link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/perfil.css">
 </head>
 <body>
-    <nav>
-        <a href="../../index.php"><button>Home</button></a>
-        <header>
-            <a>(S.G. Logo) Solar giro</a>
-        </header>
-        <a href=profile.php><button>(Perfil Icon) Nome usuário</button></a>
-        <br>
-    </nav>
+    <header>
+        <nav class="navbar" style="background-color: #FBC10D;">        
+            <div class="container-fluid">
+                <div class="nav-element"><a href="../../index.php"><img src="../../img/icons/homeIconB.svg" width="30rem" height="40rem"></a></div>
+                <header>    
+                   <div class="nav-element"><a href="../../index.php"><img src="../../img/icons/solargirologoIconB.svg" style="width: 30vh;"></a></div>
+                </header>
+                <div class="nav-element"></div>
+            </div>
+        </nav>
+    </header>
+
+   
     <section>
-        <a href="../../index.php"><button>(Voltar Icon)</button></a>
+        <div class="container-fluid">
+            <div class="back"><a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a></div>
+                
+            <form action="../../php/controle/controle-perfil.php" method="post">
+                <div class="container">
+                    <div class="box-foto">
+                        <div class="form-header"><h2>Informações de pefil</h2></div>
+                        <br>
+                        <div class="foto"><img src="../../img/png/defaultProfilePhoto.png"></div> <!--onde fica a foto -->
+                        <br>
+                            <div class="button-alterar">
+                                <button class="" onclick="document.getElementById('photo').click()" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Alterar foto</button>
+                                <input type='file' id="photo" style="display:none">
+                            </div>
+                    </div>
+
+                    <div class="dados">
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="usuaNome">Nome completo</label>
+                            <input class="" type="" id="usuaNome" name="usuaNome" placeholder="" minlength="3" value="<?php echo $data['usuaNome'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="usuaEmail">E-mail</label>
+                            <input class="" type="email" id="email" name="usuaEmail" placeholder="" value="<?php echo $data['usuaEmail'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="usuaTelefone">Telefone</label>
+                            <input class="" type="tel" id="telefone" name="usuaTelefone" placeholder="" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" value="<?php echo $data['usuaTelefone'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        </div>
+                        
+                        <div class="input-box">
+                            <label for="usuaSenha">Senha</label>
+                            <input class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php echo $data['usuaSenha'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        </div>
+                    </div>    
+                    
+                    
+                </div>
+            </div>
+                <div class="perfil-footer">
+                    <div class="button"><a href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
+                <br>
+                    <div class="button"><button class="" type="submit" id="" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Salvar</button></div>
+                <br>
+                </div>
+            </form>
+        </div>
+
     </section>
-    <section>
-        <form action="../../php/controle/controle-perfil.php" method="post">
-            <h2>Informações de pefil</h2>
-            <br>
-            <svg xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="50" fill="grey" />
-            </svg>
-            <br>
-            <button class="" onclick="document.getElementById('photo').click()" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Alterar foto</button>
-            <input type='file' id="photo" style="display:none">
-            <br>
-            <label for="usuaNome">Nome completo</label>
-            <input class="" type="" id="usuaNome" name="usuaNome" placeholder="" minlength="3" value="<?php echo $data['usuaNome'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
-            <br>
-            <label for="usuaEmail">E-mail</label>
-            <input class="" type="email" id="email" name="usuaEmail" placeholder="" value="<?php echo $data['usuaEmail'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
-            <br>
-            <label for="usuaTelefone">Telefone</label>
-            <input class="" type="tel" id="telefone" name="usuaTelefone" placeholder="" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" value="<?php echo $data['usuaTelefone'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
-            <br>
-            <label for="usuaSenha">Senha</label>
-            <input class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php echo $data['usuaSenha'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
-            <br>
-            <a href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="" name="" value=""><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a>
-            <br>
-            <button class="" type="submit" id="" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Salvar</button>
-            <br>
-            <a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value="">Encerrar sessão</button></a>
-        </form>
-    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
+
 </body>
 </html>

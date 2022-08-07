@@ -18,10 +18,13 @@ body{
     }
 
 
-button{
+.botao{
     background-color: #171606;
     width: 356.84px;
     height: 388px;
+    border-radius: 20px;
+    position: absolute;
+    
 }
 
 
@@ -29,21 +32,29 @@ button{
 section{
     float: left;
     margin-right: 3rem;
-    /* margin-top: 100px; */
-    /* padding: 3rem; */
-
+    padding: 3rem;
 }
 
 a{
     text-decoration: none;
 }
 
-.add-text{
-    border: solid #171606;
-    border-radius: 9px;
-    /* background-color: aquamarine; */
+
+.button{
+    justify-content: center;
+    /* align-items: center; */
+    display: flex;
 }
 
-
-
-
+.button button{
+    background-color: #FBC10D;
+    color: black;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 0.75rem;
+    /* padding-inline: 10px; */
+    font-size: 24px;
+    height: 39px;
+    width: 244px;
+}

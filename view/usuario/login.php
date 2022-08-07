@@ -15,7 +15,7 @@
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
     <link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="../../css/login.css"> 
 </head>
 <body>
     <header>
@@ -23,7 +23,7 @@
             <div class="container-fluid">
                 <a href=""></a>
                 <header>    
-                    <a><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a>
+                    <img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;">
                 </header>
                 <a href=""></a>
             </div>

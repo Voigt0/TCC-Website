@@ -7,20 +7,31 @@
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
 </head>
+<?php
+    session_set_cookie_params(0);
+    session_start();
+    if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
+        header("Location: ../usuario/login.php");
+    }
+    echo $_SESSION['dispId'];
+    if(!isset($_SESSION['dispId']) || $_SESSION['dispId'] == ''){
+        header("Location: controle-de-dispositivos.php");
+    }
+?>
 <body>
     <nav>
-        <a href="index.php"><button>Home</button></a>
+        <a href="../../index.php"><button>Home</button></a>
         <header>
             <a>(S.G. Logo) Solar giro</a>
         </header>
-        <a href="view/usuario/perfil.php"><button>(Perfil) Nome usuário</button></a>
+        <a href="../usuario/perfil.php"><button>(Perfil) Nome usuário</button></a>
         <br>
     </nav>
     <section>
-        <a href="view/dispositivo/bateria.php"><button>(Battery Icon)</button></a>
+        <a href="bateria.php"><button>(Battery Icon)</button></a>
     </section>
     <section>
-        <a href="deviceSystem.php"><button>(System Icon)</button></a>
+        <a href="sistema.php"><button>(System Icon)</button></a>
     </section>
 </body>
 </html>
