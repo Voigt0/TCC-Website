@@ -43,34 +43,34 @@
                         </div>
                     <br>
                         <div class="input-field">
-                            <div class="form-element"><label for="dispNome"><img src="../../img/icons/nameIcon.svg" width="40rem" height="40rem"></label></div>
+                            <div class="form-element"><label for="dispNome"><img src="../../img/icons/nameIcon.svg" width="35rem" height="35rem"></label></div>
                             <div class="form-element"><input class="" type="" id="dispNome" name="dispNome" placeholder="Nome do dispositivo" value="" required></div>
                         <br>
                         </div>
                         <div class="input-field">
-                            <div class="form-element"><label for="dispLatitude"><img src="../../img/icons/localIcon.svg" width="40rem" height="40rem"></label></div>
-                            <div class="form-element"><input class="" type="" id="dispLatitude" name="dispLatitude" placeholder="Latitude do dispositivo" value="" required></div>
-                        <br>
+                            <div class="form-element"><label for="dispDescricao"><img src="../../img/icons/descriptionIcon.svg" width="35rem" height="35rem"></label></div>
+                            <div class="form-element"><input class="description" type="textarea" id="dispDescricao" name="dispDescricao" placeholder="Descrição adicional" value=""></div>
                         </div>
+                        <!-- <br> -->
                         <div class="input-field">
-                            <div class="form-element"><label for="dispLongitude"><img src="../../img/icons/localIcon.svg" width="40rem" height="40rem"></label></div>
+                            <div class="form-element"><label for="dispLatitude"><img src="../../img/icons/latitude.svg" width="30rem" height="30rem"></label></div>
+                            <div class="form-element"><input class="" type="" id="dispLatitude" name="dispLatitude" placeholder="Latitude do dispositivo" value="" required></div>
+                        </div>
+                        <!-- <br> -->
+                        <div class="input-field">
+                            <div class="form-element"><label for="dispLongitude"><img src="../../img/icons/longitude.svg" width="30rem" height="30rem"></label></div>
                             <div class="form-element"><input class="" type="" id="dispLongitude" name="dispLongitude" placeholder="Longitude do dispositivo" value="" required></div>
                         <br>
-                        <button type="button" onclick="getLocation()">Localizar</button>
-                        <p id="localizarDica" style="color:white">Clique no botão para obter suas coordenadas.</p>
-                        <div id="mapa"></div>
-                        <!-- <div class="input-field">
-                            <div class="form-element"><label for="datetime"><img src="../../img/icons/datetimeIcon.svg" width="40rem" height="40rem"></label></div>
-                            <div class="form-element"><input class="" type="datetime-local" id="datetime" name="datetime" placeholder="Data e hora" value="" required></div>
-                        <br>
-                        </div> -->
-                        <div class="input-field">
-                            <div class="form-element"><label for="dispDescricao"><img src="../../img/icons/descriptionIcon.svg" width="40rem" height="40rem"></label></div>
-                            <div class="form-element"><input class="description" type="textarea" id="dispDescricao" name="dispDescricao" placeholder="Descrição adicional" value=""></div>
-                        <br>
+                        </div>
+                        
+                        <div class="center">
+                            <button name="local" id="local" type="button" onclick="getLocation()">Localizar</button>
+                            <label for="local"><p id="localizarDica" style="color:white">Clique no botão para obter suas coordenadas.</p></label>
+                            <div id="mapa"></div>
                         </div>
                         <div class="form-footer">
-                            <button class="" type="submit" id="" name="" value="">Salvar</button>
+                            <button class="footer" type="submit" id="" name="" value="">Salvar</button>
+                            <a href="../../index.php"><button onclick="return confirm('Deseja mesmo cancelar?')" class="cancel" type="button" id="" name="" value="">Cancelar</button></a>
                             </form>
                         </div>
                     </div>
@@ -78,29 +78,7 @@
             </div>
         </div>   
     </section>
+    <script src="../../js/adicionar-dispositivo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
 </body>
 </html>
-<script>
-    var latitude = document.getElementById("dispLatitude");
-    var longitude = document.getElementById("dispLongitude");
-    var mapa = document.getElementById("mapa");
-
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else { 
-            latitude.value = "Geolocalização não é suportada.";
-            longitude.value = "Geolocalização não é suportada.";
-            mapa.innerHTML = "";
-        }
-    }
-
-    function showPosition(position) {
-        latitude.value = position.coords.latitude;
-        longitude.value = position.coords.longitude;
-        document.getElementById("localizarDica").innerHTML = "";
-        document.getElementById("container").innerHTML = '';
-        mapa.innerHTML = "<iframe width='400' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q="+position.coords.latitude+",%20"+position.coords.longitude+"&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
-    }
-</script>

@@ -12,6 +12,10 @@ body{
     background-color: #FBC10D;
 }
 
+.container{ 
+    justify-content: center;    
+}
+
 .nav-element{
     margin-left: 92px;
     margin-right: 92px;
@@ -20,19 +24,23 @@ body{
 
 .botao{
     background-color: #171606;
-    width: 356.84px;
-    height: 388px;
+    width: 300px;
+    height: 320px;
     border-radius: 20px;
-    position: absolute;
-    
 }
 
-
+.img-button{
+    align-items: center;
+    display: flex;
+}
 
 section{
     float: left;
     margin-right: 3rem;
-    padding: 3rem;
+    padding: 1rem;
+    /* justify-items: center;     */
+    /* align-items: center;
+    display: flex; */
 }
 
 a{
@@ -41,8 +49,9 @@ a{
 
 
 .button{
+    padding: 1rem;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     display: flex;
 }
 

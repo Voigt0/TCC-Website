@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-footer">
                         <button class="" type="submit" id="" name="" value="">entrar</button>
-                        <a href="login.php"><button class="cancel" type="button" id="" name="" value="">cancelar</button></a>
+                        <a href="login.php"><button onclick="return confirm('Deseja mesmo cancelar?')" class="cancel" type="button" id="" name="" value="">cancelar</button></a>
                     </form>
                     </div>
                 </div>

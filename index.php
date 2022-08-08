@@ -12,7 +12,6 @@
 <?php
     session_set_cookie_params(0);
     session_start();
-    // echo $_SESSION['usuaId'];
     if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
         header("Location: view/usuario/login.php");
     }
@@ -32,18 +31,21 @@
     </header>
        
 
- 
+ <div class="container">
+ <div class="container-fluid">
     <section>
-        <a href="view/dispositivo/adicionar-dispositivo.php"><button class="botao"><img src="img/icons/addIcon.svg"></button></a>
+        <div class="img-button"><a href="view/dispositivo/adicionar-dispositivo.php"><button class="botao"><img src="img/icons/addIcon.svg"></button></a></div>
         <div class="button"><button class="" type="submit" id="" name="" value="">Adicionar dispositivo</button></div>
     </section>
     <section>
-        <a href="view/dispositivo/controle-de-dispositivos.php"><button class="botao"><img src="img/icons/confIcon.svg"></button></a>
+        <div class="img-button"><a href="view/dispositivo/controle-de-dispositivos.php"><button class="botao"><img src="img/icons/confIcon.svg"></button></a></div>
         <div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar dispositivo</button></div>
     </section>
     <section>
-        <a href="view/usuario/perfil.php"><button class="botao"><img src="img/icons/userIcon.svg"></button></a>
+        <div class="img-button"><a href="view/usuario/perfil.php"><button class="botao"><img src="img/icons/userIcon.svg"></button></a></div>
         <div class="button"><button class="" type="submit" id="" name="" value="">Perfil do usuário</button></div>
     </section>
+    </div>
+</div>
 </body>
 </html>

@@ -90,23 +90,43 @@ body{
 
 button{
     background-color: #FBC10D;
-    width: 182.45px;
+    width: 160.45px;
     height: 34.59px;
+    display: inline-block;
+    justify-content: center;
     font-size: 1.5rem;
     font-family: 'Questrial', sans-serif;
     color: rgba(0, 0, 0, 0.60);
+    margin-bottom: 10px;
 }
 
-button:hover{
+button:hover, button.cancel:hover{
     background-color: #ffffff;
 }
+
+button.cancel{
+    background-color: #C53200;
+}
+
+.center p{
+    margin-bottom: 20px;
+}
+
+p:hover{
+    color: #ffffff;
+    font-size: 1.3rem;
+}
+
+
 
 .form-footer{
     text-align: center;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .form-footer button{
     margin: 1rem;
+    margin-block: -3rem;
 }
 
 .nav-element{
@@ -114,3 +134,11 @@ margin-left: 92px;
 margin-right: 92px;
 }
 
+.center{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.center label{
+    cursor: pointer;
+}
