@@ -46,7 +46,7 @@
                         <div class="foto"><img src="../../img/png/defaultProfilePhoto.png"></div> <!--onde fica a foto -->
                         <br>
                             <div class="button-alterar">
-                                <button class="" onclick="document.getElementById('photo').click()" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Alterar foto</button>
+                                <button type="button" class="" onclick="document.getElementById('photo').click()" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Alterar foto</button>
                                 <input type='file' id="photo" style="display:none">
                             </div>
                     </div>
@@ -55,22 +55,32 @@
                     <div class="input-group">
                         <div class="input-box">
                             <label for="usuaNome">Nome completo</label>
-                            <input class="" type="" id="usuaNome" name="usuaNome" placeholder="" minlength="3" value="<?php echo $data['usuaNome'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <input required class="" type="" id="usuaNome" name="usuaNome" placeholder="" minlength="3" value="<?php echo $data['usuaNome'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         </div>
 
                         <div class="input-box">
                             <label for="usuaEmail">E-mail</label>
-                            <input class="" type="email" id="email" name="usuaEmail" placeholder="" value="<?php echo $data['usuaEmail'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <input required class="" type="email" id="email" name="usuaEmail" placeholder="" value="<?php echo $data['usuaEmail'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         </div>
 
                         <div class="input-box">
                             <label for="usuaTelefone">Telefone</label>
-                            <input class="" type="tel" id="telefone" name="usuaTelefone" placeholder="" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" value="<?php echo $data['usuaTelefone'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <input required class="" type="tel" id="telefone" name="usuaTelefone" placeholder="" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" value="<?php echo $data['usuaTelefone'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         </div>
                         
                         <div class="input-box">
                             <label for="usuaSenha">Senha</label>
-                            <input class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php echo $data['usuaSenha'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <input required onkeyup='verificarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="usuaSenha">Nova senha</label>
+                            <input onkeyup='confirmarSenha();' class="" type="password" id="NovaUsuaSenha" name="" placeholder="" minlength="8" value="" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="usuaSenha">Confirmar senha</label>
+                            <input onkeyup='confirmarSenha();' class="" type="password" id="NovaUsuaSenhaConfirma" name="" placeholder="" minlength="8" value="" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         </div>
                     </div>    
                     
@@ -80,13 +90,46 @@
                 <div class="perfil-footer">
                     <div class="button"><a href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
                 <br>
-                    <div class="button"><button class="" type="submit" id="" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Salvar</button></div>
+                    <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled>Salvar</button></div>
                 <br>
                 </div>
             </form>
         </div>
 
     </section>
+    <script>
+        var senhaAntiga = "<?php echo $data['usuaSenha'];?>";
+        var senha = document.getElementById("usuaSenha");
+        var senhaConfirma = document.getElementById("usuaSenhaConfirma");
+
+        function trocarSenha() {
+            if(senha.)
+        }
+        function verificarSenha() {
+            if(senhaAntiga == senha.value) {
+                document.getElementById("enviar").disabled = false;
+            }
+        }
+
+        function confirmarSenha() {
+            if(senha.value == document.getElementById("usuaSenhaConfirma").value) {
+                document.getElementById("enviar").disabled = false;
+            }
+        }
+    </script>
+    <!-- <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="footer-logo"><img src="../../img/icons/solargirologoIconW.svg" width="100rem"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="footer-text">
+                        <p>Solar Giro é uma empresa de energia solar desenvolvida por alunos do curso de Sistemas de Informação do Instituto Federal de São Paulo - Campus São João. O projeto foi desenvolvido como trabalho de conclusão de curso, e foi realizado através de um grupo de alunos do curso de Sistemas de Informação do Instituto Federal de São Paulo - Campus São João.</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
 
 </body>

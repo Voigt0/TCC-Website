@@ -60,7 +60,12 @@
                         <br>
                         <div class="input-field">
                             <div class="form-element"><label for="usuaSenha"><img src="../../img/icons/passwordIcon.svg" width="40rem" height="40rem"></label></div>
-                            <div class="form-element"><input class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="Senha" value="" minlength="8" maxlength="20" required></div>
+                            <div class="form-element"><input onkeyup='confirmarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="Senha" value="" minlength="8" maxlength="20" required></div>
+                            <br>
+                        </div>
+                        <div class="input-field">
+                            <div class="form-element"><label for=""><img src="../../img/icons/passwordIcon.svg" width="40rem" height="40rem"></label></div>
+                            <div class="form-element"><input onkeyup='confirmarSenha();' class="" type="password" id="usuaSenhaConfirma" name="" placeholder="Confirmar senha" value="" minlength="8" maxlength="20" required></div>
                             <br>
                         </div>
                         <div class="form-footer">
@@ -69,7 +74,7 @@
                                 <label for="checkbox">Li e concordei com os termos</label>
                             </div>
                             <br>
-                            <button class="" type="submit" id="" name="" value="">entrar</button>
+                            <button class="" type="submit" id="enviar" name="" value="" disabled>entrar</button>
                             </form>
                         </div>
                     </div>
@@ -77,6 +82,7 @@
             </div>
         </div>
     </section>
+    <script src="../../js/confirmar-senha.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
