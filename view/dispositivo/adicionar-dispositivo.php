@@ -20,18 +20,57 @@
 <body>
     
     <header>
-        <nav class="navbar" style="background-color: #171606;">        
-            <div class="container-fluid">
-                <div class="nav-element"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
-                <header>    
-                   <div class="nav-element"><a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
-                </header>
-                <div class="nav-element"><a href="../usuario/perfil.php"><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
-            </div>
+        <nav class="nav-bar">
+            <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
+            <div class="logo"><a href=""><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
+            <div class="nav-list"><a href=""><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
         </nav>
     </header>
 
+    <!-- <section>
+        <main class="body"> -->
+        <!-- <div class="back"><a href="../../index.php"><img src="../../img/icons/backIconB.svg" width="60rem"></a></div> -->
+            <!-- <div class="box">
+                <div class="form">
+                    <div class="form-header">
+                        <form action="../../php/controle/controle-adicionar-dispositivo.php" method="post">
+                            <h2>Adicionar Dispositivo</h2>
+                            <div class="underline"></div>
+                    </div>
 
+                    <div class="input-field">
+                            <div class="form-element"><label for="dispNome"><img src="../../img/icons/nameIcon.svg" width="35rem" height="35rem"></label></div>
+                            <div class="form-element"><input class="" type="" id="dispNome" name="dispNome" placeholder="Nome do dispositivo" value="" required></div>
+                    </div>
+                    <div class="input-field">
+                        <div class="form-element"><label for="dispDescricao"><img src="../../img/icons/descriptionIcon.svg" width="35rem" height="35rem"></label></div>
+                        <div class="form-element"><input class="description" type="textarea" id="dispDescricao" name="dispDescricao" placeholder="Descrição adicional" value=""></div>
+                    </div>
+                    <div class="input-field">
+                        <div class="form-element"><label for="dispLatitude"><img src="../../img/icons/latitude.svg" width="30rem" height="30rem"></label></div>
+                        <div class="form-element"><input class="" type="" id="dispLatitude" name="dispLatitude" placeholder="Latitude do dispositivo" value="" required></div>
+                    </div>
+                    <div class="input-field">
+                        <div class="form-element"><label for="dispLongitude"><img src="../../img/icons/longitude.svg" width="30rem" height="30rem"></label></div>                            
+                        <div class="form-element"><input class="" type="" id="dispLongitude" name="dispLongitude" placeholder="Longitude do dispositivo" value="" required></div>
+                    </div>
+                    <div class="center">
+                        <button name="local" id="local" type="button" onclick="getLocation()">Localizar</button>
+                        <label for="local"><p id="localizarDica" style="color:white">Clique no botão para obter suas coordenadas.</p></label>
+                        <div id="mapa"></div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button class="footer" type="submit" id="" name="" value="">Salvar</button>
+                        <a href="../../index.php"><button onclick="return confirm('Deseja mesmo cancelar?')" class="cancel" type="button" id="" name="" value="">Cancelar</button></a>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </main>
+    </section> -->
 
     <section>
         <div class="container-fluid">
@@ -54,12 +93,10 @@
                             <div class="form-element"><label for="dispDescricao"><img src="../../img/icons/descriptionIcon.svg" width="35rem" height="35rem"></label></div>
                             <div class="form-element"><input class="description" type="textarea" id="dispDescricao" name="dispDescricao" placeholder="Descrição adicional" value=""></div>
                         </div>
-                        <!-- <br> -->
                         <div class="input-field">
                             <div class="form-element"><label for="dispLatitude"><img src="../../img/icons/latitude.svg" width="30rem" height="30rem"></label></div>
                             <div class="form-element"><input class="" type="" id="dispLatitude" name="dispLatitude" placeholder="Latitude do dispositivo" value="" required></div>
                         </div>
-                        <!-- <br> -->
                         <div class="input-field">
                             <div class="form-element"><label for="dispLongitude"><img src="../../img/icons/longitude.svg" width="30rem" height="30rem"></label></div>
                             <div class="form-element"><input class="" type="" id="dispLongitude" name="dispLongitude" placeholder="Longitude do dispositivo" value="" required></div>

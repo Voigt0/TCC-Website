@@ -19,33 +19,45 @@
 ?>
 <body>
     <header>
-        <nav class="navbar" style="background-color: #171606;">        
-            <div class="container-fluid">
-                <div class="nav-element"><a href=""><img src="img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
-                <header>    
-                   <div class="nav-element"><a href=""><img src="img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
-                </header>
-                <div class="nav-element"><a href=""><img src="img/icons/userIcon.svg" width="40rem"></a></div>
-            </div>
+        <nav class="nav-bar">
+            <div class="nav-list"><a href=""><img src="img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
+            <div class="logo"><a href=""><img src="img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
+            <div class="nav-list"><a href=""><img src="img/icons/userIcon.svg" width="40rem"></a></div>
         </nav>
     </header>
-       
 
- <div class="container">
- <div class="container-fluid">
+
+    
+<!-- 
     <section>
-        <div class="img-button"><a href="view/dispositivo/adicionar-dispositivo.php"><button class="botao"><img src="img/icons/addIcon.svg"></button></a></div>
-        <div class="button"><button class="" type="submit" id="" name="" value="">Adicionar dispositivo</button></div>
+        <div class="item"><div class="img-button"><a href="view/dispositivo/adicionar-dispositivo.php"><button class="botao"><img src="img/icons/addIcon.svg"></button></a></div></div>
+        <div class="item"><div class="button"><button class="" type="submit" id="" name="" value="">Adicionar dispositivo</button></div></div>
     </section>
     <section>
-        <div class="img-button"><a href="view/dispositivo/controle-de-dispositivos.php"><button class="botao"><img src="img/icons/confIcon.svg"></button></a></div>
-        <div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar dispositivo</button></div>
+        <div class="item"><div class="img-button"><a href="view/dispositivo/controle-de-dispositivos.php"><button class="botao"><img src="img/icons/confIcon.svg"></button></a></div></div>
+        <div class="item"><div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar dispositivo</button></div></div>
     </section>
     <section>
-        <div class="img-button"><a href="view/usuario/perfil.php"><button class="botao"><img src="img/icons/userIcon.svg"></button></a></div>
-        <div class="button"><button class="" type="submit" id="" name="" value="">Perfil do usuário</button></div>
-    </section>
-    </div>
+        <div class="item"><div class="img-button"><a href="view/usuario/perfil.php"><button class="botao"><img src="img/icons/userIcon.svg"></button></a></div></div>
+        <div class="item"><div class="button"><button class="" type="submit" id="" name="" value="">Perfil do usuário</button></div></div>
+    </section> -->
+
+
+
+    <main class="body">
+        <section>
+            <div class="img-button"><a href="view/dispositivo/adicionar-dispositivo.php"><button class="botao"><img src="img/icons/addIcon.svg"></button></a></div>
+            <div class="button"><button class="" type="submit" id="" name="" value="">Adicionar dispositivo</button></div>
+        </section>
+        <section>
+            <div class="img-button"><a href="view/dispositivo/controle-de-dispositivos.php"><button class="botao"><img src="img/icons/confIcon.svg"></button></a></div>
+            <div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar dispositivo</button></div>
+        </section>
+        <section>
+            <div class="img-button"><a href="view/usuario/perfil.php"><button class="botao"><img src="img/icons/userIcon.svg"></button></a></div>
+            <div class="button"><button class="" type="submit" id="" name="" value="">Perfil do usuário</button></div>
+        </section>
+    </main>
 </div>
 </body>
 </html>

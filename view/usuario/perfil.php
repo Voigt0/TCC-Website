@@ -70,17 +70,17 @@
                         
                         <div class="input-box">
                             <label for="usuaSenha">Senha</label>
-                            <input required onkeyup='verificarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <input required onkeyup='confirmarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php if(!isset($_GET['update'])) {echo $data['usuaSenha'];}?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         </div>
 
                         <div class="input-box">
-                            <label for="usuaSenha">Nova senha</label>
-                            <input onkeyup='confirmarSenha();' class="" type="password" id="NovaUsuaSenha" name="" placeholder="" minlength="8" value="" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenha">Nova senha</label>
+                            <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenha" name="novaUsuaSenha" placeholder="" minlength="8" maxlength="20" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
                         </div>
 
                         <div class="input-box">
-                            <label for="usuaSenha">Confirmar senha</label>
-                            <input onkeyup='confirmarSenha();' class="" type="password" id="NovaUsuaSenhaConfirma" name="" placeholder="" minlength="8" value="" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenhaConfirma">Confirmar senha</label>
+                            <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
                         </div>
                     </div>    
                     
@@ -97,26 +97,8 @@
         </div>
 
     </section>
-    <script>
-        var senhaAntiga = "<?php echo $data['usuaSenha'];?>";
-        var senha = document.getElementById("usuaSenha");
-        var senhaConfirma = document.getElementById("usuaSenhaConfirma");
-
-        function trocarSenha() {
-            if(senha.)
-        }
-        function verificarSenha() {
-            if(senhaAntiga == senha.value) {
-                document.getElementById("enviar").disabled = false;
-            }
-        }
-
-        function confirmarSenha() {
-            if(senha.value == document.getElementById("usuaSenhaConfirma").value) {
-                document.getElementById("enviar").disabled = false;
-            }
-        }
-    </script>
+    <script>var senhaAtual = "<?php echo $data["usuaSenha"];?>";</script>
+    <script src="../../js/perfil.js"></script>
     <!-- <footer>
         <div class="container-fluid">
             <div class="row">

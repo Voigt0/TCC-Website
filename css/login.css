@@ -12,21 +12,47 @@ body{
     background-color: #FBC10D;
 }
 
-.container{
-    margin-top: 100px;
-    width: 435px;
-    height: 443px;
+/* css nav bar */
+header{
     background-color: #171606;
-    position: relative; 
+    align-self: baseline;
 }
 
-.box{
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 400px;
-    height: 420px;
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 8.5rem;
 }
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+}
+
+
+/* Body */
+.body{
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+} 
+
+.box{
+    width: 435px;
+    height: 443px;
+    background-color: black;
+    display: flex;
+    align-items: center;    
+    padding: 2rem;
+}
+
 
 .form-header{
     margin-bottom: 3rem;
@@ -36,28 +62,6 @@ body{
     color: #ffffff;
     font-size: 6rem;
     font-family: 'Questrial', sans-serif;
-}
-
-.underline1 {
-    content: '';
-    position: absolute;
-    height: 4px;
-    width: 72px;
-    bottom: 345px;
-    left: 5.5px;
-    border-radius: 8px;
-    background: #ffffff;
-}
-
-.underline2 {
-    content: '';
-    position: absolute;
-    height: 4px;
-    width: 55px;
-    bottom: 345px;
-    left: 120px;
-    border-radius: 8px;
-    background: #ffffff;
 }
 
 .input-field{
@@ -72,7 +76,7 @@ body{
 
 .input-field input {
     padding: 0.8rem;
-    width: 25rem;
+    width: 24rem;
     height: 3rem;
     border: none;
     box-shadow: 1px 1px 6px #0000001c;
@@ -89,7 +93,6 @@ body{
 .form-element input{
     margin-top: 0.5rem;
 }
-
 
 button{
     background-color: #FBC10D;
@@ -126,5 +129,52 @@ a:hover{
     margin: 1rem;
 }
 
+/* 
+.underline1 {
+    content: ''; */
+    /* position: absolute; */
+    /* height: 4px;
+    width: 72px;
+    bottom: 345px;
+    left: 5.5px;
+    border-radius: 8px;
+    background: #ffffff;
+} */
+
+/* .underline2 {
+    content: ''; */
+    /* position: absolute; */
+    /* display: flex; */
+    
+    /* height: 4px;
+    width: 55px;
+    bottom: 345px;
+    left: 120px;
+    
+    border-radius: 8px;
+    background: #ffffff;
+} */
 
 
+
+/* 
+.container{
+    margin-top: 100px;
+    width: 435px;
+    height: 443px;
+    background-color: #171606;
+    position: relative; 
+}
+
+.box{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    height: 420px;
+}
+
+
+
+
+ */
