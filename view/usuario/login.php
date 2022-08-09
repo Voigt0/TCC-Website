@@ -4,7 +4,7 @@
     if(isset($_SESSION['usuaId']) && $_SESSION['usuaId'] != '') {
         header("Location: ../../index.php");
     }
-    $_SESSION['dispId'] = ''
+    $_SESSION['dispId'] = '';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/login.css"> 
 </head>
-<body>
+<body data-bs-toggle="modal" data-bs-target="#myModal">
     <header>
         <nav class="nav-bar">
             <div class="nav-list"></div>
@@ -25,8 +25,15 @@
             <div class="nav-list"></div>
         </nav>
     </header>
-
-
+    <script>
+        alerta(){
+            const element = document.createElement('div');
+        }
+    </script>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
     <section>
         <main class="body">
             <div class="box">

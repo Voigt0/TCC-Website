@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
+
 * {
     font-size: 12px;
     margin: 0;
@@ -35,59 +37,109 @@ header{
     align-items: center;
 }
 
+.back{
+    display: flex;
+    justify-content: end;
+    width: auto;
+    padding-top: 2rem;
+    padding-right: 6%;
+}
 
 
-/* Body */
+/* body */
+
 .body{
-    height: 90vh;
+    height: 90%;
+} 
+
+.form-header{
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    padding: 61px;
-    
-    /* position: relative; */
-} 
+    padding-top: 2rem;
+}
 
-section{
+.form-header h2{
+    color: #000000;
+    font-size: 56.24px;
+    font-family: 'Girassol', sans-serif;
+}
+
+.pesquisa{
+    background-color: black;
+    width: 40.5rem;
+    height: 47.36px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    justify-content: end;
+    border: solid;
+    border-radius: 3rem;
+} 
 
-.button{
-    padding: 1rem;
-    
-}
- 
-.button button{
-    background-color: #FBC10D;
-    color: black;
-    border: 2px;
-    border-style: solid;
-    border-color: black;
-    border-radius: 0.75rem;
-    padding-inline: 10px;
-    font-size: 22px;
-    height: 39px;
-    width: 244px;
+.pesquisa input{
+    background-color: rgba(0, 0, 0, 0);
+    width: 85%;
+    border-radius: 3rem;
+    color: #ffffff;
+    outline: 0;
+    font-size: 17px;
+} 
+
+.form-header button{
+    background-color: rgba(0, 0, 0, 0);
+    padding-right: 2rem;
 } 
 
 
-.container{ 
-    justify-content: center;    
+
+.box-body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 4rem;
 }
 
-.nav-element{
-    margin-left: 92px;
-    margin-right: 92px;
-    }
+
+.select-box{
+    background-color: black;
+    width: 514px;
+    height: 380px;
+    border: solid 0;
+    border-radius: 64px;
+    color: #ffffff;
+}
+
+.disp-box{
+    background-color: #FBC10D;
+    width: 514px;
+    height: 380px;
+    border: solid black;
+    border-radius: 64px;
+}
 
 
-.botao{
-    background-color: #171606;
-    width: 356.84px;
-    height: 388px;
-    border-radius: 20px;
+
+.select-header{
+    display: flex;
+    justify-content: space-between;   
+}
+
+.select-header h3{
+    padding: 2rem;
+    font-family: 'Girassol', sans-serif;
+    font-size: 38px;
+}
+
+.select-header img{
+    margin-right: 2rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+h4{
+    font-size: 30px;
     padding: 2rem;
 }

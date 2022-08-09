@@ -4,7 +4,7 @@
     if(isset($_SESSION['usuaId']) && $_SESSION['usuaId'] != '') {
         header("Location: ../../index.php");
     }
-    $_SESSION['dispId'] = ''
+    $_SESSION['dispId'] = '';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

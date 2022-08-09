@@ -47,7 +47,7 @@ header{
 .box{
     width: 435px;
     height: 443px;
-    background-color: black;
+    background-color: #171606;
     display: flex;
     align-items: center;    
     padding: 2rem;

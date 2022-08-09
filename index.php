@@ -15,7 +15,7 @@
     if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
         header("Location: view/usuario/login.php");
     }
-    $_SESSION['dispId'] = ''
+    $_SESSION['dispId'] = '';
 ?>
 <body>
     <header>
