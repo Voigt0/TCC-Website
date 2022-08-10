@@ -14,7 +14,7 @@ body{
     background-color: #FBC10D;
 }
 
-
+/* css nav bar */
 /* css nav bar */
 header{
     background-color: #171606;
@@ -91,7 +91,6 @@ header{
 } 
 
 
-
 .box-body{
     display: flex;
     justify-content: space-around;
@@ -122,7 +121,8 @@ header{
 
 .select-header{
     display: flex;
-    justify-content: space-between;   
+    justify-content: space-around;  
+    align-items: baseline; 
 }
 
 .select-header h3{
@@ -137,9 +137,50 @@ header{
 
 a{
     text-decoration: none;
+    color: #000000;
+    font-size: 35px;
 }
+
+a:hover{
+    color: black;
+}
+
+.select-header a{
+    color: white;
+}
+
+.select-header a:hover{
+    color: white;
+}
+
+
 
 h4{
     font-size: 30px;
     padding: 2rem;
+    font-weight: normal;
 }
+
+p{
+    font-size: 15px;
+    padding-left: 2rem;
+    color: white;
+}
+
+.disp-box{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    justify-content: space-between;  
+    align-items:baseline; 
+}
+
+th, a{
+    font-family: 'Girassol', sans-serif;
+    color: black;
+}
+
+.disp-header th{
+    font-size: 47px;
+}
+

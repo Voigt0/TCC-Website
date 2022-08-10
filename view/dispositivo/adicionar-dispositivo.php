@@ -4,7 +4,12 @@
     if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
         header("Location: ../usuario/login.php");
     }
-    $_SESSION['dispId'] = '';
+    include_once (__DIR__."/../../php/utils/autoload.php");
+    //Salvar contexto
+    print_r($_SESSION);
+    if(isset($_SESSION['dispId']) && $_SESSION['dispId'] != '') {
+        $data = Dispositivo::consultarData($_SESSION['dispId'])[0];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -79,27 +84,27 @@
                 <div class="box">
                     <div class="form">
                         <div class="form-header">
-                            <form action="../../php/controle/controle-adicionar-dispositivo.php" method="post">
+                            <form action="../../php/controle/controle-adicionar-dispositivo.php?<?php if(isset($data)){echo 'acao=update';}?>" method="post">
                                 <h2>Adicionar dispositivo</h2>
                                 <div class="underline"></div>
                         </div>
                     <br>
                         <div class="input-field">
                             <div class="form-element"><label for="dispNome"><img src="../../img/icons/nameIcon.svg" width="35rem" height="35rem"></label></div>
-                            <div class="form-element"><input class="" type="" id="dispNome" name="dispNome" placeholder="Nome do dispositivo" value="" required></div>
+                            <div class="form-element"><input class="" type="" id="dispNome" name="dispNome" placeholder="Nome do dispositivo" value="<?php if(isset($data)){echo $data['dispNome'];}?>" required></div>
                         <br>
                         </div>
                         <div class="input-field">
                             <div class="form-element"><label for="dispDescricao"><img src="../../img/icons/descriptionIcon.svg" width="35rem" height="35rem"></label></div>
-                            <div class="form-element"><input class="description" type="textarea" id="dispDescricao" name="dispDescricao" placeholder="Descrição adicional" value=""></div>
+                            <div class="form-element"><input class="description" type="textarea" id="dispDescricao" name="dispDescricao" placeholder="Descrição adicional" value="<?php if(isset($data)){echo $data['dispDescricao'];}?>"></div>
                         </div>
                         <div class="input-field">
                             <div class="form-element"><label for="dispLatitude"><img src="../../img/icons/latitude.svg" width="30rem" height="30rem"></label></div>
-                            <div class="form-element"><input class="" type="" id="dispLatitude" name="dispLatitude" placeholder="Latitude do dispositivo" value="" required></div>
+                            <div class="form-element"><input class="" type="number" max="90" step="0.0000001" id="dispLatitude" name="dispLatitude" placeholder="Latitude do dispositivo" value="<?php if(isset($data)){echo $data['dispLatitude'];}?>" required></div>
                         </div>
                         <div class="input-field">
                             <div class="form-element"><label for="dispLongitude"><img src="../../img/icons/longitude.svg" width="30rem" height="30rem"></label></div>
-                            <div class="form-element"><input class="" type="" id="dispLongitude" name="dispLongitude" placeholder="Longitude do dispositivo" value="" required></div>
+                            <div class="form-element"><input class="" type="number" max="180" step="0.0000001" id="dispLongitude" name="dispLongitude" placeholder="Longitude do dispositivo" value="<?php if(isset($data)){echo $data['dispLongitude'];}?>" required></div>
                         <br>
                         </div>
                         

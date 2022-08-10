@@ -24,13 +24,13 @@
 
 </head>
 <body>
-    <header>
+<header>
         <nav class="nav-bar">
             <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
             <div class="logo"><a href=""><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
-            <div class="nav-list"><a href="../usuario/perfil.php"><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
+            <div class="nav-list"><a href=""><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
         </nav>
-    </header>    
+    </header>
 
     <section>
         <div class="back"><a href="../../index.php"><img src="../../img/icons/backIconB.svg" width="60rem"></a></div>
@@ -59,55 +59,49 @@
                         </div>
                     </form>
 
-                    <!-- <div class="box-body"> -->
-                    <!-- <div class="select-box"> -->
-                        <!-- <a href="adicionar-dispositivo.php"><div class="select-box">alejshj</div></a>
-                    </div>
-                    </div> -->
-
-
-
                     <div class="box-body">
-                        <a href="adicionar-dispositivo.php">
                         <div class="select-box" <?php if(!isset($_SESSION['dispId']) || $_SESSION['dispId'] == '') {echo "hidden";}?>>
                             <?php
                                 $data = Dispositivo::consultarData($_SESSION['dispId'])[0];
-                            ?>
+                                ?>
                             <div class="select-header">
+                                <a href="menu-dispositivo.php">
                                 <h3><?php echo "N°".$data['dispId']." - ".$data['dispNome']; ?></h3>
-                                <img src="../../img/icons/editIcon.svg" width="43px">                            
+                                <a class="select" href="adicionar-dispositivo.php"><img src="../../img/icons/editIcon.svg" width="43px">                            
+                                <a href="../../php/controle/controle-adicionar-dispositivo.php?acao=delete"><img src="../../img/icons/deleteIcon.svg" width="45px"></a>                            
                             </div>
                             
                                 <h4>Localização: <?php echo $data['dispLatitude'].", ".$data['dispLongitude']; ?></h4>
-                            <h4>Descrição: <?php echo $data['dispDescricao']; ?></h4>
-                                <!-- <h3>(Nome) <?php //echo $data['dispNome']; ?></h3> -->
+                                <h4>Descrição: <?php echo $data['dispDescricao']; ?></h4>
+                                <a href="menu-dispositivo.php"><p>Ver mais informações</p></a>
                         </div>
                         </a>
 
 
-                        
+
+
                         <div class="disp-box">
                             <table id="">
-                                <thead>
-                                    <tr class="">
-                                        <th>N°</th>
-                                        <th>Nome</th>
+                                <!-- <thead> -->
+                                    <tr class="disp-header">
+                                        <th scope="col">N°</th>
+                                        <th scope="col">Nome</th>
                                     </tr>
-                                </thead>
-                            <tbody>
+                                <!-- </thead> -->
+                            <!-- <tbody> -->
                                 <?php
                                     //Filtro da tabela exibida
                                     $tabela = Dispositivo::consultarUsuario($_SESSION['usuaId'], $busca, $pesquisa);
                                     foreach($tabela as $key => $value) {
                                 ?>
                                     <tr>
-                                        <th><?php echo $value['dispId'];?></th>
+                                        <th><a href="controle-de-dispositivos.php?dispId=<?php echo $value['dispId']; ?>"><?php echo $value['dispId'];?></p></th>
                                         <td><a href="controle-de-dispositivos.php?dispId=<?php echo $value['dispId'];?>"><?php echo $value['dispNome'];?></a></td>
                                     </tr>
                                 <?php
                                     } 
                                 ?> 
-                            </tbody>
+                            <!-- </tbody> -->
                         </div>
                     </div>
             </main>
