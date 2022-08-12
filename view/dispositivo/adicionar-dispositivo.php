@@ -27,8 +27,8 @@
     <header>
         <nav class="nav-bar">
             <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
-            <div class="logo"><a href=""><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
-            <div class="nav-list"><a href=""><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
+            <div class="logo"><a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
+            <div class="nav-list"><a href="../usuario/perfil.php"><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
         </nav>
     </header>
 

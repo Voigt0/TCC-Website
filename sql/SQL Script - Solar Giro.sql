@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `Solargiro`.`Dispositivo` (
   `dispNome` VARCHAR(45) NOT NULL,
   `dispLatitude` DECIMAL(9,7) NOT NULL,
   `dispLongitude` DECIMAL(10,7) NOT NULL,
-  `dispDescricao` VARCHAR(45) NOT NULL,
+  `dispDescricao` VARCHAR(100) NOT NULL,
   `dispositivo_usuaId` INT(11) NOT NULL,
   PRIMARY KEY (`dispId`),
   INDEX `fk_dispositivo_usuario1` (`dispositivo_usuaId` ASC) VISIBLE,
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS `Solargiro`.`Bateria` ;
 CREATE TABLE IF NOT EXISTS `Solargiro`.`Bateria` (
   `bateId` INT(11) NOT NULL AUTO_INCREMENT,
   `bateEstado` TINYINT(1) NOT NULL,
-  `bateDescricao` VARCHAR(45) NOT NULL,
+  `bateDescricao` VARCHAR(100) NOT NULL,
   `bateCarga` INT(11) NOT NULL,
   `bateTemperatura` DECIMAL(6,2) NOT NULL,
   `bateria_dispId` INT(11) NOT NULL,
@@ -90,7 +90,7 @@ DROP TABLE IF EXISTS `Solargiro`.`Motor` ;
 CREATE TABLE IF NOT EXISTS `Solargiro`.`Motor` (
   `motoId` INT(11) NOT NULL AUTO_INCREMENT,
   `motoEstado` TINYINT(1) NOT NULL,
-  `motoDescricao` VARCHAR(45) NOT NULL,
+  `motoDescricao` VARCHAR(100) NOT NULL,
   `motoPosicaoXY` VARCHAR(45) NOT NULL,
   `motoPosicaoZ` VARCHAR(45) NOT NULL,
   `motor_dispId` INT(11) NOT NULL,
