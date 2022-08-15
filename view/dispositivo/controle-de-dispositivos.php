@@ -24,7 +24,7 @@
 
 </head>
 <body>
-<header>
+    <header>
         <nav class="nav-bar">
             <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
             <div class="logo"><a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
@@ -60,6 +60,7 @@
                     </form>
 
                     <div class="box-body">
+
                         <div class="select-box" <?php if(!isset($_SESSION['dispId']) || $_SESSION['dispId'] == '') {echo "hidden";}?>>
                             <?php
                                 $data = Dispositivo::consultarData($_SESSION['dispId'])[0];
@@ -75,35 +76,38 @@
                                 <h4>Descrição: <?php echo $data['dispDescricao']; ?></h4>
                                 <a href="menu-dispositivo.php"><p>Ver mais informações</p></a>
                         </div>
-                        </a>
-
 
 
 
                         <div class="disp-box">
-                            <table id="">
-                                <!-- <thead> -->
-                                    <tr class="disp-header">
-                                        <th scope="col">N°</th>
-                                        <th scope="col">Nome</th>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>N°</th>
+                                        <th>Nome</th>
                                     </tr>
-                                <!-- </thead> -->
-                            <!-- <tbody> -->
-                                <?php
+                                </thead>
+
+                                <tbody>
+                                <?php 
                                     //Filtro da tabela exibida
                                     $tabela = Dispositivo::consultarUsuario($_SESSION['usuaId'], $busca, $pesquisa);
                                     foreach($tabela as $key => $value) {
                                 ?>
-                                    <tr>
-                                        <th><a href="controle-de-dispositivos.php?dispId=<?php echo $value['dispId']; ?>"><?php echo $value['dispId'];?></p></th>
-                                        <td><a href="controle-de-dispositivos.php?dispId=<?php echo $value['dispId'];?>"><?php echo $value['dispNome'];?></a></td>
-                                    </tr>
+
+                                <tr>
+                                    <th><a href="controle-de-dispositivos.php?dispId=<?php echo $value['dispId']; ?>"><?php echo $value['dispId'];?></th>
+                                    <td><a href="controle-de-dispositivos.php?dispId=<?php echo $value['dispId'];?>"><?php echo $value['dispNome'];?></a></td>
+                                </tr>
+                                </tbody>
+                                 
+
                                 <?php
-                                    } 
+                                   } 
                                 ?> 
-                            <!-- </tbody> -->
                         </div>
-                    </div>
+                    </div> 
+                    <!-- fecha boxbody -->
             </main>
         </table>
     </section>

@@ -15,7 +15,6 @@ body{
 }
 
 /* css nav bar */
-/* css nav bar */
 header{
     background-color: #171606;
     align-self: baseline;
@@ -38,6 +37,7 @@ header{
 }
 
 .back{
+    background-color: aqua;
     display: flex;
     justify-content: end;
     width: auto;
@@ -109,13 +109,7 @@ header{
     color: #ffffff;
 }
 
-.disp-box{
-    background-color: #FBC10D;
-    width: 514px;
-    height: 380px;
-    border: solid black;
-    border-radius: 64px;
-}
+
 
 
 
@@ -135,7 +129,7 @@ header{
     margin-right: 2rem;
 }
 
-a{
+.select-box a{
     text-decoration: none;
     color: #000000;
     font-size: 35px;
@@ -156,7 +150,7 @@ a:hover{
 
 
 h4{
-    font-size: 30px;
+    font-size: 25px;
     padding: 2rem;
     font-weight: normal;
 }
@@ -167,20 +161,83 @@ p{
     color: white;
 }
 
+/* caixa do lado p clicar */
+
 .disp-box{
+    width: 514px;
+    height: 380px;
+    border: solid black;
+    border-radius: 64px;
+    color: #000000;
     display: flex;
-    flex-direction: column;
-    padding: 3rem;
-    justify-content: space-between;  
-    align-items:baseline; 
+    justify-content: space-around;  
+    align-items: baseline; 
 }
+
+.disp-box a{
+    color:#000000;
+    text-decoration: none;
+    font-family: 'Girassol', sans-serif;
+    font-size: 35px;
+}
+
+th, td{
+    /* padding: 10px; */
+    font-family: 'Girassol', sans-serif;
+    font-size: 47px;
+    font-weight: 100;
+    color: #000000;
+}
+
+th{
+    padding-right: 140px;
+}
+
+
+
+
+
+
+/* .disp-header h3{
+    font-family: 'Girassol', sans-serif;
+    font-size: 4rem;
+} */
+
+
+/* 
+.disp-box{
+    width: 514px;
+    height: 380px;
+    border: solid black;
+    border-radius: 64px;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+tr, th, td, a{
+    font-family: 'Girassol', sans-serif;
+    font-size: 35px;
+    color: black;
+} */
+
+
+
+/* 
 
 th, a{
     font-family: 'Girassol', sans-serif;
     color: black;
 }
 
-.disp-header th{
-    font-size: 47px;
+.disp-body{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+tr#disp-header th{
+    font-size: 3rem
+} */

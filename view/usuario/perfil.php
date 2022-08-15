@@ -22,28 +22,26 @@
 </head>
 <body>
     <header>
-        <nav class="navbar" style="background-color: #FBC10D;">        
-            <div class="container-fluid">
-                <div class="nav-element"><a href="../../index.php"><img src="../../img/icons/homeIconB.svg" width="30rem" height="40rem"></a></div>
-                <header>    
-                   <div class="nav-element"><a href="../../index.php"><img src="../../img/icons/solargirologoIconB.svg" style="width: 30vh;"></a></div>
-                </header>
-                <div class="nav-element"></div>
-            </div>
+        <nav class="nav-bar">
+            <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIconB.svg" width="30rem" height="40rem"></a></div>
+            <div class="logo"><a href="../../index.php"><img src="../../img/icons/solargirologoIconB.svg" style="width: 30vh;"></a></div>
+            <div class="nav-list"><a href="../usuario/perfil.php"><img id="invisivel" src="../../img/icons/userIcon.svg" width="40rem"></a></div>
         </nav>
     </header>
 
    
     <section>
         <div class="container-fluid">
-            <div class="back"><a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a></div>
-                
+            <div class="back"><a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a></div>                
             <form action="../../php/controle/controle-perfil.php" method="post">
                 <div class="container">
                     <div class="box-foto">
                         <div class="form-header"><h2>Informações de pefil</h2></div>
                         <br>
-                        <div class="foto"><img src="../../img/png/defaultProfilePhoto.png"></div> <!--onde fica a foto -->
+                        <div class="foto">
+                            <img src="../../img/png/defaultProfilePhoto.png">
+                    
+                        </div> <!--onde fica a foto -->
                         <br>
                             <div class="button-alterar">
                                 <button type="button" class="" onclick="document.getElementById('photo').click()" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Alterar foto</button>
@@ -92,7 +90,7 @@
                 <br>
                     <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled>Salvar</button></div>
                 <br>
-                    <a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value="">Encerrar sessão</button></a>
+                    <div class="button"><a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value="">Encerrar sessão</button></a></div>
                 </div>
             </form>
         </div>

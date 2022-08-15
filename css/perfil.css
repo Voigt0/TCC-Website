@@ -13,8 +13,34 @@ body{
     background-color: #000000;
     color: #ffffff;
     width: 100%;
-
 }
+
+/* css nav bar */
+header{
+    background-color: #FBC10D;
+    align-self: baseline;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 8.5rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+}
+
+img#invisivel{
+    opacity: 0;
+}
+
 
 .container{
     display: flex;
@@ -69,10 +95,6 @@ body{
 }
 
 
-.nav-element{
-    margin-left: 92px;
-    margin-right: 92px;
-}
 
 .back{
     margin-top: 30px;
@@ -120,9 +142,8 @@ button:hover{
 }
 
 .button-alterar{
+    display: flex;
     justify-content: center;
-    align-items: center;
-    /* display: flex; */
 }
 
 .button-alterar button{
