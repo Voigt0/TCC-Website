@@ -1,9 +1,12 @@
 <?php
-    session_set_cookie_params(0);
-    session_start();
-    if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
-        header("Location: ../usuario/login.php");
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
+            header("Location: ../usuario/login.php");
+        }
     }
+
     include_once (__DIR__ ."/../../php/utils/autoload.php");
     if(isset($_GET['dispId'])) {
         Dispositivo::validar($_GET['dispId'], $_SESSION['usuaId']);
@@ -21,27 +24,20 @@
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
     <link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/controle-de-dispositivo.css">
-
 </head>
 <body>
     <header>
         <nav class="nav-bar">
             <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
             <div class="logo"><a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
-            <div class="nav-list"><a href="../usuario/perfil.php"><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
+            <div class="nav-list"><a href="../../usuario/perfil.php"><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
         </nav>
     </header>
 
     <section>
         <div class="back"><a href="../../index.php"><img src="../../img/icons/backIconB.svg" width="60rem"></a></div>
-    </section>
-
-
-    
-    
+    </section>    
     <section>
-
-            
             <main class="body">
                     <form action="" method="">
                         <div class="form-header">
@@ -68,7 +64,7 @@
                             <div class="select-header">
                                 <a href="menu-dispositivo.php">
                                 <h3><?php echo "N°".$data['dispId']." - ".$data['dispNome']; ?></h3>
-                                <a class="select" href="adicionar-dispositivo.php"><img src="../../img/icons/editIcon.svg" width="43px">                            
+                                <a class="select" href="adicionar-editar-dispositivo.php?acao=update"><img src="../../img/icons/editIcon.svg" width="43px">                            
                                 <a href="../../php/controle/controle-adicionar-dispositivo.php?acao=delete"><img src="../../img/icons/deleteIcon.svg" width="45px"></a>                            
                             </div>
                             

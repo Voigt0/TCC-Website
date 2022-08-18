@@ -1,8 +1,10 @@
 <?php
-    session_set_cookie_params(0);
-    session_start();
-    if(isset($_SESSION['usuaId']) && $_SESSION['usuaId'] != '') {
-        header("Location: ../../index.php");
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(isset($_SESSION['usuaId']) && $_SESSION['usuaId'] != ''){
+            header("Location: ../../index.php");
+        }
     }
     $_SESSION['dispId'] = '';
 ?>
@@ -29,7 +31,6 @@
             </div>
         </nav>
     </header>
-
     <section>
         <div class="container-fluid">
             <div class="back"><a href="login.php"><img src="../../img/icons/backIconB.svg" width="60rem"></a></div>
@@ -41,7 +42,7 @@
                                 <h2>Cadastro</h2>
                                 <div class="underline"></div>
                         </div>
-                    <br>
+                        <br>
                         <div class="input-field">
                             <div class="form-element"><label for="usuaNome"><img src="../../img/icons/nameIcon.svg" width="40rem" height="40rem"></label></div>
                             <div class="form-element"><input class="" type="" id="usuaNome" name="usuaNome" placeholder="Nome completo" value="" minlength="3" required></div>

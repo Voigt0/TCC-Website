@@ -1,3 +1,13 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
+            header("Location: view/usuario/login.php");
+        }
+    }
+    $_SESSION['dispId'] = '';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,14 +19,6 @@
     <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css"> 
 </head>
-<?php
-        session_set_cookie_params(0);
-        session_start();
-        if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
-            header("Location: view/usuario/login.php");
-        }
-        $_SESSION['dispId'] = '';
-?>
 <body>
     <header>
         <nav class="nav-bar">
@@ -25,12 +27,9 @@
             <div class="nav-list"><a href="view/usuario/perfil.php"><img src="img/icons/userIcon.svg" width="40rem"></a></div>
         </nav>
     </header>
-
-    
-
     <main class="body">
         <section>
-            <div class="img-button"><a href="view/dispositivo/adicionar-dispositivo.php"><button class="botao"><img src="img/icons/addIcon.svg"></button></a></div>
+            <div class="img-button"><a href="view/dispositivo/adicionar-editar-dispositivo.php"><button class="botao"><img src="img/icons/addIcon.svg"></button></a></div>
             <div class="button"><button class="" type="submit" id="" name="" value="">Adicionar dispositivo</button></div>
         </section>
         <section>

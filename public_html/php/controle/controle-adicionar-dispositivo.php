@@ -6,7 +6,7 @@
             //Editar dispositivo
             $disp = new Dispositivo($_SESSION['dispId'], $_POST['dispNome'], $_POST['dispLatitude'], $_POST['dispLongitude'], $_POST['dispDescricao'], $_SESSION['usuaId']);
             $disp->update();
-            header("Location: ../../view/dispositivo/controle-de-dispositivos.php?msg=Dispositivo alteradp com sucesso!");
+            header("Location: ../../view/dispositivo/controle-de-dispositivos.php?msg=Dispositivo alterado com sucesso!");
         } else if($_GET['acao'] == 'delete') {
             //Excluir dispositivo
             $disp = new Dispositivo($_SESSION['dispId'], '', '', '', '', '');

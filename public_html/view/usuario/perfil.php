@@ -1,10 +1,13 @@
 <?php
-    session_set_cookie_params(0);
-    session_start();
-    if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == ''){
-        header("Location: login.php");
+    if (session_status() === PHP_SESSION_NONE) {
+        session_set_cookie_params(0);
+        session_start();
+        if(!isset($_SESSION['usuaId']) || $_SESSION['usuaId'] == '') {
+            header("Location: login.php");
+        }
     }
     $_SESSION['dispId'] = '';
+
     include_once (__DIR__."/../../php/utils/autoload.php");
     //Salvar contexto
     $data = Usuario::consultarData($_SESSION['usuaId'])[0];
@@ -25,7 +28,7 @@
         <nav class="nav-bar">
             <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIconB.svg" width="30rem" height="40rem"></a></div>
             <div class="logo"><a href="../../index.php"><img src="../../img/icons/solargirologoIconB.svg" style="width: 30vh;"></a></div>
-            <div class="nav-list"><a href="../usuario/perfil.php"><img id="invisivel" src="../../img/icons/userIcon.svg" width="40rem"></a></div>
+            <div class="nav-list"><a href="perfil.php"><img id="invisivel" src="../../img/icons/userIcon.svg" width="40rem"></a></div>
         </nav>
     </header>
 
