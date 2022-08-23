@@ -39,7 +39,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `id19423084_solargiro`.`Dispositivo` (
   `dispId` INT(11) NOT NULL AUTO_INCREMENT,
-  `dispApiKey` VARCHAR(17) NOT NULL,
+  `dispChave` VARCHAR(17) NOT NULL,
   `dispNome` VARCHAR(45) NOT NULL,
   `dispLatitude` DECIMAL(9,7) NOT NULL,
   `dispLongitude` DECIMAL(10,7) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `id19423084_solargiro`.`Dispositivo` (
   PRIMARY KEY (`dispId`),
   CONSTRAINT `fk_dispositivo_usuario1`
     FOREIGN KEY (`dispositivo_usuaId`)
-    REFERENCES `id19423084_solargiro`.`usuario` (`usuaId`)
+    REFERENCES `id19423084_solargiro`.`Usuario` (`usuaId`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `id19423084_solargiro`.`Bateria` (
   PRIMARY KEY (`bateId`),
   CONSTRAINT `fk_bateria_dispositivo1`
     FOREIGN KEY (`bateria_dispId`)
-    REFERENCES `id19423084_solargiro`.`dispositivo` (`dispId`)
+    REFERENCES `id19423084_solargiro`.`Dispositivo` (`dispId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `id19423084_solargiro`.`Motor` (
   PRIMARY KEY (`motoId`),
   CONSTRAINT `fk_motor_dispositivo1`
     FOREIGN KEY (`motor_dispId`)
-    REFERENCES `id19423084_solargiro`.`dispositivo` (`dispId`)
+    REFERENCES `id19423084_solargiro`.`Dispositivo` (`dispId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
