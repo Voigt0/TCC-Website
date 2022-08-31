@@ -3,16 +3,17 @@
 
     class Motor extends Database{
         private $id;
-        private $estado;
-        private $descricao;
+        // private $estado;
+        // private $descricao;
         private $posicaoXY;
         private $posicaoZ;
         private $dispId;
 
-        public function __construct($id, $estado, $descricao, $posicaoXY, $posicaoZ, $dispId) {
+        // public function __construct($id, $estado, $descricao, $posicaoXY, $posicaoZ, $dispId) {
+        public function __construct($id, $posicaoXY, $posicaoZ, $dispId) {
             $this->setId($id);
-            $this->setEstado($estado);
-            $this->setDescricao($descricao);
+            // $this->setEstado($estado);
+            // $this->setDescricao($descricao);
             $this->setPosicaoXY($posicaoXY);
             $this->setPosicaoZ($posicaoZ);
             $this->setDispositivoId($dispId);
@@ -23,13 +24,13 @@
             return $this->id;
         }
 
-        public function getEstado() {
-            return $this->estado;
-        }
+        // public function getEstado() {
+        //     return $this->estado;
+        // }
 
-        public function getDescricao() {
-            return $this->descricao;
-        }
+        // public function getDescricao() {
+        //     return $this->descricao;
+        // }
 
         public function getPosicaoXY() {
             return $this->posicaoXY;
@@ -47,13 +48,13 @@
             $this->id = $id;
         }
 
-        public function setEstado($estado) {
-            $this->estado = $estado;
-        }
+        // public function setEstado($estado) {
+        //     $this->estado = $estado;
+        // }
 
-        public function setDescricao($descricao) {
-            $this->descricao = $descricao;
-        }
+        // public function setDescricao($descricao) {
+        //     $this->descricao = $descricao;
+        // }
 
         public function setPosicaoXY($posicaoXY) {
             $this->posicaoXY = $posicaoXY;
@@ -68,24 +69,37 @@
         }   
 
         //Métodos de persistência
-        public function create(){
-            $sql = "INSERT INTO Motor (motoEstado, motoDescricao, motoPosicaoXY, motoPosicaoZ, motor_dispId) VALUES (:motoEstado, :motoDescricao, :motoPosicaoXY, :motoPosicaoZ, :motor_dispId)";
-            $params = array(
-                ":motoEstado" => $this->getEstado(),
-                ":motoDescricao" => $this->getDescricao(),
-                ":motoPosicaoXY" => $this->getPosicaoXY(),
-                ":motoPosicaoZ" => $this->getPosicaoZ(),
-                ":motor_dispId" => $this->getDispositivoId()
-            );
-            return parent::comando($sql, $params);
-        }
+        // public function create(){
+        //     $sql = "INSERT INTO Motor (motoEstado, motoDescricao, motoPosicaoXY, motoPosicaoZ, motor_dispId) VALUES (:motoEstado, :motoDescricao, :motoPosicaoXY, :motoPosicaoZ, :motor_dispId)";
+        //     $params = array(
+        //         ":motoEstado" => $this->getEstado(),
+        //         ":motoDescricao" => $this->getDescricao(),
+        //         ":motoPosicaoXY" => $this->getPosicaoXY(),
+        //         ":motoPosicaoZ" => $this->getPosicaoZ(),
+        //         ":motor_dispId" => $this->getDispositivoId()
+        //     );
+        //     return parent::comando($sql, $params);
+        // }
 
+ 
+
+        // public function update(){
+        //     $sql = "UPDATE Motor SET motoEstado = :motoEstado, motoDescricao = :motoDescricao, motoPosicaoXY = :motoPosicaoXY, motoPosicaoZ = :motoPosicaoZ, motor_dispId = :motor_dispId WHERE motoId = :motoId";
+        //     $params = array(
+        //         ":motoId" => $this->getId(),
+        //         ":motoEstado" => $this->getEstado(),
+        //         ":motoDescricao" => $this->getDescricao(),
+        //         ":motoPosicaoXY" => $this->getPosicaoXY(),
+        //         ":motoPosicaoZ" => $this->getPosicaoZ(),
+        //         ":motor_dispId" => $this->getDispositivoId()
+        //     );
+        //     return parent::comando($sql, $params);
+        // }
+        
         public function update(){
-            $sql = "UPDATE Motor SET motoEstado = :motoEstado, motoDescricao = :motoDescricao, motoPosicaoXY = :motoPosicaoXY, motoPosicaoZ = :motoPosicaoZ, motor_dispId = :motor_dispId WHERE motoId = :motoId";
+            $sql = "UPDATE Motor SET motoPosicaoXY = :motoPosicaoXY, motoPosicaoZ = :motoPosicaoZ, motor_dispId = :motor_dispId WHERE motoId = :motoId";
             $params = array(
                 ":motoId" => $this->getId(),
-                ":motoEstado" => $this->getEstado(),
-                ":motoDescricao" => $this->getDescricao(),
                 ":motoPosicaoXY" => $this->getPosicaoXY(),
                 ":motoPosicaoZ" => $this->getPosicaoZ(),
                 ":motor_dispId" => $this->getDispositivoId()
@@ -108,8 +122,8 @@
             if ($busca > 0) {
                 switch($busca){
                     case(1): $sql .= " AND motoId like :pesquisa"; break;
-                    case(2): $sql .= " AND motoEstado like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " AND motoDescricao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    // case(2): $sql .= " AND motoEstado like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    // case(3): $sql .= " AND motoDescricao like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                     case(4): $sql .= " AND motoPosicaoXY like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                     case(5): $sql .= " AND motoPosicaoZ like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                     case(6): $sql .= " AND motor_dispId like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
@@ -123,10 +137,12 @@
         }
 
         public static function consultarData($id){
-            $sql = "SELECT * FROM Motor WHERE motoId = :motoId";
-            $params = array(':motoId'=>$id);
+            $sql = "SELECT * FROM Motor WHERE motor_dispId = :dispId";
+            $params = array(':dispId'=>$id);
             return parent::consulta($sql, $params);
         }
+        
+       
     }
 
     // //Manipulação de dados de um motor

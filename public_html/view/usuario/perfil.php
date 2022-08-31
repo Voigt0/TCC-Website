@@ -22,16 +22,45 @@
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
     <link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/perfil.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(document).ready(function( ){
+			$(".profile .icon_wrap").click(function(){
+			  $(this).parent().toggleClass("active");
+			});
+		});
+	</script>
+
 </head>
+
+</head> 
 <body>
     <header>
-        <nav class="nav-bar">
-            <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIconB.svg" width="30rem" height="40rem"></a></div>
-            <div class="logo"><a href="../../index.php"><img src="../../img/icons/solargirologoIconB.svg" style="width: 30vh;"></a></div>
-            <div class="nav-list"><a href="perfil.php"><img id="invisivel" src="../../img/icons/userIcon.svg" width="40rem"></a></div>
-        </nav>
-    </header>
-
+    <div class="navbar">
+      <div class="navbar_left">
+        <a href="#"><a href="../../index.php"><img src="../../img/icons/homeIconB.svg"></a>
+      </div>
+      <div class="navbar_center">
+        <a href="../../index.php"><img src="../../img/icons/solargirologoIconB.svg"></a>
+      </div> 
+      <div class="navbar_right">
+        <div class="profile" id="invisivel">
+        <div class="icon_wrap">
+        <span class="icon"><a><img src="../../img/icons/userIcon.svg"></a></span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+          <div class="profile_dd">
+              
+            <ul class="profile_ul">
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
    
     <section>
         <div class="container-fluid">
@@ -73,7 +102,8 @@
                             <label for="usuaSenha">Senha</label>
                             <input required onkeyup='confirmarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php if(!isset($_GET['update'])) {echo $data['usuaSenha'];}?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         </div>
-
+</div>
+                        <div class="input-group">
                         <div class="input-box">
                             <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenha">Nova senha</label>
                             <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenha" name="novaUsuaSenha" placeholder="" minlength="8" maxlength="20" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
@@ -83,9 +113,7 @@
                             <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenhaConfirma">Confirmar senha</label>
                             <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
                         </div>
-                    </div>    
-                    
-                    
+                        </div>
                 </div>
             </div>
                 <div class="perfil-footer">
@@ -93,7 +121,14 @@
                 <br>
                     <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled>Salvar</button></div>
                 <br>
-                    <div class="button"><a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value="">Encerrar sessão</button></a></div>
+                <!--<div class="button"><button><a onclick="return confirm('Deseja excluir a conta?')" href="../../php/controle/controle-perfil.php?acao=delete"</a>Excluir</button></div>-->
+                    
+                <div class="button"><button class="delete" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled><a onclick="return confirm('Deseja excluir o perfil?')" href="../../php/controle/controle-perfil.php?acao=delete"> Excluir perfil</a></button></div>
+                
+                     
+
+                    
+                    <div class="button"><a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value=""<?php if(isset($_GET['update'])) {echo "hidden";}?>>Encerrar sessão</button></a></div>
                 </div>
             </form>
         </div>

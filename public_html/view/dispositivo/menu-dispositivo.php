@@ -17,28 +17,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
-    <link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="../../css/menu-dispositivo.css">
+    <link rel="stylesheet" href="../../css/css-geral.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(document).ready(function( ){
+			$(".profile .icon_wrap").click(function(){
+			  $(this).parent().toggleClass("active");
+			});
+		});
+	</script>
+
+</head>
 
 </head>
 <body>
-
     <header>
-        <nav class="nav-bar">
-            <div class="nav-list"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg" width="30rem" height="40rem"></a></div>
-            <div class="logo"><a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg" style="width: 30vh;"></a></div>
-            <div class="nav-list"><a href="../usuario/perfil.php"><img src="../../img/icons/userIcon.svg" width="40rem"></a></div>
-        </nav>
-    </header>
+    <div class="navbar">
+      <div class="navbar_left">
+        <a href="#"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg"></a>
+      </div>
+      <div class="navbar_center">
+        <a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg"></a>
+      </div> 
+      <div class="navbar_right">
+        <div class="profile">
+        <div class="icon_wrap">
+        <span class="icon"><a><img src="../../img/icons/userIcon.svg"></a></span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+          <div class="profile_dd">
+            <ul class="profile_ul">
+              <li><a class="perfil" href="../usuario/perfil.php">Visualizar Perfil</a></li>
+              <li><a class="logout" href="../../php/controle/controle-login.php">Encerrar sessão</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
 
 
     <main class="body">
         <section>
             <div class="img-button"><a href="bateria.php"><button class="botao"><img src="../../img/icons/battery.svg"></button></a></div>
-            <div class="button"><button class="" type="submit" id="" name="" value="">Adicionar Baterias</button></div>
+            <div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar Baterias</button></div>
         </section>
         <section>
-            <div class="img-button"><a href="sistema.php"><button class="botao"><img src="../../img/icons/engine.svg"></button></a></div>
+            <div class="img-button"><a href="motor.php"><button class="botao"><img src="../../img/icons/engine.svg"></button></a></div>
             <div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar Motores</button></div>
         </section>
     </main>

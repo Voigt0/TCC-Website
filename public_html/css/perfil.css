@@ -1,44 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
-* {
-    font-size: 12px;
+*{
     margin: 0;
-    border: 0;
     padding: 0;
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
+    border: 0;
+    font-weight: 100;
+    font-size: 12px;
     font-family: 'Questrial', sans-serif;
 }
+
 
 body{
     background-color: #000000;
     color: #ffffff;
+}
+
+a{
+ font-size: 1.5rem;
+    font-family: 'Questrial', sans-serif;
+    color: rgba(0, 0, 0, 0.60);
+    cursor: pointer;
+    border-radius: 14px;   text-decoration:none;
+}
+
+.navbar{
+    background: #FBC10D;
     width: 100%;
-}
-
-/* css nav bar */
-header{
-    background-color: #FBC10D;
-    align-self: baseline;
-}
-
-.nav-bar{
+    height: 70px;
+    padding: 0 30px;
     display: flex;
     justify-content: space-between;
-    padding: 0.7rem 8.5rem;
+    align-items: center;    
+    color: #FBC10D;
 }
 
-.logo{
+
+.navbar .navbar_center img{
+    width: 13rem;
+}
+
+.navbar .navbar_right img, .navbar_left img{
+    width: 2rem;
+}
+
+.navbar .navbar_right .icon_wrap{
+    cursor: pointer;
+}
+
+.navbar .navbar_right .profile{
+    position: relative;
+}
+
+.navbar .profile .profile_dd{
+    position: absolute;
+    top: 48px;
+    right: -15px;
+    background: rgba(0, 0, 0, 0.80);
+    height: auto;
+    display: none;
+}
+
+.navbar .profile .profile_dd .profile_ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.navbar .navbar_right .profile .icon_wrap{
     display: flex;
     align-items: center;
 }
 
-.nav-list{
-    display: flex;
-    align-items: center;
+.navbar .navbar_right .profile .icon{
+    display: inline-block;
+    margin: 0 10px;
 }
 
-img#invisivel{
-    opacity: 0;
+.navbar .profile .profile_dd{
+    width: 225px;
+}
+
+.navbar .profile .profile_dd ul li {
+    border-bottom: 1px solid #dcdde08a;
+}
+
+.navbar .profile .profile_dd ul li  a{
+    display: block;
+    padding: 15px 35px;
+    position: relative;
+    font-size: 17px;
+}
+
+.navbar .profile .profile_dd ul li  a:hover{
+    color: #FBC10D;
+}
+
+.navbar .profile.active .profile_dd{
+    display: block;
+}
+
+button{
+    cursor:pointer;
+}
+
+button.delete{
+    background-color: #C53200;
+}
+  
+input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 
@@ -51,9 +124,11 @@ img#invisivel{
 
 .box-foto{
     width: 40%;
+    display:flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    flex-direction: column;
 }
 
 
@@ -70,7 +145,8 @@ img#invisivel{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1rem 0;
+    /*padding: 1rem 0;*/
+    padding-top: -2rem;
 }
 
 .input-box {
@@ -158,4 +234,12 @@ button:hover{
 .button-alterar button:hover{
     background-color: #FBC10D;
     color: black;
+}
+
+li#invisivel{
+visibility: hidden;
+}
+
+#invisivel{
+    visibility:hidden;
 }

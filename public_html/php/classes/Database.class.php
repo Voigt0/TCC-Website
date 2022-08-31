@@ -10,17 +10,18 @@
         $stmt->bindValue($key, $value);
       }
       return $stmt;
+      
     }
 
     public static function comando($sql, $params=array()){
       $conexao = self::conectar();
       $stmt = $conexao->prepare($sql);
       $stmt = self::vincularParametros($stmt, $params);
-      try{
+    //   try{
         return $stmt->execute();
-      }catch (Exception $e){
-        throw new Exception("Erro");
-      }
+    //   }catch (Exception $e){
+    //     throw new Exception("Erro");
+    //   }
     }
 
     public static function consulta($sql, $params=array()){
