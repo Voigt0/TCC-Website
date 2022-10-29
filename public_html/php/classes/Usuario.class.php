@@ -7,13 +7,16 @@
         private $email;
         private $telefone;
         private $senha;
+        private $foto;
 
-        public function __construct($id, $nome, $email, $telefone, $senha) {
+        public function __construct($id, $nome, $email, $telefone, $senha, $foto) {
             $this->setId($id);
             $this->setNome($nome);
             $this->setEmail($email);
             $this->setTelefone($telefone);
             $this->setSenha($senha);
+            $this->setFoto($foto);
+
         }  
         
 
@@ -38,6 +41,10 @@
             return $this->senha;
         }
 
+        public function getFoto() {
+            return $this->foto;
+        }
+        
         public function setId($id) {
             $this->id = $id;
         }
@@ -57,6 +64,10 @@
         public function setSenha($senha) {
             $this->senha = $senha;
         }
+        
+         public function setFoto($foto) {
+            $this->foto = $foto;
+        }
 
 
         //Método toString para exibir os dados do objeto
@@ -66,30 +77,40 @@
                     "<br>Nome: ".$this->getNome().
                     "<br>Email: ".$this->getEmail().
                     "<br>Telefone: ".$this->getTelefone().
-                    "<br>Senha: ".$this->getSenha();
+                    "<br>Senha: ".$this->getSenha().
+                    "<br>Foto: ".$this->getFoto();
+
             return $str;
         }
 
         //Métodos de persistência
         public function create(){
-            $sql = "INSERT INTO Usuario (usuaNome, usuaEmail, usuaTelefone, usuaSenha) VALUES (:usuaNome, :usuaEmail, :usuaTelefone, :usuaSenha)";
+            $sql = "INSERT INTO Usuario (usuaNome, usuaEmail, usuaTelefone, usuaSenha, usuaFoto) VALUES (:usuaNome, :usuaEmail, :usuaTelefone, :usuaSenha, :usuaFoto)";
+            // echo $sql; 
+            // echo '<br>';
+            // die;
             $params = array(
                 ":usuaNome" => $this->getNome(),
                 ":usuaEmail" => $this->getEmail(),
                 ":usuaTelefone" => $this->getTelefone(),
-                ":usuaSenha" => $this->getSenha()
+                ":usuaSenha" => $this->getSenha(),
+                ":usuaFoto" => $this->getFoto()
             );
+            // print_r ($params);
+            // die;
             return self::comando($sql, $params);
         }
 
         public function update(){
-            $sql = "UPDATE Usuario SET usuaNome = :usuaNome, usuaEmail = :usuaEmail, usuaTelefone = :usuaTelefone, usuaSenha = :usuaSenha WHERE usuaId = :usuaId";
+            $sql = "UPDATE Usuario SET usuaNome = :usuaNome, usuaEmail = :usuaEmail, usuaTelefone = :usuaTelefone, usuaSenha = :usuaSenha, usuaFoto = :usuaFoto WHERE usuaId = :usuaId";
+            
             $params = array(
                 ":usuaId" => $this->getId(),
                 ":usuaNome" => $this->getNome(),
                 ":usuaEmail" => $this->getEmail(),
                 ":usuaTelefone" => $this->getTelefone(),
-                ":usuaSenha" => $this->getSenha()
+                ":usuaSenha" => $this->getSenha(),
+                ":usuaFoto" => $this->getFoto()
             );
             return self::comando($sql, $params);
         }

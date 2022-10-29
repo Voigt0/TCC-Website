@@ -11,6 +11,7 @@
         // echo $_SESSION['dispId'];
     }
         include_once (__DIR__ ."/../../php/utils/autoload.php");
+        
 
 ?>
 
@@ -85,18 +86,31 @@ value.textContent = this.value;}
                 ?>
             <form action="../../php/controle/controle-motor.php" method="post" id="motor">
                 <div class="form-header">
-                    <h3>Gerenciamento do Motor<br> Nº<?php echo $data['motoId']?></h3>
+                    <h3>Gerenciamento do Motor <?php echo $data['motoId']?><br> 
+                    Dispositivo Nº<?php echo $data['motor_dispId']?></h3>
                     <div class="back"><a href="menu-dispositivo.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a></div>
+                    
+                      <?php 
+                    $value = Motor::consultarDispositivo($_SESSION['dispId'])[0];
+            ?>
+            
+                    
+                    <input type="radio" id="dispEstado" name="dispEstado" value="0" <?php if(isset($data) && $value['dispEstado'] == '0') echo 'checked';?>>
+                    <label id="radio">Modo 0</label>
+                    <input type="radio" id="dispEstado" name="dispEstado" value="1" <?php if(isset($data) && $value['dispEstado'] == '1') echo 'checked';?>>
+                    <label id="radio">Modo 1</label>
+                   
+                    
                 </div>
             
             <div class="form-body">
                 <label for="motoPosicaoXY">Posição X/Y</label>
-                <input class="" type="range" id="motoPosicaoXY" name="motoPosicaoXY" value="<?php echo $data['motoPosicaoXY']; ?>" min="0" max="360" oninput="this.nextElementSibling.value = this.value" required>
+                <input class="" type="range" id="motoPosicaoXY" name="motoPosicaoXY" value="<?php echo $data['motoPosicaoXY']; ?>" min="-360" max="360" oninput="this.nextElementSibling.value = this.value" required>
                 <output><?php echo $data['motoPosicaoXY']."°";?></output>
 <br>
                 
                 <label for="motoPosicaoZ">Posição Z</label>
-                <input class="" type="range" id="motoPosicaoZ" name="motoPosicaoZ" value="<?php echo $data['motoPosicaoZ']; ?>" min="0" max="360" oninput="this.nextElementSibling.value = this.value" required>
+                <input class="" type="range" id="motoPosicaoZ" name="motoPosicaoZ" value="<?php echo $data['motoPosicaoZ']; ?>" min="-360" max="360" oninput="this.nextElementSibling.value = this.value" required>
                 <output><?php echo $data['motoPosicaoZ']."°";?></output>
                 
                 <input type="hidden" name="motoId" id="" value="<?php echo $data['motoId']?>">
@@ -105,8 +119,11 @@ value.textContent = this.value;}
             </form>
             </div>
             
+          
             
-        </main>
+
+            
+            </main>
 </section>
 
 </body>

@@ -9,21 +9,21 @@
   border: 0;
   font-weight: 100;
   font-size:12px;
-  color: white;
 }
 
 body{
     background-color: #FBC10D;
+    color: #ffffff;
 }
 
-/* Body */
-.body{
+main{
     height: 90vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    padding: 61px;
+    padding: 60px;
+    
     
     /* position: relative; */
 } 
@@ -50,12 +50,14 @@ section{
     font-size: 22px;
     height: 39px;
     width: 244px;
+    transition: 0.5s;
 } 
 
+button:hover{
+    background-color: black;
+    color: #FBC10D;
+}
 
-/*.container{ */
-/*    justify-content: center;    */
-/*}*/
 
 
 .botao{
@@ -68,4 +70,9 @@ section{
 
 
 
-
+@media (max-width: 375px) {
+     .botao{
+        width: 300px;
+        height: 331px;
+      }
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 31, 2022 at 12:28 AM
+-- Generation Time: Oct 29, 2022 at 01:34 PM
 -- Server version: 10.5.16-MariaDB
 -- PHP Version: 7.3.32
 
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `id19423084_solargiro`
 --
-DROP DATABASE IF EXISTS `id19423084_solargiro`;
-CREATE DATABASE IF NOT EXISTS `id19423084_solargiro` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `id19423084_solargiro`;
 
 -- --------------------------------------------------------
 
@@ -31,7 +28,6 @@ USE `id19423084_solargiro`;
 -- Table structure for table `Bateria`
 --
 
-DROP TABLE IF EXISTS `Bateria`;
 CREATE TABLE `Bateria` (
   `bateId` int(11) NOT NULL,
   `bateCarga` int(11) NOT NULL,
@@ -43,11 +39,13 @@ CREATE TABLE `Bateria` (
 -- Dumping data for table `Bateria`
 --
 
-INSERT INTO `Bateria` (`bateId`, `bateCarga`, `bateTemperatura`, `bateria_dispId`) VALUES(2, 56, 26.00, 7);
-INSERT INTO `Bateria` (`bateId`, `bateCarga`, `bateTemperatura`, `bateria_dispId`) VALUES(3, 0, 0.00, 48);
-INSERT INTO `Bateria` (`bateId`, `bateCarga`, `bateTemperatura`, `bateria_dispId`) VALUES(5, 0, 0.00, 50);
-INSERT INTO `Bateria` (`bateId`, `bateCarga`, `bateTemperatura`, `bateria_dispId`) VALUES(6, 0, 0.00, 53);
-INSERT INTO `Bateria` (`bateId`, `bateCarga`, `bateTemperatura`, `bateria_dispId`) VALUES(7, 0, 0.00, 54);
+INSERT INTO `Bateria` (`bateId`, `bateCarga`, `bateTemperatura`, `bateria_dispId`) VALUES
+(2, 56, 26.00, 7),
+(3, 0, 0.00, 48),
+(5, 0, 0.00, 50),
+(12, 0, 0.00, 61),
+(15, 0, 0.00, 64),
+(16, 0, 0.00, 65);
 
 -- --------------------------------------------------------
 
@@ -55,14 +53,13 @@ INSERT INTO `Bateria` (`bateId`, `bateCarga`, `bateTemperatura`, `bateria_dispId
 -- Table structure for table `Dispositivo`
 --
 
-DROP TABLE IF EXISTS `Dispositivo`;
 CREATE TABLE `Dispositivo` (
   `dispId` int(11) NOT NULL,
   `dispChave` varchar(17) NOT NULL,
   `dispNome` varchar(45) NOT NULL,
   `dispLatitude` decimal(9,7) NOT NULL,
   `dispLongitude` decimal(10,7) NOT NULL,
-  `dispDescricao` varchar(45) NOT NULL,
+  `dispDescricao` varchar(100) NOT NULL,
   `dispEstado` tinyint(1) NOT NULL,
   `dispUltimaAlteracao` varchar(45) NOT NULL,
   `dispositivo_usuaId` int(11) NOT NULL
@@ -72,11 +69,13 @@ CREATE TABLE `Dispositivo` (
 -- Dumping data for table `Dispositivo`
 --
 
-INSERT INTO `Dispositivo` (`dispId`, `dispChave`, `dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispEstado`, `dispUltimaAlteracao`, `dispositivo_usuaId`) VALUES(7, '13132-31233-32321', 'Placa-ESP32Teste', -27.2859136, -49.7352704, 'Placa para teste do ESP32 ()', 0, '2022-08-21 16:10:59', 5);
-INSERT INTO `Dispositivo` (`dispId`, `dispChave`, `dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispEstado`, `dispUltimaAlteracao`, `dispositivo_usuaId`) VALUES(48, '12345-12345-12345', 'nome', 1.0000000, 1.0000000, 'desc', 1, '1986', 13);
-INSERT INTO `Dispositivo` (`dispId`, `dispChave`, `dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispEstado`, `dispUltimaAlteracao`, `dispositivo_usuaId`) VALUES(50, 'LA069-BZ099-CA089', 'Placa 2', 1.0000000, 1.0000000, 'TESTE', 0, '2022-08-28 20:47:03', 11);
-INSERT INTO `Dispositivo` (`dispId`, `dispChave`, `dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispEstado`, `dispUltimaAlteracao`, `dispositivo_usuaId`) VALUES(53, 'ANGEB-K4ITH-9WYEG', 'Placa da Larissa', -27.2120313, -49.6398348, 'Placa Solar de teste', 0, '2022-08-29 12:54:16', 16);
-INSERT INTO `Dispositivo` (`dispId`, `dispChave`, `dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispEstado`, `dispUltimaAlteracao`, `dispositivo_usuaId`) VALUES(54, 'FBHE4-Y89WE-FFEWT', 'Segunda placa', -27.2092176, -49.6401182, 'Teste 2', 0, '2022-08-29 12:54:48', 16);
+INSERT INTO `Dispositivo` (`dispId`, `dispChave`, `dispNome`, `dispLatitude`, `dispLongitude`, `dispDescricao`, `dispEstado`, `dispUltimaAlteracao`, `dispositivo_usuaId`) VALUES
+(7, '13132-31233-32321', 'Placa-ESP32Teste', -27.2859136, -49.7352704, 'Placa para teste do ESP32 ()', 1, '2022-10-28 13:30:33', 5),
+(48, '12345-12345-12345', 'nome', 1.0000000, 1.0000000, 'desc', 1, '1986', 13),
+(50, 'LA069-BZ099-CA089', 'Placa 2', 1.0000000, 1.0000000, 'TESTE', 0, '2022-08-28 20:47:03', 11),
+(61, '12321-31231-23213', 'Teste', -27.2092176, -49.6401182, 'dassssssss dsaaaaaaa dssss ds d d dddddd ddd dddddddd ddd dd', 0, '2022-10-24 13:41:02', 5),
+(64, 'JAFOA-JFIJA-JOAJA', 'Motor', -27.2063114, -49.6444091, 'jodnfoaen', 0, '2022-10-28 10:25:48', 31),
+(65, 'AFHOA-IEHAI-HOHFA', 'Switch', -27.2302080, -52.0323072, 'Switch ', 0, '2022-10-29 09:55:36', 40);
 
 -- --------------------------------------------------------
 
@@ -84,7 +83,6 @@ INSERT INTO `Dispositivo` (`dispId`, `dispChave`, `dispNome`, `dispLatitude`, `d
 -- Table structure for table `Motor`
 --
 
-DROP TABLE IF EXISTS `Motor`;
 CREATE TABLE `Motor` (
   `motoId` int(11) NOT NULL,
   `motoPosicaoXY` varchar(45) NOT NULL,
@@ -96,10 +94,11 @@ CREATE TABLE `Motor` (
 -- Dumping data for table `Motor`
 --
 
-INSERT INTO `Motor` (`motoId`, `motoPosicaoXY`, `motoPosicaoZ`, `motor_dispId`) VALUES(5, '0', '0', 7);
-INSERT INTO `Motor` (`motoId`, `motoPosicaoXY`, `motoPosicaoZ`, `motor_dispId`) VALUES(7, '0', '0', 48);
-INSERT INTO `Motor` (`motoId`, `motoPosicaoXY`, `motoPosicaoZ`, `motor_dispId`) VALUES(10, '191', '360', 53);
-INSERT INTO `Motor` (`motoId`, `motoPosicaoXY`, `motoPosicaoZ`, `motor_dispId`) VALUES(11, '0', '113', 54);
+INSERT INTO `Motor` (`motoId`, `motoPosicaoXY`, `motoPosicaoZ`, `motor_dispId`) VALUES
+(5, '65', '66', 7),
+(7, '30', '90', 48),
+(16, '30', '90', 61),
+(20, '-360', '0', 65);
 
 -- --------------------------------------------------------
 
@@ -107,26 +106,28 @@ INSERT INTO `Motor` (`motoId`, `motoPosicaoXY`, `motoPosicaoZ`, `motor_dispId`) 
 -- Table structure for table `Usuario`
 --
 
-DROP TABLE IF EXISTS `Usuario`;
 CREATE TABLE `Usuario` (
   `usuaId` int(11) NOT NULL,
   `usuaNome` varchar(45) NOT NULL,
   `usuaEmail` varchar(45) NOT NULL,
   `usuaTelefone` varchar(45) NOT NULL,
-  `usuaSenha` varchar(45) NOT NULL
+  `usuaSenha` varchar(45) NOT NULL,
+  `usuaFoto` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Usuario`
 --
 
-INSERT INTO `Usuario` (`usuaId`, `usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES(5, 'Rodrigo Voigt Filho Teste', 'voigtrodrigo0@gmail.com', '47 99145-6545', '12345678');
-INSERT INTO `Usuario` (`usuaId`, `usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES(9, 'AAAAAAAAAA', 'aaaaa@gmail.com', '47 99145-6541', '12345678');
-INSERT INTO `Usuario` (`usuaId`, `usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES(10, 'Rodrigo Voigt Filho', 'voigtrodrigo0@gmail.com', '47 99145-6541', '12345678');
-INSERT INTO `Usuario` (`usuaId`, `usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES(11, 'Patricia', 'patriciaBlini@gmail.com', '47 99999-9999', '12345678');
-INSERT INTO `Usuario` (`usuaId`, `usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES(13, 'Taylor Swift', 'taylorswift@gmail.com', '47 99999-9999', 'lindademais');
-INSERT INTO `Usuario` (`usuaId`, `usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES(14, 'Teste mensagem', 'teste@mensagem.com', '47 99999-9999', '12345678');
-INSERT INTO `Usuario` (`usuaId`, `usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`) VALUES(16, 'Larissa Schmitz', 'issaschmitz27@gmail.com', '(23) 54322-3455', '12345678');
+INSERT INTO `Usuario` (`usuaId`, `usuaNome`, `usuaEmail`, `usuaTelefone`, `usuaSenha`, `usuaFoto`) VALUES
+(5, 'Rodrigo Voigt Filho', 'voigtrodrigo0@gmail.com', '47 99145-6545', '12345678', ''),
+(9, 'AAAAAAAAAA', 'aaaaa@gmail.com', '47 99145-6541', '12345678', ''),
+(10, 'Rodrigo Voigt Filho', 'voigtrodrigo0@gmail.com', '47 99145-6541', '12345678', ''),
+(11, 'Patricia', 'patriciaBlini@gmail.com', '47 99999-9999', '12345678', ''),
+(13, 'Taylor Swift', 'taylorswift@gmail.com', '47 99999-9999', 'lindademais', ''),
+(30, 'Sara ', 'sara@gmail.com', '47 9 8989-8989', '12345678', '../../img/perfil/30.jpg'),
+(31, 'Larissa  S', 'issaschmitz27@gmail.com', '47 9 8910-8448', '12345678', '../../img/perfil/31.jpg'),
+(40, 'lala', 'lala@gmail.com', '67 6 8768-7687', '12345678', '../../img/perfil/40.jpg');
 
 --
 -- Indexes for dumped tables
@@ -167,25 +168,25 @@ ALTER TABLE `Usuario`
 -- AUTO_INCREMENT for table `Bateria`
 --
 ALTER TABLE `Bateria`
-  MODIFY `bateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `bateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `Dispositivo`
 --
 ALTER TABLE `Dispositivo`
-  MODIFY `dispId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `dispId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `Motor`
 --
 ALTER TABLE `Motor`
-  MODIFY `motoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `motoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `Usuario`
 --
 ALTER TABLE `Usuario`
-  MODIFY `usuaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `usuaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Constraints for dumped tables

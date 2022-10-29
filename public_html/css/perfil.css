@@ -12,19 +12,160 @@
     font-family: 'Questrial', sans-serif;
 }
 
-
 body{
     background-color: #000000;
     color: #ffffff;
 }
 
 a{
- font-size: 1.5rem;
+    font-size: 1.5rem;
     font-family: 'Questrial', sans-serif;
     color: rgba(0, 0, 0, 0.60);
     cursor: pointer;
-    border-radius: 14px;   text-decoration:none;
+    border-radius: 14px;   
+    text-decoration:none;
 }
+
+
+button{
+    cursor:pointer;
+}
+
+button.delete{
+    background-color: #C53200;
+}
+  
+input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+.box-foto{
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+
+.dados {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: -2rem;
+}
+
+
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.input-box input {
+    margin: 1rem 0; 
+    padding: 0.8rem 1.2rem;   
+    border: none;
+    width: 25rem;
+    height: 3rem;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 1.4rem;
+    background-color: #ffffff;   
+}
+
+.input-box label{
+    font-size: 1.4rem;
+}
+
+
+
+.back{
+    margin-top: 30px;
+    display: flex;
+    justify-content: right;
+    margin-right: 87px;
+}
+
+h2{
+    font-family: 'Girassol';
+    font-size: 44px;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button{
+    padding: 1rem;
+}
+
+button{
+    background-color: #FBC10D;
+    width: 182.45px;
+    height: 34.59px;
+    font-size: 1.5rem;
+    font-family: 'Questrial', sans-serif;
+    color: rgba(0, 0, 0, 0.60);
+    cursor: pointer;
+    border-radius: 14px;
+}
+
+button:hover{
+    background-color: #ffffff;
+}
+
+
+.perfil-footer{
+    /* margin-top: 30px; */
+    display: flex;
+    justify-content: right;
+    /*margin-right: 7%;*/
+    margin-right: 97px;
+}
+
+.button-alterar{
+    display: flex;
+    justify-content: center;
+}
+
+.button-alterar button{
+    background-color: black;
+    color: #FBC10D;
+    border: 1px;
+    border-style: solid;
+    border-color: #FBC10D;
+    border-radius: 0px;
+}
+
+.button-alterar button:hover{
+    background-color: #FBC10D;
+    color: black;
+}
+
+li#invisivel{
+visibility: hidden;
+}
+
+#invisivel{
+    visibility:hidden;
+}
+
+
+
 
 .navbar{
     background: #FBC10D;
@@ -102,144 +243,145 @@ a{
     display: block;
 }
 
-button{
-    cursor:pointer;
+
+
+img[alt="www.000webhost.com"]{
+    display: none;
 }
 
-button.delete{
-    background-color: #C53200;
-}
-  
-input:-webkit-autofill {
-    transition: background-color 5000s ease-in-out 0s;
+main {
+width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
+
+/**/
 
 .container{
     display: flex;
-    width: 80%;
+    /*width: 80%;*/
+    margin-right: 10%;
     justify-content: center;
     align-items: center;
 }
 
-.box-foto{
-    width: 40%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    flex-direction: column;
+
+.oculto{
+   visibility: hidden;
+   
 }
 
 
-.dados {
-    width: 60%;
+
+.heading{
+    /*padding: 3rem 0 0 10%;*/
+
+padding: 3rem 10%;
+/*top <-- bottom -->*/
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-}
-
-.input-group {
-    display: flex;
-    flex-wrap: wrap;
+    /*flex-direction: row;*/
     justify-content: space-between;
-    /*padding: 1rem 0;*/
-    padding-top: -2rem;
+    align-items: center;
 }
 
-.input-box {
+
+@media (max-width: 360px) {
+    
+}
+
+
+
+#img-perfil{
+    border-radius: 50%;
+    width: 30rem;
+    height: 30rem;
+}
+
+
+.confirmar{
+    z-index:1;
+    position: fixed;
+    top:0;
+    left:0;
+    padding:0rem;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 1.1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0.25s ease-in-out , opacity 0.25s ease-in-out, transform 0.25s ease-in-out;  
 }
 
-.input-box input {
-    margin: 1rem 0; 
-    padding: 0.8rem 1.2rem;   
-    border: none;
-    width: 25rem;
-    height: 3rem;
-    box-shadow: 1px 1px 6px #0000001c;
-    font-size: 1.4rem;
-    background-color: #ffffff;   
-}
-
-.input-box label{
-    font-size: 1.4rem;
+.show-modal{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);    
 }
 
 
-
-.back{
-    margin-top: 30px;
-    display: flex;
-    justify-content: right;
-    margin-right: 87px;
-}
-
-h2{
-    font-family: 'Girassol';
-    font-size: 44px;
-}
-
-.form-header {
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.button{
-    padding: 1rem;
-}
-
-button{
+.confirmar-content{
     background-color: #FBC10D;
-    width: 182.45px;
-    height: 34.59px;
-    font-size: 1.5rem;
-    font-family: 'Questrial', sans-serif;
-    color: rgba(0, 0, 0, 0.60);
-    cursor: pointer;
-    border-radius: 14px;
+    padding: 16px 24px;    
+    width: 384px;
+    border-radius: 0.5rem;
 }
-
-button:hover{
-    background-color: #ffffff;
+.close-button{
+   float: right;
+   width: 24px;
+   line-height: 24px;
+   text-align: center;
+   cursor: pointer;
+   border-radius: 0.25rem;
+   background-color: transparent;
+   border: 2px solid black;
 }
-
-
-.perfil-footer{
-    /* margin-top: 30px; */
-    display: flex;
-    justify-content: right;
-    margin-right: 97px;
-}
-
-.button-alterar{
-    display: flex;
-    justify-content: center;
-}
-
-.button-alterar button{
+.close-button:hover{
     background-color: black;
-    color: #FBC10D;
-    border: 1px;
-    border-style: solid;
-    border-color: #FBC10D;
-    border-radius: 0px;
+} 
+
+.confirmar-content h1{
+    color: black;
+    font-size: 20px;
+    font-weight: 200;
 }
 
-.button-alterar button:hover{
-    background-color: #FBC10D;
+.confirmar-content h2{
+    padding: 2rem;
+    font-size: 17px;
     color: black;
 }
 
-li#invisivel{
-visibility: hidden;
+.confirmar-content a{
+    color: black;
 }
 
-#invisivel{
-    visibility:hidden;
+.confirmar-content a:hover{
+    color: #FBC10D;
+}
+
+.div-botao-modal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-modal{
+    background-color: transparent;
+    border: 1.5px solid black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    /*padding-top: 2rem;*/
+    /*padding-bottom: 2rem;*/
+}
+
+.btn-modal:hover{
+    background-color: black;
+    color: white;
 }

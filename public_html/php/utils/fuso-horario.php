@@ -29,6 +29,7 @@
                     if (!$time_zone || $tz_distance > $distance) {
                         $time_zone   = $timezone_id;
                         $tz_distance = $distance;
+                        // echo $tz_distance."<br>";
                     } 
     
                 }

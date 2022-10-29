@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
-    <!--<link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="../../css/menu-dispositivo.css">
     <link rel="stylesheet" href="../../css/css-geral.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
@@ -29,8 +28,6 @@
 			});
 		});
 	</script>
-
-</head>
 
 </head>
 <body>
@@ -61,14 +58,14 @@
 
 
 
-    <main class="body">
+    <main>
         <section>
-            <div class="img-button"><a href="bateria.php"><button class="botao"><img src="../../img/icons/battery.svg"></button></a></div>
-            <div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar Baterias</button></div>
+            <div class="img-button"><a href="bateria.php"><button class="botao"><img class="img" src="../../img/icons/battery.svg"></button></a></div>
+            <div class="button"><a href="bateria.php"><button class="btn" type="submit" id="" name="" value="">Gerenciar Baterias</button></a></div>
         </section>
         <section>
-            <div class="img-button"><a href="motor.php"><button class="botao"><img src="../../img/icons/engine.svg"></button></a></div>
-            <div class="button"><button class="" type="submit" id="" name="" value="">Gerenciar Motores</button></div>
+            <div class="img-button"><a href="motor.php"><button class="botao"><img class="img" src="../../img/icons/engine.svg"></button></a></div>
+            <div class="button"><a href="motor.php"><button class="btn" type="submit" id="" name="" value="">Gerenciar Motores</button></a></div>
         </section>
     </main>
 

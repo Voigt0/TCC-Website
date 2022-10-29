@@ -22,11 +22,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
-    <!--<link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="../../css/controle-de-dispositivo.css">
 <link rel="stylesheet" href="../../css/css-geral.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 	<script>
 		$(document).ready(function( ){
 			$(".profile .icon_wrap").click(function(){
@@ -96,7 +96,10 @@
                                 <a href="menu-dispositivo.php">
                                 <h3><?php echo "N°".$data['dispId']." - ".$data['dispNome']; ?></h3>
                                 <a class="select" href="configurar-dispositivo.php?acao=update"><img src="../../img/icons/editIcon.svg" width="43px">                            
-                                <a onclick="return confirm('Deseja excluir o dispositivo?')" href="../../php/controle/controle-configurar-dispositivo.php?acao=delete"><img src="../../img/icons/deleteIcon.svg" width="45px"></a>      
+                                <a onclick="return confirm('Deseja excluir o dispositivo?')" href="../../php/controle/controle-configurar-dispositivo.php?acao=delete"><img src="../../img/icons/deleteIcon.svg" width="45px"></a>   
+                                
+                               
+                        
                             </div>
                             
                                 <h4>Localização: <?php echo $data['dispLatitude'].", ".$data['dispLongitude']; ?></h4>

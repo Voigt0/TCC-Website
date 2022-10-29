@@ -23,7 +23,9 @@
             //Cadastrar dispositivo
             $disp = new Dispositivo('', $_POST['dispChave'], $_POST['dispNome'], $_POST['dispLatitude'], $_POST['dispLongitude'], $_POST['dispDescricao'], 0, $dataAtual, $_SESSION['usuaId']);
             $disp->create();
-            header("Location: ../../view/dispositivo/controle-de-dispositivos.php?msg=Dispositivo adicionado com sucesso!");
+            header("Location: ../../view/dispositivo/configurar-dispositivo.php?msg=sucesso");
+
+            // header("Location: ../../view/dispositivo/controle-de-dispositivos.php?msg=Dispositivo adicionado com sucesso!");
             
            
             

@@ -9,21 +9,25 @@
   border: 0;
   font-weight: 100;
   font-size: 12px;
-  color: white;
 }
 
+i{
+    color: white;
+}
 
-/* Body */
-.body{
+body{
+    background-color: #FBC10D;
+    color: #ffffff;
+}
+
+main{
     height: 90vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    padding: 61px;
-    
-    /* position: relative; */
-} 
+    padding: 60px;
+}
 
 section{
     display: flex;
@@ -35,33 +39,28 @@ section{
     padding: 1rem;
     
 }
- 
-.button button{
+ .button button{
     background-color: #FBC10D;
     color: black;
     border: 2px;
     border-style: solid;
     border-color: black;
     border-radius: 0.75rem;
-    padding-inline: 10px;
     font-size: 22px;
     height: 39px;
     width: 244px;
+    transition: 0.5s;
 } 
 
-
-.container{ 
-    justify-content: center;    
+button:hover{
+    background-color: black;
+    color: #FBC10D;
 }
 
-.nav-element{
-    margin-left: 92px;
-    margin-right: 92px;
-    }
 
 
 .botao{
-    background-color: #171606;
+    background-color: #000000;
     width: 356.84px;
     height: 388px;
     border-radius: 20px;
@@ -70,4 +69,13 @@ section{
 
 
 
-
+@media (max-width: 375px) {
+     .botao{
+        width: 300px;
+        height: 331px;
+      }
+      
+      .img{
+        width: 100%;  
+      }
+}

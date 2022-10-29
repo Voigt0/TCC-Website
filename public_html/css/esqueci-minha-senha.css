@@ -9,33 +9,29 @@
     font-weight: 100;
     font-size: 12px;
     font-family: 'Questrial', sans-serif;
-    color: white;
 }
 
 body{
+    background-color: #FBC10D;
     color: #000000;
+    display: flex;
+    flex-direction: column;
 }
 
-.body{
-    height: 70vh;
+main{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 61px;
+    padding: 5rem;
 }
 
 
 .back{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: auto;
     padding-top: 2rem;
     padding-right: 6%;
-}
-
-section{
-    display: flex;
-    flex-direction: column;
 }
 
 .box{
@@ -43,34 +39,39 @@ section{
     height: 300px;
     background-color: #000000;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 2rem;
+    margin-top: -5rem;
 }
 
 .form-header{
     display: flex;
     align-self: flex-start;
-    padding: 0.5rem 0 0 0;
+    padding: 0.5rem 0 2rem 0;
 }
 
-.form-header h2{
+h2{
     color: #ffffff;
     font-size: 3.5rem;
-    padding: 2rem;
 }
 
 
-.input-field{
-    display: inline-block;
+.input-box{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    
 }
 
-.input-field img{
+.input-box img{
     width: 4rem;
     height: 4rem;
     justify-content: center;
 }
 
-.input-field input {
+input {
     padding: 0.8rem;
     width: 22rem;
     height: 3rem;
@@ -80,12 +81,11 @@ section{
     background-color: #FBC10D;   
 }
 
-.form-element{
+.elemento{
     float: left;
     margin-right: 2rem;
     margin-bottom: 1rem;
 }
-
 
 button{
     background-color: #FBC10D;
@@ -117,9 +117,65 @@ button.cancel{
 
 
 
-/*.back{*/
-/*    margin-top: 30px;*/
-/*    display: flex;*/
-/*    justify-content: right;*/
-/*    margin-right: 87px;*/
-/*}*/
+@media (max-width: 540px) {
+    .box{
+        width: 400px;
+        height: 300px;
+    }
+    
+    input{
+        width: 21rem;
+    }
+    
+    h2{
+        font-size: 3rem;
+    }
+    
+    button{
+        width: 140px;
+    }
+    
+    .elemento{
+        padding:0rem;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .box{
+        width: 350px;
+        height: 300px;
+    }
+    
+    input{
+        width: 19rem;
+    }
+    
+    h2{
+        font-size: 3rem;
+    }
+    
+    button{
+        width: 140px;
+    }
+    
+    .elemento{
+        padding:0rem;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .box{
+        width: 300px;
+        height: 300px;
+    }
+    
+    h2{
+        font-size: 2rem;
+    }
+    
+    input{
+        width: 15rem;
+    }
+}

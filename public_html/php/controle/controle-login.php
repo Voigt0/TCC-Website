@@ -8,9 +8,7 @@
         if(Usuario::autenticar($email, $senha)) {
             header("Location: ../../index.php?msg=Usuário logado com sucesso!");
         } else if(isset($_POST['usuaEmail']) && isset($_POST['usuaSenha'])) {
-            header("Location: ../../view/usuario/login.php?msg=Usuário ou senha inválidos!");
-            // echo 'uhul';
-            
+            header("Location: ../../view/usuario/login.php?msg=invalido");
         } else {
             header("Location: ../../view/usuario/login.php");
         }

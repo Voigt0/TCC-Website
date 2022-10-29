@@ -12,15 +12,14 @@
 }
 
 body{
+    background-color: #FBC10D;
     color: #000000;
 }
 
-.body{
-    height: 70vh;
+main{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 61px;
+    padding: 5rem;
 }
 
 .back{
@@ -31,47 +30,44 @@ body{
     padding-right: 6%;
 }
 
-section{
-    display: flex;
-    flex-direction: column;
-}
-
 .box{
     width: 435px;
-    height: 500px;
+    height: 520px;
     background-color: #000000;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 2rem;
-    /*margin: auto;*/
-    position: relative;
     margin-top: -5rem;
 }
-
 
 .form-header{
     display: flex;
     align-items: flex-start;
-    padding: 0.5rem 0 0 0;
+    padding: 0.5rem 0 2rem 0;
 }
 
-.form-header h2{
+h2{
     color: #ffffff;
     font-size: 3.5rem;
 }
 
 
-.input-field{
-    display: inline-block;
+.input-box{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.input-field img{
+.input-box img{
     width: 4rem;
     height: 4rem;
     justify-content: center;
 }
 
-.input-field input {
+input {
     padding: 0.8rem;
     width: 22rem;
     height: 3rem;
@@ -81,41 +77,47 @@ section{
     background-color: #FBC10D;   
 }
 
-.form-element{
+.elemento{
     float: left;
     margin-right: 2rem;
     margin-bottom: 1rem;
 }
-.span-required{
-    display: none;
-}
-input:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
-}
+
 button{
     background-color: #FBC10D;
     width: 160.45px;
     height: 34.59px;
     display: inline-block;
     font-size: 1.5rem;
-    font-family: 'Questrial', sans-serif;
-    color: rgba(0, 0, 0, 0.60);
+    color: black;
     justify-content: center;
+    transition: 0.3s;
 }
 
 button:hover{
     background-color: #ffffff;
 }
 
-.form-footer{
-    text-align: center;
-    margin-top: 1rem;
+a{
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: 0.4s;
 }
 
-.form-footer button{
-    margin: 1rem;
-} 
+a:hover{
+    color: #FBC10D;
+}
+
+.form-footer{
+    padding: -0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .checkbox input{
   display: none;
 }
@@ -147,14 +149,113 @@ button:hover{
   padding: 1px;
 }
 
-
-a{
-    text-decoration: none;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 1.3rem;
+.modal, .termos{
+    z-index:1;
+    position: fixed;
+    top:0;
+    left:0;
+    padding:0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0.25s ease-in-out , opacity 0.25s ease-in-out, transform 0.25s ease-in-out;  
 }
 
-a:hover{
+.show-modal, .show-termos{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);    
+}
+
+
+.modal-content, .termos-content{
+    background-color: #FBC10D;
+    padding: 16px 24px;    
+    width: 384px;
+    border-radius: 0.5rem;
+}
+.close-button{
+   float: right;
+   width: 24px;
+   line-height: 24px;
+   text-align: center;
+   cursor: pointer;
+   border-radius: 0.25rem;
+   background-color: transparent;
+   border: 2px solid black;
+}
+.close-button:hover{
+    background-color: black;
+} 
+
+.modal-content h1, .termos-content h1{
+    color: black;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.modal-content h2, .termos-content h2{
+    padding: 2rem;
+    font-size: 17px;
+    color: black;
+}
+
+.modal-content a, .termos-content a{
+    color: black;
+}
+
+.modal-content a:hover, .termos-content a:hover{
     color: #FBC10D;
+}
+
+
+@media (max-width: 400px) {
+    .box{
+        width: 350px;
+    }
+    
+    input{
+        width: 19rem;
+    }
+   
+    button{
+        width: 140px;
+    }
+    
+    .elemento{
+        padding:0rem;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .box{
+        width: 300px;
+    }
+    
+   
+    
+    input{
+        width: 15rem;
+    }
+}
+
+
+
+div{
+  /*color:#90011e;*/
+  /* padding-top: 5px; */
+	font-size: 13px;
+}
+
+div#div_usuaNome{
+  display: flex;
+  justify-content: center;
+  color:#90011e;
 }

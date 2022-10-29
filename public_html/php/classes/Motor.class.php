@@ -129,6 +129,8 @@
                     case(6): $sql .= " AND motor_dispId like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
                 }
                 $params = array(':pesquisa'=>$pesquisa);
+                print_r($params);
+                die();
             } else {
                 $sql .= " ORDER BY motoId";
                 $params = array();
@@ -142,35 +144,52 @@
             return parent::consulta($sql, $params);
         }
         
-       
+        
+        public static function consultarUsuario($id, $busca, $pesquisa){
+            $sql = "SELECT dispId, dispNome FROM Dispositivo WHERE dispositivo_usuaId = :usuaId";
+            switch ($busca) {
+                case(0): $sql .= " AND dispId like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                case(1): $sql .= " AND dispNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+            }
+            $params = array(':usuaId'=>$id, ':pesquisa'=>$pesquisa);
+            return parent::consulta($sql, $params);
+        }
+
+
+        
+        public static function consultarDispositivo($id){
+            $sql = "SELECT dispEstado FROM Dispositivo WHERE dispId = :dispId";
+            $params = array(':dispId'=>$id);
+            return parent::consulta($sql, $params);
+        }
+
+        //Outros métodos
+        public function updateComChave($dispChave, $ultimaAlteracao) {
+            $sql = "UPDATE Dispositivo, Motor SET `motoPosicaoXY` = :motoPosicaoXY, `motoPosicaoZ` = :motoPosicaoZ, `dispUltimaAlteracao` = :dispUltimaAlteracao 
+                    WHERE `dispChave` = :dispChave
+                    AND dispId = motor_dispId";
+            $params = array(
+                            ":motoPosicaoXY" => $this->getPosicaoXY(),
+                            ":motoPosicaoZ" => $this->getPosicaoZ(),
+                            ":dispUltimaAlteracao" => $ultimaAlteracao,
+                            ":dispChave" => $dispChave
+                            );
+            Database::comando($sql, $params);
+            return true;
+        }
+        
+        public function updateSemChave($ultimaAlteracao) {
+            $sql = "UPDATE Dispositivo, Motor SET `motoPosicaoXY` = :motoPosicaoXY, `motoPosicaoZ` = :motoPosicaoZ, `dispUltimaAlteracao` = :dispUltimaAlteracao 
+                    WHERE `dispId` = :dispId
+                    AND dispId = motor_dispId";
+            $params = array(
+                            ":motoPosicaoXY" => $this->getPosicaoXY(),
+                            ":motoPosicaoZ" => $this->getPosicaoZ(),
+                            ":dispUltimaAlteracao" => $ultimaAlteracao,
+                            ":dispId" => $this->getDispositivoId()
+                            );
+            Database::comando($sql, $params);
+            return true;
+        }
     }
-
-    // //Manipulação de dados de um motor
-    // $comando = 2;
-
-    // //Cadastro de um motor
-    // if ($comando == 1){
-    //     $motor = new Motor('', 0, "aaaaaaa","140", "30", 2);
-    //     $motor->create();
-    // }
-
-    // //Atualização de um motor
-    // else if ($comando == 2){
-    //     $motor = new Motor(20, 1, "yy", "60", "110", 3);
-    //     $motor->update();
-    // }
-
-    // //Exclusão de um motor
-    // else if ($comando == 3){
-    //     $motor = new Motor(4, '', '', '', '', '');
-    //     $motor->delete();
-    // }
-
-    // echo "<pre>";
-    // print_r($motor);
-    // echo "</pre>";
-    // echo "<br>";
-    // echo "<pre>";
-    // print_r($motor->consultar());
-    // echo "</pre>";
 ?>

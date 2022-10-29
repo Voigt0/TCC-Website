@@ -11,6 +11,7 @@
     include_once (__DIR__."/../../php/utils/autoload.php");
     //Salvar contexto
     $data = Usuario::consultarData($_SESSION['usuaId'])[0];
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,7 +21,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Giro</title>
     <link rel="icon" type="image/x-icon" href="../../img/favicon/favicon.ico">
-    <link rel="stylesheet" href="../../bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/perfil.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -30,6 +30,17 @@
 			  $(this).parent().toggleClass("active");
 			});
 		});
+		
+		 // Termos
+        function confirmar() {
+            var element = document.getElementById("confirmar");
+            element.classList.add("show-modal");
+        }
+
+        function closeConfirmar() {
+            var element = document.getElementById("confirmar");
+            element.classList.remove("show-modal");
+        }
 	</script>
 
 </head>
@@ -63,22 +74,44 @@
   
    
     <section>
-        <div class="container-fluid">
-            <div class="back"><a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a></div>                
-            <form action="../../php/controle/controle-perfil.php" method="post">
+        
+        
+        <main>
+            <div class="heading">
+                <h2>Informações do perfil</h2>
+                <a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a>            
+            </div>
+        
+            <!--<div class="back"><a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a></div>                -->
+            <form action="../../php/controle/controle-perfil.php" method="post" enctype="multipart/form-data">
                 <div class="container">
                     <div class="box-foto">
-                        <div class="form-header"><h2>Informações de pefil</h2></div>
                         <br>
                         <div class="foto">
-                            <img src="../../img/png/defaultProfilePhoto.png">
+                            <?php 
+                                if($data['usuaFoto'] == ""){
+                                    echo "<img id='img-perfil' src='../../img/png/defaultProfilePhoto.png'>";
+                                } else {
+                                    // echo "$data[usuaFoto]";
+                                    echo "<img id='img-perfil' src='../../img/perfil/$data[usuaFoto]'>";
+                                }
+                            
+                            ?>
                     
                         </div> <!--onde fica a foto -->
                         <br>
                             <div class="button-alterar">
-                                <button type="button" class="" onclick="document.getElementById('photo').click()" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Alterar foto</button>
-                                <input type='file' id="photo" style="display:none">
+                                
+                                <!--<button type="button" class="" onclick="document.getElementById('photo').click()" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Alterar foto</button>-->
+                                
+                                
+                                <input type='file' id="imagem" name="imagem" >
                             </div>
+                            
+                           
+                            <input type="text" hidden id="usuaFoto" name="usuaFoto" value="<?php echo $data['usuaFoto']?>">
+                           
+
                     </div>
 
                     <div class="dados">
@@ -95,47 +128,66 @@
 
                         <div class="input-box">
                             <label for="usuaTelefone">Telefone</label>
-                            <input required class="" type="tel" id="telefone" name="usuaTelefone" placeholder="" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" value="<?php echo $data['usuaTelefone'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
+                            <input required class="" type="tel" id="telefone" name="usuaTelefone" placeholder="" value="<?php echo $data['usuaTelefone'];?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         </div>
                         
                         <div class="input-box">
                             <label for="usuaSenha">Senha</label>
                             <input required onkeyup='confirmarSenha();' class="" type="password" id="usuaSenha" name="usuaSenha" placeholder="" minlength="8" value="<?php if(!isset($_GET['update'])) {echo $data['usuaSenha'];}?>" <?php if(!isset($_GET['update'])) {echo "disabled";}?> required>
                         </div>
-</div>
-                        <div class="input-group">
                         <div class="input-box">
                             <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenha">Nova senha</label>
-                            <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenha" name="novaUsuaSenha" placeholder="" minlength="8" maxlength="20" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
+                            <input onkeyup='confirmarSenha();' class="<?php if(!isset($_GET['update'])) {echo "oculto";} else {echo "show";}?>" type="password" id="novaUsuaSenha" name="novaUsuaSenha" placeholder="" minlength="8" maxlength="20" value="">
                         </div>
 
                         <div class="input-box">
                             <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenhaConfirma">Confirmar senha</label>
-                            <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
+                            <input onkeyup='confirmarSenha();' class="<?php if(!isset($_GET['update'])) {echo "oculto";} else {echo "show";}?>" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" >
                         </div>
                         </div>
                 </div>
             </div>
                 <div class="perfil-footer">
+                    
                     <div class="button"><a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
                 <br>
                     <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled>Salvar</button></div>
                 <br>
-                <!--<div class="button"><button><a onclick="return confirm('Deseja excluir a conta?')" href="../../php/controle/controle-perfil.php?acao=delete"</a>Excluir</button></div>-->
-                    
+               
                 <div class="button"><button class="delete" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled><a onclick="return confirm('Deseja excluir o perfil?')" href="../../php/controle/controle-perfil.php?acao=delete"> Excluir perfil</a></button></div>
                 
                      
 
                     
-                    <div class="button"><a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value=""<?php if(isset($_GET['update'])) {echo "hidden";}?>>Encerrar sessão</button></a></div>
+                    <!--<div class="button"><a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value=""<?php if(isset($_GET['update'])) {echo "hidden";}?>>Encerrar sessão</button></a></div>-->
+                    
+                    
+                    <div class="button"><a onclick="confirmar()"><button class="" type="button" id="" name="" value=""<?php if(isset($_GET['update'])) {echo "hidden";}?>>Encerrar sessão</button></a></div>
+                    
+                    
+                    
+                    
+                    <div class="confirmar" id="confirmar">
+           <div class="confirmar-content">
+                <a>
+                    <span class="close-button" onclick="closeConfirmar()">
+                        &times;
+                    </span>
+                </a>
+                <h1>Deseja encerrar a sessão?</h1>
+                 <div class="div-botao-modal">
+                <a onclick="closeConfirmar()"><button type="button"class="btn-modal">Cancelar</button></a>
+                <a href="../../php/controle/controle-login.php"><button type="button" class="btn-modal">Encerrar sessão</button></a>
+            </div>
+            </div>
+        </div>
+                    
                 </div>
             </form>
-        </div>
+        </main>
 
     </section>
     <script>var senhaAtual = "<?php echo $data["usuaSenha"];?>";</script>
     <script src="../../js/perfil.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
 </body>
 </html>

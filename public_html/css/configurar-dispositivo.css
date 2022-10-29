@@ -1,23 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 *{
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-  font-family: 'Questrial', sans-serif;
-  border: 0;
-  font-weight: 100;
-  font-size: 12px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    border: 0;
+    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Questrial', sans-serif;
 }
-.body{
-    height: 90vh;
+
+body{
+    background-color: #FBC10D;
+    color: #000000;
+}
+
+main{
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 61px;
-}   
+    padding: 5rem;
+}
+/*{*/
+/*    height: 90vh;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    flex-wrap: wrap;*/
+/*    padding: 61px;*/
+/*}   */
 
 
 .back{
@@ -28,135 +39,248 @@
     padding-right: 6%;
 }
 
-
-
-
-.container{
-    margin-top: 10px;
-    width: 435px;
-    height: 560px;
-    background-color: #000000;
-    position: relative; 
-}
-
 .box{
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 400px;
-    height: 420px;
-}
-
-.back{
-    margin-top: 30px;
+    width: 435px;
+    height: 630px;
+    background-color: #000000;
     display: flex;
-    justify-content: right;
-    margin-right: 87px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin-top: -5rem;
 }
 
 .form-header{
-    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: flex-start;
+    padding: 0.5rem 0 2rem 0;
 }
 
-.form-header h2{
+h2{
     color: #ffffff;
     font-size: 3.5rem;
-    font-family: 'Questrial', sans-serif;
 }
 
-.underline {
-    content: '';
-    position: absolute;
-    height: 4px;
-    width: 240px;
-    bottom: 365px;
-    border-radius: 8px;
-    background: #ffffff;
+.input-box{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.input-field{
-    display: inline-block;
-}
-
-.input-field img{
+.input-box img{
     width: 4rem;
     height: 4rem;
     justify-content: center;
 }
 
-.input-field input {
+input, textarea{
     padding: 0.8rem;
-    width: 25rem;
+    width: 22rem;
     height: 3rem;
     border: none;
     box-shadow: 1px 1px 6px #0000001c;
     font-size: 1.3rem;
-    background-color: #FBC10D;   
+    background-color: #FBC10D;
+}
+
+textarea{
+    max-width: 22rem;
+    height: 10rem;
+    max-height: 10rem;
+  
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
 }
 
 
-
-.form-element{
+.elemento{
     float: left;
     margin-right: 2rem;
     margin-bottom: 1rem;
 }
 
-.form-element input{
-    margin-top: 0.5rem;
-}
 
 button{
     background-color: #FBC10D;
     width: 160.45px;
     height: 34.59px;
     display: inline-block;
-    justify-content: center;
     font-size: 1.5rem;
-    font-family: 'Questrial', sans-serif;
-    color: rgba(0, 0, 0, 0.60);
+    color: black;
+    justify-content: center;
+    transition: 0.3s;
     margin-bottom: 10px;
+}
+
+
+button.cancel{
+    background-color: #C53200;
 }
 
 button:hover, button.cancel:hover{
     background-color: #ffffff;
 }
 
-button.cancel{
-    background-color: #C53200;
+.form-footer{
+   text-align: center;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
 }
 
-.center p{
-    margin-bottom: 20px;
+.form-footer button{
+    margin: 1rem;
+}
+
+p{
+    margin-bottom: 10px;
+    transition: 0.3s;
 }
 
 p:hover{
-    color: #ffffff;
     font-size: 1.3rem;
-}
-
-
-
-.form-footer{
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-.form-footer button{
-    margin: 1rem;
-    margin-block: -3rem;
-}
-
-/* .nav-element{
-margin-left: 92px;
-margin-right: 92px;
-} */
-
-.center{
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.center label{
     cursor: pointer;
+}
+
+i{
+    color: white;
+}
+
+
+.modal{
+    z-index:1;
+    position: fixed;
+    top:0;
+    left:0;
+    padding:0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0.25s ease-in-out , opacity 0.25s ease-in-out, transform 0.25s ease-in-out;  
+}
+
+.show-modal{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);    
+}
+
+
+.modal-content{
+    background-color: #FBC10D;
+    padding: 16px 24px;    
+    width: 384px;
+    border-radius: 0.5rem;
+}
+.close-button{
+   float: right;
+   width: 24px;
+   line-height: 24px;
+   text-align: center;
+   cursor: pointer;
+   border-radius: 0.25rem;
+   background-color: transparent;
+   border: 2px solid black;
+}
+.close-button:hover{
+    background-color: black;
+} 
+
+.modal-content h1{
+    color: black;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.modal-content h2{
+    padding: 2rem;
+    font-size: 17px;
+    color: black;
+}
+
+.modal-content a{
+    color: black;
+}
+
+.modal-content a:hover{
+    color: #FBC10D;
+}
+
+.div-botao-modal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-modal{
+    background-color: transparent;
+    border: 1.5px solid black;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.btn-modal:hover{
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 445px){
+    .box{
+        width: 350px;
+        height: 690px;
+    }
+    
+    input, textarea{
+        width: 19rem;
+    }
+    
+    button{
+        width: 140px;
+    }
+    .elemento{
+        padding: 0rem;    
+    }
+    
+    h2{
+        font-size: 2.5rem;
+        margin-top: 3rem;
+    }
+    
+    .form-header{
+        justify-content: center;
+    }
+     iframe{
+        width: 280px;
+    }
+}
+
+@media (max-width: 355px){
+    .box{
+        width: 295px;
+        height: 690px;
+    }  
+    
+     input, textarea{
+        width: 15rem;
+        font-size: 1rem;
+    }
+    
+    img{
+        width: 3rem;
+        height: 3rem;
+    }
+
 }
