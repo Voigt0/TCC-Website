@@ -2,12 +2,12 @@
 
     // Banco de Dados
     define('HOST', 'localhost');  
-    define('DBNAME', 'solargiro');    
-    define('USER', 'root');  
-    define('PASSWORD','');
+    define('DBNAME', 'id19423084_solargiro');    
+    define('USER', 'id19423084_equipesolargiro');  
+    define('PASSWORD','A/[[qp8HM{xAqfx2');
 
 
-    
+
     define('DRIVER', 'mysql'); 
     define('CHARSET', 'utf8');
 

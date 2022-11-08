@@ -47,14 +47,12 @@ function rastreador (dispChave, latitude, longitude, dataMes, dataDia, dataAno, 
         obliquidade = 23.4393 - 0.013 * t;
         
         declinacao = Math.atan (Math.tan (obliquidade * grausParaRadianos) * Math.sin (alpha * grausParaRadianos)) * radianosParaGraus;
-        // f.outputDeclination.value = FormatFloatString (declinacao);
-        console.log(FormatFloatString(declinacao));
-        informacoes["declinacao"] = FormatFloatString(declinacao);
+        console.log(declinacao);
+        informacoes["declinacao"] = declinacao;
 
         ajusteEoT = (L - C - alpha) / 15.0 * 60.0;
-        // f.outputEOT.value = FormatFloatString (ajusteEoT);
-        console.log(FormatFloatString(ajusteEoT));
-        informacoes["eot"] = FormatFloatString(ajusteEoT);
+        console.log(ajusteEoT);
+        informacoes["eot"] = ajusteEoT;
         
         //Calcula a diferença entre a hora solar e a hora relógio, dado a Equação do Tempo que acabamos de calcular
         var ajusteTempoRelogioParaTempoSolar = (4 * (longitude - meridianoPeloGmt)) + ajusteEoT;
@@ -80,15 +78,12 @@ function rastreador (dispChave, latitude, longitude, dataMes, dataDia, dataAno, 
         tempoSolar = MinutosParaTempoRelogio (minutosSolaresAposAMeiaNoite);
         
         if (qualDia == "-1") {
-                // f.outputLSOT.value = tempoSolar + "-";
                 console.log(tempoSolar + "-");
                 informacoes["tempoSolar"] = tempoSolar + "-";
         }else if (qualDia ==  "0") {
-                // f.outputLSOT.value = tempoSolar;
                 console.log(tempoSolar);
                 informacoes["tempoSolar"] = tempoSolar;
         }else if (qualDia ==  "1") {
-                // f.outputLSOT.value = tempoSolar + "+";
                 console.log(tempoSolar + "+");
                 informacoes["tempoSolar"] = tempoSolar + "+";
         }
@@ -111,24 +106,20 @@ function rastreador (dispChave, latitude, longitude, dataMes, dataDia, dataAno, 
         tempoRelogio = MinutosParaTempoRelogio (minutosAposAMeiaNoite);
         
         if (qualDia == "-1") {
-                // f.outputClockTime.value = tempoRelogio + "-";
                 console.log(tempoRelogio + "-");
                 informacoes["tempoRelogio"] = tempoRelogio + "-";
         }else if (qualDia ==  "0") {
-                // f.outputClockTime.value = tempoRelogio;
                 console.log(tempoRelogio);
                 informacoes["tempoRelogio"] = tempoRelogio;
         }else if (qualDia ==  "1") {
-                // f.outputClockTime.value = tempoRelogio + "+";
                 console.log(tempoRelogio + "+");
                 informacoes["tempoRelogio"] = tempoRelogio + "+";
         }
 
         //Ângulo Horario
         var anguloHorario = (minutosSolaresAposAMeiaNoite - 12 * 60) / 4 * -1;
-        // f.outputHourAngle.value = FormatFloatString (anguloHorario);
-        console.log(FormatFloatString(anguloHorario));
-        informacoes["anguloHorario"] = FormatFloatString(anguloHorario);
+        console.log(anguloHorario);
+        informacoes["anguloHorario"] = anguloHorario;
 
         //Ângulo de Altitude
         var anguloDeAltitude = radianosParaGraus * ArcSin (
@@ -137,9 +128,8 @@ function rastreador (dispChave, latitude, longitude, dataMes, dataDia, dataAno, 
                         Math.cos (anguloHorario       * grausParaRadianos)) +
                 (Math.sin (latitude  * grausParaRadianos)  *
                         Math.sin (declinacao     * grausParaRadianos)));
-        // f.outputAltitude.value = FormatFloatString (anguloDeAltitude);
-        console.log(FormatFloatString(anguloDeAltitude));
-        informacoes["anguloDeAltitude"] = FormatFloatString(anguloDeAltitude);
+        console.log(anguloDeAltitude);
+        informacoes["anguloDeAltitude"] = anguloDeAltitude;
 
         //Ângulo Azimutal
         var anguloAzimutal = radianosParaGraus * ArcCos ((
@@ -150,9 +140,8 @@ function rastreador (dispChave, latitude, longitude, dataMes, dataDia, dataAno, 
                         Math.cos (latitude * grausParaRadianos)));
                 
         if (anguloAzimutal * anguloHorario < 0) { anguloAzimutal *= -1 }
-        // f.outputAzimuth.value = FormatFloatString (anguloAzimutal);
-        console.log(FormatFloatString(anguloAzimutal));
-        informacoes["anguloAzimutal"] = FormatFloatString(anguloAzimutal);
+        console.log(anguloAzimutal);
+        informacoes["anguloAzimutal"] = anguloAzimutal;
 
         //Hora relógio do nascer e por do sol
         var nascerEPorDoSol = radianosParaGraus * ArcCos ( -1.0 *
@@ -161,11 +150,9 @@ function rastreador (dispChave, latitude, longitude, dataMes, dataDia, dataAno, 
                 Math.cos (latitude * grausParaRadianos) /
                 Math.cos (declinacao    * grausParaRadianos)) * 4;
 
-        // f.outputSunrise.value = MinutosParaTempoRelogio ((12 * 60 - nascerEPorDoSol - (4 * (longitude -  meridianoPeloGmt)) - ajusteEoT));
         console.log(MinutosParaTempoRelogio ((12 * 60 - nascerEPorDoSol - (4 * (longitude -  meridianoPeloGmt)) - ajusteEoT)));
         informacoes["nascerDoSol"] = MinutosParaTempoRelogio ((12 * 60 - nascerEPorDoSol - (4 * (longitude -  meridianoPeloGmt)) - ajusteEoT));
 
-        // f.outputSunset.value  = MinutosParaTempoRelogio ((12 * 60 + nascerEPorDoSol - (4 * (longitude -  meridianoPeloGmt)) - ajusteEoT));
         console.log(MinutosParaTempoRelogio ((12 * 60 + nascerEPorDoSol - (4 * (longitude -  meridianoPeloGmt)) - ajusteEoT)));
         informacoes["porDoSol"] = MinutosParaTempoRelogio ((12 * 60 + nascerEPorDoSol - (4 * (longitude -  meridianoPeloGmt)) - ajusteEoT));
         
@@ -176,7 +163,7 @@ function rastreador (dispChave, latitude, longitude, dataMes, dataDia, dataAno, 
         
         $.ajax({
             method: "GET",
-            url: "../transacao.php",
+            url: "../php/controle/controle-motor.php",
             dataType: 'json',
             data: {
                'dispChave': dispChave,
@@ -185,12 +172,12 @@ function rastreador (dispChave, latitude, longitude, dataMes, dataDia, dataAno, 
             }
         });
         
-        // document.write(jsonString);
+        document.write(jsonString);
         // document.close();
 
         // console.log(informacoes);  
         // console.log(jsonString);       
-}
+    }
 
 
 //OUTRAS FUNÇÕES
@@ -222,35 +209,4 @@ function MinutosParaTempoRelogio (minutos) {
 
 function NormalizaPara360 (algo) {
         return (algo - Math.floor (algo / 360.0) * 360);
-}
-
-
-
-function FormatFloatString (theInput) {
-
-// This does two things...it forces two digits of precision after the decimal point, and it
-// aligns the numbers to two integer digits and two decimal digits in the form:
-//
-//                  XX.XX
-//                 - X.XX
-//                   X.XX
-//
-        
-        var negativeNumber = false;
-        if (theInput < 0) {
-                negativeNumber = true;
-                theInput *= -1;
-        }
-
-        integerPortion = Math.floor (theInput); 
-        decimalPortion = Math.round (theInput * 100) % 100;
-
-        if (integerPortion < 10) integerPortionString = " " + integerPortion;   // add a space at beginning if necessary
-        else integerPortionString = "" + integerPortion;
-        
-        if (decimalPortion < 10) decimalPortionString = "0" + decimalPortion;   // add a leading zero if necessary
-        else decimalPortionString = "" + decimalPortion;
-        
-        if (negativeNumber == true) return ("-" + integerPortionString + "." + decimalPortionString);
-        else return (" " + integerPortionString + "." + decimalPortionString);
 }

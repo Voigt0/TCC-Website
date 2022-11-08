@@ -63,7 +63,7 @@
         </section>
         <section>
             <div class="img-button"><a href="view/dispositivo/controle-de-dispositivos.php"><button class="botao"><img src="img/icons/confIcon.svg"></button></a></div>
-            <div class="button"><a href="view/dispositivo/controle-de-dispositivos.php"><button class="" type="submit" id="" name="" value="">Gerenciar dispositivo</button></a></div>
+            <div class="button"><a href="view/dispositivo/controle-de-dispositivos.php"><button class="" type="submit" id="" name="" value="">Visualizar dispositivo</button></a></div>
         </section>
         <section>
             <div class="img-button"><a href="view/usuario/perfil.php"><button class="botao"><img src="img/icons/userIcon.svg"></button></a></div>

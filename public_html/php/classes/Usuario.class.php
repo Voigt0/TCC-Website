@@ -1,7 +1,7 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    class Usuario extends Database{
+    class Usuario{
         private $id;
         private $nome;
         private $email;
@@ -84,35 +84,44 @@
         }
 
         //Métodos de persistência
-        public function create(){
-            $sql = "INSERT INTO Usuario (usuaNome, usuaEmail, usuaTelefone, usuaSenha, usuaFoto) VALUES (:usuaNome, :usuaEmail, :usuaTelefone, :usuaSenha, :usuaFoto)";
-            // echo $sql; 
-            // echo '<br>';
-            // die;
-            $params = array(
-                ":usuaNome" => $this->getNome(),
-                ":usuaEmail" => $this->getEmail(),
-                ":usuaTelefone" => $this->getTelefone(),
-                ":usuaSenha" => $this->getSenha(),
-                ":usuaFoto" => $this->getFoto()
-            );
-            // print_r ($params);
-            // die;
-            return self::comando($sql, $params);
+        public function create() {
+            if(!Usuario::autenticarEmail($this->getEmail())) {
+                $sql = "INSERT INTO Usuario (usuaNome, usuaEmail, usuaTelefone, usuaSenha, usuaFoto) VALUES (:usuaNome, :usuaEmail, :usuaTelefone, :usuaSenha, :usuaFoto)";
+                // echo $sql; 
+                // echo '<br>';
+                // die;
+                $params = array(
+                    ":usuaNome" => $this->getNome(),
+                    ":usuaEmail" => $this->getEmail(),
+                    ":usuaTelefone" => $this->getTelefone(),
+                    ":usuaSenha" => $this->getSenha(),
+                    ":usuaFoto" => $this->getFoto()
+                );
+                // print_r ($params);
+                // die;
+                Database::comando($sql, $params);
+                return true;
+            } else {
+                return false;
+            }
         }
 
-        public function update(){
-            $sql = "UPDATE Usuario SET usuaNome = :usuaNome, usuaEmail = :usuaEmail, usuaTelefone = :usuaTelefone, usuaSenha = :usuaSenha, usuaFoto = :usuaFoto WHERE usuaId = :usuaId";
-            
-            $params = array(
-                ":usuaId" => $this->getId(),
-                ":usuaNome" => $this->getNome(),
-                ":usuaEmail" => $this->getEmail(),
-                ":usuaTelefone" => $this->getTelefone(),
-                ":usuaSenha" => $this->getSenha(),
-                ":usuaFoto" => $this->getFoto()
-            );
-            return self::comando($sql, $params);
+        public function update() {
+            if(!Usuario::autenticarEmail($this->getEmail())) {
+                $sql = "UPDATE Usuario SET usuaNome = :usuaNome, usuaEmail = :usuaEmail, usuaTelefone = :usuaTelefone, usuaSenha = :usuaSenha, usuaFoto = :usuaFoto WHERE usuaId = :usuaId";
+                $params = array(
+                    ":usuaId" => $this->getId(),
+                    ":usuaNome" => $this->getNome(),
+                    ":usuaEmail" => $this->getEmail(),
+                    ":usuaTelefone" => $this->getTelefone(),
+                    ":usuaSenha" => $this->getSenha(),
+                    ":usuaFoto" => $this->getFoto()
+                );
+                Database::comando($sql, $params);
+                return true;
+            } else {
+                return false;
+            }
         }
 
         public function delete(){
@@ -120,7 +129,8 @@
             $params = array(
                 ":usuaId" => $this->getId()
             );
-            return self::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
        
@@ -140,13 +150,13 @@
                 $sql .= " ORDER BY usuaId";
                 $params = array();
             }
-            return parent::consulta($sql, $params);
+            return Database::consulta($sql, $params);
         }
 
         public static function consultarData($id){
             $sql = "SELECT * FROM Usuario WHERE usuaId = :usuaId";
             $params = array(':usuaId'=>$id);
-            return parent::consulta($sql, $params);
+            return Database::consulta($sql, $params);
         }
 
 
@@ -158,11 +168,23 @@
                 ':usuaSenha' => $senha
             );
             session_start();
-            if (self::consulta($sql, $params)) {
-                $_SESSION['usuaId'] = self::consulta($sql, $params)[0]['usuaId'];
+            if (Database::consulta($sql, $params)) {
+                $_SESSION['usuaId'] = Database::consulta($sql, $params)[0]['usuaId'];
                 return true;
             } else {
                 $_SESSION['usuaId'] = "";
+                return false;
+            }
+        }
+        
+        public static function autenticarEmail($email){
+            $sql = "SELECT usuaId FROM Usuario WHERE usuaEmail = :usuaEmail";
+            $params = array(
+                ':usuaEmail' => $email
+            );
+            if (Database::consulta($sql, $params)) {
+                return true;
+            } else {
                 return false;
             }
         }

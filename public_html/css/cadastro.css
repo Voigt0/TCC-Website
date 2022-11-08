@@ -1,3 +1,4 @@
+/* Importar a fonte */
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 *{
     margin: 0;
@@ -11,6 +12,7 @@
     font-family: 'Questrial', sans-serif;
 }
 
+/* Definição da página */
 body{
     background-color: #FBC10D;
     color: #000000;
@@ -22,6 +24,7 @@ main{
     padding: 5rem;
 }
 
+/* Div de retorno */
 .back{
     display: flex;
     justify-content: end;
@@ -30,6 +33,7 @@ main{
     padding-right: 6%;
 }
 
+/* Caixa do formulário */
 .box{
     width: 435px;
     height: 520px;
@@ -42,6 +46,7 @@ main{
     margin-top: -5rem;
 }
 
+/* Cabeçalho do formulário */
 .form-header{
     display: flex;
     align-items: flex-start;
@@ -53,7 +58,7 @@ h2{
     font-size: 3.5rem;
 }
 
-
+/* Caixa do Input + Imagem */
 .input-box{
     display: flex;
     align-items: center;
@@ -77,6 +82,7 @@ input {
     background-color: #FBC10D;   
 }
 
+/* Itens na caixa */
 .elemento{
     float: left;
     margin-right: 2rem;
@@ -110,6 +116,7 @@ a:hover{
     color: #FBC10D;
 }
 
+/* Footer do formulário */
 .form-footer{
     padding: -0.5rem;
     display: flex;
@@ -133,7 +140,6 @@ a:hover{
   width: 18px;
   height: 18px;
   border-radius: 4px;
-  /* background-color: white; */
   border: 1px solid gray;
   display: inline-block;
   vertical-align: middle;
@@ -149,7 +155,9 @@ a:hover{
   padding: 1px;
 }
 
-.modal, .termos{
+
+/* Mensagem de confirmação + Pop-up de termos */
+.modal, .termos, .error{
     z-index:1;
     position: fixed;
     top:0;
@@ -167,14 +175,14 @@ a:hover{
     transition: visibility 0.25s ease-in-out , opacity 0.25s ease-in-out, transform 0.25s ease-in-out;  
 }
 
-.show-modal, .show-termos{
+.show-modal, .show-termos, .show-error{
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);    
 }
 
 
-.modal-content, .termos-content{
+.modal-content, .termos-content, .error-content{
     background-color: #FBC10D;
     padding: 16px 24px;    
     width: 384px;
@@ -194,27 +202,28 @@ a:hover{
     background-color: black;
 } 
 
-.modal-content h1, .termos-content h1{
+.modal-content h1, .termos-content h1, .error-content h1{
     color: black;
     font-size: 20px;
     font-weight: 200;
 }
 
-.modal-content h2, .termos-content h2{
+.modal-content h2, .termos-content h2, .error-content h2{
     padding: 2rem;
     font-size: 17px;
     color: black;
 }
 
-.modal-content a, .termos-content a{
+.modal-content a, .termos-content a, .error-content a{
     color: black;
 }
 
-.modal-content a:hover, .termos-content a:hover{
+.modal-content a:hover, .termos-content a:hover, .error-content a:hover{
     color: #FBC10D;
 }
 
 
+/* Responsividade */
 @media (max-width: 400px) {
     .box{
         width: 350px;
@@ -239,23 +248,7 @@ a:hover{
         width: 300px;
     }
     
-   
-    
     input{
         width: 15rem;
     }
-}
-
-
-
-div{
-  /*color:#90011e;*/
-  /* padding-top: 5px; */
-	font-size: 13px;
-}
-
-div#div_usuaNome{
-  display: flex;
-  justify-content: center;
-  color:#90011e;
 }

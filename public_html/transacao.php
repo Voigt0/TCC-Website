@@ -1,6 +1,8 @@
 <?php
     include_once (__DIR__."/php/utils/autoload.php");
     include_once (__DIR__."/php/utils/fuso-horario.php");
+    include_once (__DIR__."/php/utils/rastreador.php");
+    
     $dispChave = isset($_GET['dispChave']) ? $_GET['dispChave'] : '';
     $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
     
@@ -16,18 +18,21 @@
             $gmtTimezone = new DateTimeZone('GMT');
             $dataAtual = new DateTime(date("Y-m-d H:i:s"), $gmtTimezone);
             $timezoneNum = $timezone->getOffset($dataAtual)/3600;
-            echo "<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>";
-            echo "<script src='js/rastreador.js'></script>";
-            echo "<script>
-                    window.onbeforeunload = function() {
-        return 'Your text here';
-      };
-              
-                    // $( document ).ready(function() {
-                        // rastreador('". $dispChave ."', ". $consulta['dispLatitude'] .", ". $consulta['dispLongitude'] .", ". date("m") .", ". date("d") .", ". date("Y") .", ". date("H") .", ". date("i") .", ". $timezoneNum .");
-                    // });
-                    
-                  </script>";
+            
+            //Rastrear o sol
+            $resultado = rastreador($dispChave, $consulta['dispLatitude'], $consulta['dispLongitude'], date("m"), date("d"), date("Y"), date("H"), date("i"), $timezoneNum);
+            
+            if(date("H:i") > $resultado['porDoSol'] || date("H:i") < $resultado['nascerDoSol']) {
+                $resultado['anguloAzimutal'] = 0;
+                $resultado['anguloDeAltitude'] = 90;
+                
+            }
+            
+            //Editar motor automaticamente
+            $usua = new Usuario('', '', '', '', '', '', '', '', '');
+            $disp = new Dispositivo('', '', '', '', '', '', '', '', $usua);
+            $moto = new Motor('', intval($resultado['anguloAzimutal']), intval($resultado['anguloDeAltitude']), $disp);
+            $moto->updateComChave($dispChave, date("Y-m-d H:i:s"));
         } else if($acao == 'movimentar') {
             $informacao = json_encode(array(
                                             "posicaoXY" => $consulta['motoPosicaoXY'],

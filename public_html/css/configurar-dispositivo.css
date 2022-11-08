@@ -1,3 +1,4 @@
+/* Importar a fonte */
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 *{
     margin: 0;
@@ -11,6 +12,7 @@
     font-family: 'Questrial', sans-serif;
 }
 
+/* Definição da página */
 body{
     background-color: #FBC10D;
     color: #000000;
@@ -21,16 +23,8 @@ main{
     justify-content: center;
     padding: 5rem;
 }
-/*{*/
-/*    height: 90vh;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    flex-wrap: wrap;*/
-/*    padding: 61px;*/
-/*}   */
 
-
+/* Div de retorno */
 .back{
     display: flex;
     justify-content: end;
@@ -39,6 +33,7 @@ main{
     padding-right: 6%;
 }
 
+/* Caixa do formulário */
 .box{
     width: 435px;
     height: 630px;
@@ -51,6 +46,7 @@ main{
     margin-top: -5rem;
 }
 
+/* Cabeçalho do formulário */
 .form-header{
     display: flex;
     align-items: flex-start;
@@ -62,6 +58,7 @@ h2{
     font-size: 3.5rem;
 }
 
+/* Caixa do Input + Imagem */
 .input-box{
     display: flex;
     align-items: center;
@@ -92,12 +89,7 @@ textarea{
   
 }
 
-input:focus, textarea:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
-}
-
-
+/* Itens na caixa */
 .elemento{
     float: left;
     margin-right: 2rem;
@@ -126,6 +118,7 @@ button:hover, button.cancel:hover{
     background-color: #ffffff;
 }
 
+/* Footer do formulário */
 .form-footer{
    text-align: center;
    margin-top: 1rem;
@@ -150,8 +143,8 @@ i{
     color: white;
 }
 
-
-.modal{
+/* Mensagens/Pop-ups */
+.modal, .editar{
     z-index:1;
     position: fixed;
     top:0;
@@ -169,14 +162,14 @@ i{
     transition: visibility 0.25s ease-in-out , opacity 0.25s ease-in-out, transform 0.25s ease-in-out;  
 }
 
-.show-modal{
+.show-modal, .show-editar{
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);    
 }
 
 
-.modal-content{
+.modal-content, .editar-content{
     background-color: #FBC10D;
     padding: 16px 24px;    
     width: 384px;
@@ -196,23 +189,23 @@ i{
     background-color: black;
 } 
 
-.modal-content h1{
+.modal-content h1, .editar-content h1{
     color: black;
     font-size: 20px;
     font-weight: 200;
 }
 
-.modal-content h2{
+.modal-content h2, .editar-content h2{
     padding: 2rem;
     font-size: 17px;
     color: black;
 }
 
-.modal-content a{
+.modal-content a, .editar-content a{
     color: black;
 }
 
-.modal-content a:hover{
+.modal-content a:hover, .editar-content a:hover{
     color: #FBC10D;
 }
 
@@ -223,13 +216,14 @@ i{
 
 .btn-modal{
     background-color: transparent;
-    border: 1.5px solid black;
+    border: 2px solid black;
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    border-radius: 0.25rem;
 }
 
 .btn-modal:hover{
@@ -237,6 +231,7 @@ i{
     color: white;
 }
 
+/* Responsividade */
 @media (max-width: 445px){
     .box{
         width: 350px;
@@ -282,5 +277,4 @@ i{
         width: 3rem;
         height: 3rem;
     }
-
 }

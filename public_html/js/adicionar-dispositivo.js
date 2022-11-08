@@ -16,7 +16,7 @@ function getLocation() {
     latitude.value = position.coords.latitude;
     longitude.value = position.coords.longitude;
     document.getElementById("localizarDica").innerHTML = "";
-    document.getElementById("box").style.height = '1000px';
+    document.getElementById("box").style.height = '1050px';
     mapa.innerHTML = "<iframe style='margin-bottom: 1rem;' width='400' height='400' id='gmap_canvas' src='https://maps.google.com/maps?q="+position.coords.latitude+",%20"+position.coords.longitude+"&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>";
 }
 

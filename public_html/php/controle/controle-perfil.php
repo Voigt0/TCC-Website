@@ -68,9 +68,13 @@
                 $usua = new Usuario($_SESSION['usuaId'], $_POST['usuaNome'], $_POST['usuaEmail'], $_POST['usuaTelefone'], $_POST['usuaSenha'], $x);
             } 
         }
-        $usua->update();
+        if($usua->update()) {
+            header("Location: ../../view/usuario/perfil.php?msg=Usuário alterado com sucesso!");
+        } else {
+            header("Location: ../../view/usuario/perfil.php?msg=falha");
+        }
 
-        header("Location: ../../view/usuario/perfil.php?msg=Usuário alterado com sucesso!");
+        
         }
     } catch(Exception $e) {
         echo "<h1>Erro ao cadastrar as informações.</h1><br> Erro:".$e->getMessage();

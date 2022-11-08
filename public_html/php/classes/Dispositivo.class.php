@@ -1,7 +1,7 @@
 <?php
     include_once (__DIR__ ."/../utils/autoload.php");
 
-    class Dispositivo extends Database{
+    class Dispositivo{
         private $id;
         private $chave;
         private $nome;
@@ -10,9 +10,9 @@
         private $descricao;
         private $estado;
         private $ultimaAlteracao;
-        private $usuaId;
+        private $usuario;
 
-        public function __construct($id, $chave, $nome, $latitude, $longitude, $descricao, $estado, $ultimaAlteracao, $usuaId) {
+        public function __construct($id, $chave, $nome, $latitude, $longitude, $descricao, $estado, $ultimaAlteracao, Usuario $usuario) {
             $this->setId($id);
             $this->setChave($chave);
             $this->setNome($nome);
@@ -21,7 +21,7 @@
             $this->setDescricao($descricao);
             $this->setEstado($estado);
             $this->setUltimaAlteracao($ultimaAlteracao);
-            $this->setUsuarioId($usuaId);
+            $this->setUsuario($usuario);
         }  
         
 
@@ -58,8 +58,8 @@
             return $this->ultimaAlteracao;
         }
 
-        public function getUsuarioId() {
-            return $this->usuaId;
+        public function getUsuario() {
+            return $this->usuario;
         }
 
         public function setId($id) {
@@ -94,8 +94,8 @@
             $this->ultimaAlteracao = $ultimaAlteracao;
         }
 
-        public function setUsuarioId($usuaId) {
-            $this->usuaId = $usuaId;
+        public function setUsuario($usuario) {
+            $this->usuario = $usuario;
         }
 
 
@@ -110,7 +110,7 @@
                     "<br>Descrição: ".$this->getDescricao().
                     "<br>Estado: ".$this->getEstado().
                     "<br>Última alteração: ".$this->getUltimaAlteracao().
-                    "<br>Usuario ID: ".$this->getUsuarioId();
+                    "<br>Usuario ID: ".$this->getUsuario()->getId();
             return $str;
         }
 
@@ -127,9 +127,10 @@
                 ":dispDescricao" => $this->getDescricao(),
                 ":dispEstado" => $this->getEstado(),
                 ":dispUltimaAlteracao" => $this->getUltimaAlteracao(),
-                ":dispositivo_usuaId" => $this->getUsuarioId()
+                ":dispositivo_usuaId" => $this->getUsuario()->getId()
             );
-            return parent::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
         
        
@@ -145,9 +146,10 @@
                 ":dispDescricao" => $this->getDescricao(),
                 ":dispEstado" => $this->getEstado(),
                 ":dispUltimaAlteracao" => $this->getUltimaAlteracao(),
-                ":dispositivo_usuaId" => $this->getUsuarioId()
+                ":dispositivo_usuaId" => $this->getUsuario()->getId()
             );
-            return parent::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
         public function delete(){
@@ -155,7 +157,8 @@
             $params = array(
                 ":dispId" => $this->getId()
             );
-            return parent::comando($sql, $params);
+            Database::comando($sql, $params);
+            return true;
         }
 
        
@@ -165,40 +168,40 @@
                     WHERE Dispositivo.dispositivo_usuaId = Usuario.usuaId";
             if ($busca > 0) {
                 switch($busca){
-                    case(1): $sql .= " AND dispId like :pesquisa"; $pesquisa = $pesquisa; break;
-                    case(2): $sql .= " AND dispNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(3): $sql .= " AND dispLatitude like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(4): $sql .= " AND dispLongitude like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                    case(5): $sql .= " AND dispositivo_usuaId like :pesquisa"; $pesquisa = $pesquisa; break;
+                    case(1): $sql .= " AND dispNome like :pesquisa"; break;
+                    // case(2): $sql .= " AND dispId like :pesquisa"; $pesquisa = $pesquisa; break;
+                    // case(3): $sql .= " AND dispLatitude like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    // case(4): $sql .= " AND dispLongitude like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                    // case(5): $sql .= " AND dispositivo_usuaId like :pesquisa"; $pesquisa = $pesquisa; break;
                 }
                 $params = array(':pesquisa'=>$pesquisa);
             } else {
                 $sql .= " ORDER BY dispId";
                 $params = array();
             }
-            return parent::consulta($sql, $params);
+            return Database::consulta($sql, $params);
         }
 
         public static function consultarData($id){
             $sql = "SELECT * FROM Dispositivo WHERE dispId = :dispId";
             $params = array(':dispId'=>$id);
-            return parent::consulta($sql, $params);
+            return Database::consulta($sql, $params);
         }
 
-        public static function consultarUsuario($id, $busca, $pesquisa){
+        public static function consultarDeUsuario($id, $busca, $pesquisa){
             $sql = "SELECT dispId, dispNome FROM Dispositivo WHERE dispositivo_usuaId = :usuaId";
             switch ($busca) {
                 case(0): $sql .= " AND dispId like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
-                case(1): $sql .= " AND dispNome like :pesquisa"; $pesquisa = "%".$pesquisa."%"; break;
+                case(1): $sql .= " AND dispNome like :pesquisa"; $pesquisa = $pesquisa."%"; break;
             }
             $params = array(':usuaId'=>$id, ':pesquisa'=>$pesquisa);
-            return parent::consulta($sql, $params);
+            return Database::consulta($sql, $params);
         }
 
         public static function consultarChave($chave){
             $sql = "SELECT * FROM Dispositivo, Motor, Bateria WHERE dispId = motor_dispId AND dispId = bateria_dispId AND dispChave = :dispChave";
             $params = array(':dispChave'=>$chave);
-            return parent::consulta($sql, $params);
+            return Database::consulta($sql, $params);
         }
 
         //Métodos de validação
@@ -211,7 +214,7 @@
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
-            if (parent::consulta($sql, $params)) {
+            if (Database::consulta($sql, $params)) {
                 $_SESSION['dispId'] = $id;
                 return true;
             } else {

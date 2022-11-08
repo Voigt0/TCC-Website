@@ -31,7 +31,7 @@
 			});
 		});
 		
-		 // Termos
+		 // Confirmar
         function confirmar() {
             var element = document.getElementById("confirmar");
             element.classList.add("show-modal");
@@ -39,6 +39,17 @@
 
         function closeConfirmar() {
             var element = document.getElementById("confirmar");
+            element.classList.remove("show-modal");
+        }
+        
+         // Excluir
+        function excluir() {
+            var element = document.getElementById("excluir");
+            element.classList.add("show-modal");
+        }
+
+        function closeExcluir() {
+            var element = document.getElementById("excluir");
             element.classList.remove("show-modal");
         }
 	</script>
@@ -82,7 +93,6 @@
                 <a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a>            
             </div>
         
-            <!--<div class="back"><a href="../../index.php"><img src="../../img/icons/backIconW.svg" width="60rem"></a></div>                -->
             <form action="../../php/controle/controle-perfil.php" method="post" enctype="multipart/form-data">
                 <div class="container">
                     <div class="box-foto">
@@ -92,7 +102,6 @@
                                 if($data['usuaFoto'] == ""){
                                     echo "<img id='img-perfil' src='../../img/png/defaultProfilePhoto.png'>";
                                 } else {
-                                    // echo "$data[usuaFoto]";
                                     echo "<img id='img-perfil' src='../../img/perfil/$data[usuaFoto]'>";
                                 }
                             
@@ -105,11 +114,16 @@
                                 <!--<button type="button" class="" onclick="document.getElementById('photo').click()" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>Alterar foto</button>-->
                                 
                                 
-                                <input type='file' id="imagem" name="imagem" >
+                                <input type='file' id="imagem" name="imagem" class="<?php if(!isset($_GET['update'])) {echo "oculto";} else {echo "show";}?>" accept="image/*">
+                                
+                             <button type="button" id="btn-alterar" class="<?php if(!isset($_GET['update'])) {echo "oculto";} else {echo "show";}?>">
+                            <label for="imagem" id="btn">
+                               <p>alterar foto</p>
+                            </label></button>
                             </div>
                             
                            
-                            <input type="text" hidden id="usuaFoto" name="usuaFoto" value="<?php echo $data['usuaFoto']?>">
+                            <input type="text" hidden id="usuaFoto" name="usuaFoto" value="<?php echo $data['usuaFoto']?>" >
                            
 
                     </div>
@@ -140,34 +154,33 @@
                             <input onkeyup='confirmarSenha();' class="<?php if(!isset($_GET['update'])) {echo "oculto";} else {echo "show";}?>" type="password" id="novaUsuaSenha" name="novaUsuaSenha" placeholder="" minlength="8" maxlength="20" value="">
                         </div>
 
+                   
                         <div class="input-box">
                             <label <?php if(!isset($_GET['update'])) {echo "hidden";}?> for="novaUsuaSenhaConfirma">Confirmar senha</label>
-                            <input onkeyup='confirmarSenha();' class="<?php if(!isset($_GET['update'])) {echo "oculto";} else {echo "show";}?>" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" >
+                            <input onkeyup='confirmarSenha();' class="" type="password" id="novaUsuaSenhaConfirma" name="" placeholder="" minlength="8" maxlength="20" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?>>
                         </div>
+                        
                         </div>
                 </div>
             </div>
                 <div class="perfil-footer">
-                    
-                    <div class="button"><a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
-                <br>
-                    <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled>Salvar</button></div>
-                <br>
-               
-                <div class="button"><button class="delete" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled><a onclick="return confirm('Deseja excluir o perfil?')" href="../../php/controle/controle-perfil.php?acao=delete"> Excluir perfil</a></button></div>
+                     <div class="button"><button class="" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled>Salvar</button></div>
+
+                <div class="button"><button class="delete" type="submit" id="enviar" name="" value="" <?php if(!isset($_GET['update'])) {echo "hidden";}?> disabled><a onclick="excluir()"> Excluir perfil</a></button></div>
                 
                      
+                    <div class="button"><a onclick="<?php if(isset($_GET['update'])) {echo "return confirm('Deseja mesmo cancelar?')";}?>" href="<?php if(!isset($_GET['update'])) {echo "perfil.php?update=true";} else {echo "perfil.php";}?>"><button class="" type="button" id="editarEcancelar" name="" value="" onclick="editarEcancela()"><?php if(!isset($_GET['update'])) {echo "Editar";} else {echo "Cancelar";}?></button></a></div>
+
+                   
 
                     
-                    <!--<div class="button"><a href="../../php/controle/controle-login.php"><button class="" type="button" id="" name="" value=""<?php if(isset($_GET['update'])) {echo "hidden";}?>>Encerrar sessão</button></a></div>-->
-                    
-                    
-                    <div class="button"><a onclick="confirmar()"><button class="" type="button" id="" name="" value=""<?php if(isset($_GET['update'])) {echo "hidden";}?>>Encerrar sessão</button></a></div>
-                    
+
+                    <!--<div class="button"><a onclick="confirmar()"><button type="button" id="" name="" >Encerrar sessão</button></a></div>-->
                     
                     
                     
-                    <div class="confirmar" id="confirmar">
+
+        <div class="confirmar" id="confirmar">
            <div class="confirmar-content">
                 <a>
                     <span class="close-button" onclick="closeConfirmar()">
@@ -181,7 +194,22 @@
             </div>
             </div>
         </div>
-                    
+              
+              
+        <div class="excluir" id="excluir">
+           <div class="excluir-content">
+                <a>
+                    <span class="close-button" onclick="closeExcluir()">
+                        &times;
+                    </span>
+                </a>
+                <h1>Deseja excluir o perfil?</h1>
+                 <div class="div-botao-modal">
+                <a onclick="closeExcluir()"><button type="button"class="btn-modal">Cancelar</button></a>
+                <a href="../../php/controle/controle-perfil.php?acao=delete"><button type="button" class="btn-modal">Excluir perfil</button></a>
+            </div>
+            </div>
+        </div>      
                 </div>
             </form>
         </main>

@@ -1,3 +1,4 @@
+/* Importar a fonte */
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 *{
   margin: 0;
@@ -15,18 +16,28 @@ i{
     color: white;
 }
 
+/* Definição da página */
 body{
     background-color: #FBC10D;
     color: #ffffff;
 }
 
 main{
-    height: 90vh;
+    height: 70vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     padding: 60px;
+}
+
+/* Div de retorno */
+.back{
+    display: flex;
+    justify-content: end;
+    width: auto;
+    padding-top: 2rem;
+    padding-right: 6%;
 }
 
 section{
@@ -39,7 +50,8 @@ section{
     padding: 1rem;
     
 }
- .button button{
+
+.button button{
     background-color: #FBC10D;
     color: black;
     border: 2px;
@@ -58,7 +70,6 @@ button:hover{
 }
 
 
-
 .botao{
     background-color: #000000;
     width: 356.84px;
@@ -68,7 +79,7 @@ button:hover{
 }
 
 
-
+/* Responsividade */
 @media (max-width: 375px) {
      .botao{
         width: 300px;

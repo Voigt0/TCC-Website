@@ -1,3 +1,4 @@
+/* Importar a fonte */
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 *{
     margin: 0;
@@ -11,6 +12,7 @@
     font-family: 'Questrial', sans-serif;
 }
 
+/* Definição da página */
 body{
     background-color: #FBC10D;
     color: #000000;
@@ -25,7 +27,7 @@ main{
     padding: 5rem;
 }
 
-
+/* Div de retorno */
 .back{
     display: flex;
     justify-content: flex-end;
@@ -34,6 +36,7 @@ main{
     padding-right: 6%;
 }
 
+/* Caixa do formulário */
 .box{
     width: 435px;
     height: 300px;
@@ -46,6 +49,7 @@ main{
     margin-top: -5rem;
 }
 
+/* Cabeçalho do formulário */
 .form-header{
     display: flex;
     align-self: flex-start;
@@ -57,7 +61,7 @@ h2{
     font-size: 3.5rem;
 }
 
-
+/* Caixa do Input + Imagem */
 .input-box{
     display: flex;
     align-items: center;
@@ -81,6 +85,7 @@ input {
     background-color: #FBC10D;   
 }
 
+/* Itens da caixa */
 .elemento{
     float: left;
     margin-right: 2rem;
@@ -106,6 +111,7 @@ button.cancel{
     background-color: #C53200;
 }
 
+/* Footer do formulário */
 .form-footer{
     text-align: center;
     margin-top: 1rem;
@@ -116,7 +122,7 @@ button.cancel{
 } 
 
 
-
+/* Responsividade */
 @media (max-width: 540px) {
     .box{
         width: 400px;

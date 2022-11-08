@@ -28,37 +28,39 @@
 			});
 		});
 	</script>
-
 </head>
 <body>
+    <!-- Navbar -->
     <header>
-    <div class="navbar">
-      <div class="navbar_left">
-        <a href="#"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg"></a>
-      </div>
-      <div class="navbar_center">
-        <a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg"></a>
-      </div> 
-      <div class="navbar_right">
-        <div class="profile">
-        <div class="icon_wrap">
-        <span class="icon"><a><img src="../../img/icons/userIcon.svg"></a></span>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-          <div class="profile_dd">
-            <ul class="profile_ul">
-              <li><a class="perfil" href="../usuario/perfil.php">Visualizar Perfil</a></li>
-              <li><a class="logout" href="../../php/controle/controle-login.php">Encerrar sessão</a></li>
-            </ul>
-          </div>
+        <div class="navbar">
+            <div class="navbar_left">
+                <a href="#"><a href="../../index.php"><img src="../../img/icons/homeIcon.svg"></a>
+            </div>
+            <div class="navbar_center">
+                <a href="../../index.php"><img src="../../img/icons/solargirologoIconW.svg"></a>
+            </div> 
+        <div class="navbar_right">
+            <div class="profile">
+                <div class="icon_wrap">
+                    <span class="icon"><a><img src="../../img/icons/userIcon.svg"></a></span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="profile_dd">
+                    <ul class="profile_ul">
+                        <li><a class="perfil" href="../usuario/perfil.php">Visualizar Perfil</a></li>
+                        <li><a class="logout" href="../../php/controle/controle-login.php">Encerrar sessão</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+        </div>
   </header>
 
-
+    <!-- Voltar -->
+    <div class="back"><a href="controle-de-dispositivos.php?dispId=<?php echo $_SESSION['dispId']?>"><img src="../../img/icons/backIconB.svg" width="60rem"></a></div>
 
     <main>
+        <!-- Botões -->
         <section>
             <div class="img-button"><a href="bateria.php"><button class="botao"><img class="img" src="../../img/icons/battery.svg"></button></a></div>
             <div class="button"><a href="bateria.php"><button class="btn" type="submit" id="" name="" value="">Gerenciar Baterias</button></a></div>

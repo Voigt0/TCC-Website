@@ -42,6 +42,17 @@
             element.classList.remove("show-modal");
         }
         
+        // Erro
+        function showError() {
+            var element = document.getElementById("error");
+            element.classList.add("show-error");
+        }
+
+        function closeError() {
+            var element = document.getElementById("error");
+            element.classList.remove("show-error");
+        }
+        
         // Termos
         function showTermos() {
             var element = document.getElementById("termos");
@@ -86,7 +97,7 @@
                 <div class="form-body">
                     <div class="input-box">
                         <div class="elemento"><label for="usuaNome"><img src="../../img/icons/nameIcon.svg" width="40rem" height="40rem"></label></div>
-                        <div class="elemento"><input class="" type="" id="usuaNome" name="usuaNome" placeholder="Nome completo" value="" minlength="3" required onblur="validar('usuaNome', document.getElementById('usuaNome').value);"></div>
+                        <div class="elemento"><input class="" type="" id="usuaNome" name="usuaNome" placeholder="Nome completo" value="" minlength="3" required></div>
                     </div>
                     <div id="div_usuaNome"></div>
 
@@ -132,6 +143,13 @@
                         });
                     </script>";
                 }
+            else if ($msg == "falha"){
+                echo "<script>
+                        $( document ).ready(function() {
+                            showError();
+                        });
+                    </script>";
+            }
             ?>
             
         <!-- Div de exibição da modal-->
@@ -147,6 +165,17 @@
             </div>
         </div>
 
+        <div class="error" id="error">
+            <div class="error-content">
+                <a href="cadastro.php">
+                    <span class="close-button">
+                        &times;
+                    </span>
+                </a>
+                <h1>Erro!</h1>
+                <h2>O email inserido já está sendo utilizado</h2>
+            </div>
+        </div>
 
         <div class="termos" id="termos">
            <div class="termos-content">
